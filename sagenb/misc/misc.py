@@ -188,7 +188,7 @@ else:
 try:
     from sage.env import SAGE_URL
 except ImportError:
-    SAGE_URL = 'http://sagemath.org'
+    SAGE_URL = 'http://www.baidu.com'
 
 
 # TODO: Get macros from server and user settings.

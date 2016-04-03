@@ -429,7 +429,7 @@ def create_app(path_to_notebook, *args, **kwds):
     ####################################
     # create Babel translation manager #
     ####################################
-    babel = Babel(app, default_locale='en_US')
+    babel = Babel(app, default_locale='zh_CN')
 
     #Check if saved default language exists. If not fallback to default
     @app.before_first_request
