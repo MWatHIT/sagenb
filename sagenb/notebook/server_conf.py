@@ -44,7 +44,7 @@ defaults = {'word_wrap_cols':72,
             'challenge_type':'simple',
             'recaptcha_public_key':'',
             'recaptcha_private_key':'',
-            'default_language': 'en_US',
+            'default_language': 'zh_Hans_CN',
             'model_version': 0,
 
             'auth_ldap':False,
