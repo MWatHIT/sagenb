@@ -1521,8 +1521,8 @@ msgid ""
 "help\" target=\"_new\">documentation</a>."
 msgstr ""
 "Welcome to AHI! You can <a href=\"/new_worksheet\">create a new worksheet</"
-"a>, view <a href=\"/pub/\">published worksheets</a>, or read the <a href=\"/"
-"help\" target=\"_new\">documentation</a>."
+"a>, view <a href=\"/pub/\">published worksheets</a>, or read the <a href=\"h"
+"ttp://ieee.hit.edu.cn\" target=\"_new\">documentation</a>."
 
 #: sagenb/data/sage/html/worksheet_listing.html:178
 msgid "running"

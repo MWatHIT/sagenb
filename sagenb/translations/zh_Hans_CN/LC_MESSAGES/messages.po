@@ -1515,7 +1515,7 @@ msgid ""
 "help\" target=\"_new\">documentation</a>."
 msgstr ""
 "欢迎来到AHI！您可以<a href=\"/new_worksheet\">创建一个新的工作稿</a>、<a href="
-"\"/pub/\">观察已出版的工作稿</a>，或者阅读<a href=\"/help\" target=\"_new\">文"
+"\"/pub/\">观察已出版的工作稿</a>，或者阅读<a href= \"http://ieee.hit.edu.cn\" target=\"_new\">文"
 "档</a>"
 
 #: sagenb/data/sage/html/worksheet_listing.html:178
