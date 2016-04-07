@@ -508,7 +508,7 @@ msgstr "注册一个新的AHI笔记本帐户"
 
 #: sagenb/data/sage/html/login.html:90
 msgid "Browse published Sage worksheets<br>(no login required)"
-msgstr "浏览已发表的AHI工作稿< br >(不需要登录)"
+msgstr "浏览已发表的AHI工作稿<br>(不需要登录)"
 
 #: sagenb/data/sage/html/login.html:94
 msgid "Forgot password"
@@ -876,7 +876,7 @@ msgstr "点击这里或者按shift-return评估"
 
 #: sagenb/data/sage/html/notebook/cell.html:91
 msgid "evaluate"
-msgstr "评价"
+msgstr "运行"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:35
 msgid "Data file"
@@ -956,7 +956,7 @@ msgstr "加速"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:59
 msgid "Other published documents..."
-msgstr "其他印刷文件"
+msgstr "其他工作稿"
 
 #: sagenb/data/sage/html/notebook/plain_text_window.html:4
 msgid "View plain text"
@@ -1150,7 +1150,7 @@ msgstr "管理用户"
 #: sagenb/data/sage/html/settings/base.html:11
 #: sagenb/data/sage/html/settings/notebook_settings.html:2
 msgid "Notebook Settings"
-msgstr "笔记设置"
+msgstr "笔记本设置"
 
 #: sagenb/data/sage/html/settings/user_management.html:3
 msgid "Users"
@@ -1452,7 +1452,7 @@ msgstr "将已选工作稿移出垃圾站"
 
 #: sagenb/data/sage/html/worksheet_listing.html:74
 msgid "Undelete"
-msgstr "未删除"
+msgstr "撤销删除"
 
 #: sagenb/data/sage/html/worksheet_listing.html:77
 msgid "Stop selected worksheets"
