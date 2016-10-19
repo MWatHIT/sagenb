@@ -1,28 +1,29 @@
-# Translations template for SAGE Notebook.
-# Copyright (C) 2014 SAGE
-# This file is distributed under the same license as the SAGE project.
-# FIRST AUTHOR J. Miguel Farto <migeruhito@gmail.com>, 2014.
+# Chinese (Simplified, China) translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Sage Notebook 0.9.2\n"
-"Report-Msgid-Bugs-To: migeruhito@gmail.com\n"
-"POT-Creation-Date: 2012-03-18 08:47+0400\n"
-"PO-Revision-Date: 2013-02-18 10:24+0100\n"
-"Last-Translator: J. Miguel Farto <migeruhito@gmail.com>\n"
-"Language-Team: J. Miguel Farto <migeruhito@gmail.com>\n"
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-03-22 05:44+0800\n"
+"PO-Revision-Date: 2016-04-05 02:09+0800\n"
+"Last-Translator: Shuai Yang <yanghaa@sina.com>\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-msgid "cs_CZ"
-msgstr "čeština (Česká republika)"
+"Generated-By: Babel 2.2.0\n"
+"X-Generator: Poedit 1.8.7\n"
+"Language: zh\n"
 
 msgid "de_AT"
 msgstr "Deutsch (Österreich)"
+
+msgid "uk_UA"
+msgstr "українська (Україна)"
 
 msgid "en_US"
 msgstr "English (United States)"
@@ -30,17 +31,17 @@ msgstr "English (United States)"
 msgid "es_ES"
 msgstr "español (España)"
 
-msgid "pt_BR"
-msgstr "português (Brasil)"
-
 msgid "ru_RU"
 msgstr "русский (Россия)"
 
+msgid "pt_BR"
+msgstr "português (Brasil)"
+
+msgid "cs_CZ"
+msgstr "čeština (Česká republika)"
+
 msgid "fr_FR"
 msgstr "français (France)"
-
-msgid "uk_UA"
-msgstr "українська (Україна)"
 
 msgid "zh_Hans_CN"
 msgstr "中文（简体，中国）"
@@ -48,18 +49,19 @@ msgstr "中文（简体，中国）"
 #: sagenb/data/sage/html/accounts/account_recovery.html:3
 #: sagenb/data/sage/html/accounts/account_recovery.html:8
 msgid "Account Recovery"
-msgstr ""
+msgstr "帐号恢复"
 
 #: sagenb/data/sage/html/accounts/account_recovery.html:9
 msgid ""
-"A new password will be emailed to the email address connected to your "
-"account. However if you didn't confirm your email address you will be unable "
-"to recover your account."
+"A new password will be emailed to the email address connected to your account. "
+"However if you didn't confirm your email address you will be unable to recover "
+"your account."
 msgstr ""
+"新密码将被发送到您的邮箱，如果你尚未确认您的邮箱地址，您的账号将不能被恢复。"
 
 #: sagenb/data/sage/html/accounts/account_recovery.html:16
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: sagenb/data/sage/html/accounts/account_recovery.html:19
 #: sagenb/data/sage/html/accounts/registration.html:83
@@ -71,278 +73,272 @@ msgstr ""
 #: sagenb/data/sage/html/settings/notebook_settings.html:20
 #: sagenb/data/sage/html/settings/notebook_settings.html:27
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: sagenb/data/sage/html/accounts/registration.html:3
 msgid "Sign up"
-msgstr ""
+msgstr "注册"
 
 #: sagenb/data/sage/html/accounts/registration.html:9
 msgid "Sign up for a Sage Notebook account"
-msgstr "Sign up for a AHI Notebook account"
+msgstr "注册一个新的计算引擎帐号"
 
 #: sagenb/data/sage/html/accounts/registration.html:16
 msgid "Create a username"
-msgstr ""
+msgstr "新建一个用户名"
 
 #: sagenb/data/sage/html/accounts/registration.html:17
 msgid ""
 "Your username must start with a letter and be between 3 and 64 characters "
 "long. You may only use letters, numbers, underscores, @, and dots."
 msgstr ""
+"你的用户名必须以字母开头，字符长度在3到64之间。你可以只使用字母、数字、下划线、"
+"@和.。"
 
 #: sagenb/data/sage/html/accounts/registration.html:22
 msgid "No username given"
-msgstr ""
+msgstr "没有给出用户名"
 
 #: sagenb/data/sage/html/accounts/registration.html:25
 msgid "Username already in use"
-msgstr ""
+msgstr "用户名已经被使用"
 
 #: sagenb/data/sage/html/accounts/registration.html:28
 msgid "Bad username"
-msgstr ""
+msgstr "不好的用户名"
 
 #: sagenb/data/sage/html/accounts/registration.html:32
 msgid "Create a good password"
-msgstr ""
+msgstr "创建一个好的密码"
 
 #: sagenb/data/sage/html/accounts/registration.html:34
 msgid ""
 "Your password must have at least 4 characters. Your password can not contain "
 "your username or spaces."
-msgstr ""
+msgstr "你的密码必须至少有4个字符。您的密码不能包含你的用户名或空间名。"
 
 #: sagenb/data/sage/html/accounts/registration.html:39
 msgid "No password given"
-msgstr ""
+msgstr "没有给出密码"
 
 #: sagenb/data/sage/html/accounts/registration.html:42
 msgid "Bad password"
-msgstr ""
+msgstr "不好的密码"
 
 #: sagenb/data/sage/html/accounts/registration.html:46
 msgid "Re-type your password"
-msgstr ""
+msgstr "重新输入您的密码"
 
 #: sagenb/data/sage/html/accounts/registration.html:49
 msgid "Passwords didn't match"
-msgstr ""
+msgstr "密码不匹配"
 
 #: sagenb/data/sage/html/accounts/registration.html:54
 msgid "Enter your email address"
-msgstr ""
+msgstr "输入您的电子邮件地址"
 
 #: sagenb/data/sage/html/accounts/registration.html:56
 msgid ""
-"Your email address is required for account confirmation and recovery. You "
-"will be emailed a confirmation link right after you successfully sign up."
+"Your email address is required for account confirmation and recovery. You will "
+"be emailed a confirmation link right after you successfully sign up."
 msgstr ""
+"你的电子邮件地址在账号确认和恢复时会需要。成功注册后会给您发邮件链接确认。"
 
 #: sagenb/data/sage/html/accounts/registration.html:62
 msgid "No email address given"
-msgstr ""
+msgstr "没有给出电子邮箱地址"
 
 #: sagenb/data/sage/html/accounts/registration.html:65
 msgid "Invalid email address"
-msgstr ""
+msgstr "无效的邮箱地址"
 
 #: sagenb/data/sage/html/accounts/registration.html:71
 msgid "Answer a challenge"
-msgstr ""
+msgstr "回答一个挑战"
 
 #: sagenb/data/sage/html/accounts/registration.html:74
 msgid "No challenge response given"
-msgstr ""
+msgstr "没有给出挑战响应"
 
 #: sagenb/data/sage/html/accounts/registration.html:77
 msgid "Invalid challenge response"
-msgstr ""
+msgstr "无效的挑战响应"
 
 #: sagenb/data/sage/html/accounts/registration.html:82
 msgid "Create account"
-msgstr ""
+msgstr "创建帐户"
 
 #: sagenb/data/sage/html/base.html:33 sagenb/data/sage/html/login.html:35
 msgid "The Sage Notebook"
-msgstr "The AHI Notebook"
+msgstr "AHI笔记本"
 
 #: sagenb/data/sage/html/base.html:35
 msgid "Searching for Sage server..."
-msgstr "Searching for AHI server..."
+msgstr "寻找服务器..."
 
 #: sagenb/data/sage/html/base.html:37
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: sagenb/data/sage/html/base_authenticated.html:7
 msgid "Please log in to the Sage notebook"
-msgstr "Please log in to the AHI notebook"
+msgstr "请登录到AHI笔记本"
 
 #: sagenb/data/sage/html/base_authenticated.html:7
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: sagenb/data/sage/html/base_authenticated.html:9
 msgid "Toggle the top bar"
-msgstr ""
+msgstr "切换顶栏"
 
 #: sagenb/data/sage/html/base_authenticated.html:9
 #: sagenb/data/sage/html/test_report.html:123
 msgid "Toggle"
-msgstr ""
+msgstr "切换"
 
 #: sagenb/data/sage/html/base_authenticated.html:10
 msgid "Back to your personal worksheet list"
-msgstr ""
+msgstr "返回你的个人工作稿列表"
 
 #: sagenb/data/sage/html/base_authenticated.html:10
 msgid "Home"
-msgstr ""
+msgstr "首页"
 
 #: sagenb/data/sage/html/base_authenticated.html:12
 #: sagenb/data/sage/html/base_authenticated.html:14
 msgid "Published"
-msgstr ""
+msgstr "发布"
 
 #: sagenb/data/sage/html/base_authenticated.html:14
 msgid "Browse the published worksheets"
-msgstr ""
+msgstr "浏览发布的工作稿"
 
 #: sagenb/data/sage/html/base_authenticated.html:15
 msgid "View a log of recent computations"
-msgstr ""
+msgstr "查看最近的日志计算"
 
 #: sagenb/data/sage/html/base_authenticated.html:15
 #: sagenb/flask_version/base.py:221
 msgid "Log"
-msgstr ""
+msgstr "记录"
 
 #: sagenb/data/sage/html/base_authenticated.html:17
 msgid "Change account settings including password"
-msgstr ""
+msgstr "更改帐户设置包括密码"
 
 #: sagenb/data/sage/html/base_authenticated.html:17
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: sagenb/data/sage/html/base_authenticated.html:18
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: sagenb/data/sage/html/base_authenticated.html:18
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: sagenb/data/sage/html/base_authenticated.html:19
 msgid "Report a problem or submit a bug to improve Sage"
-msgstr "Report a problem or submit a bug to improve AHI"
+msgstr "报告一个问题或提交一个漏洞来改进这个系统"
 
 #: sagenb/data/sage/html/base_authenticated.html:19
 msgid "Report a Problem"
-msgstr ""
+msgstr "报告一个问题"
 
 #: sagenb/data/sage/html/base_authenticated.html:20
 msgid "Log out of the Sage notebook"
-msgstr "Log out of the AHI notebook"
+msgstr "从AHI笔记本中注销"
 
 #: sagenb/data/sage/html/base_authenticated.html:20
 msgid "Sign out"
-msgstr ""
+msgstr "登出"
 
 #: sagenb/data/sage/html/docs.html:3
 msgid "Sage Documentation"
-msgstr "AHI Documentation"
+msgstr "AHI文档"
 
 #: sagenb/data/sage/html/docs.html:15
 msgid "To quickly try out Sage start here"
-msgstr "To quickly try out AHI start here"
+msgstr "从这里来快速体验AHI"
 
 #: sagenb/data/sage/html/docs.html:15
 msgid "Tutorial"
-msgstr ""
+msgstr "教程"
 
 #: sagenb/data/sage/html/docs.html:16
 msgid "Explore a collection of in-depth tutorials on specific topics"
-msgstr ""
+msgstr "浏览特定主题的一系列的深入的教程"
 
 #: sagenb/data/sage/html/docs.html:16
 msgid "Thematic Tutorials"
-msgstr ""
+msgstr "主题式教程"
 
 #: sagenb/data/sage/html/docs.html:17
 msgid "View a 4000+ page reference manual about Sage"
-msgstr "View a 4000+ page reference manual about AHI"
+msgstr "查看关于AHI的参考手册"
 
 #: sagenb/data/sage/html/docs.html:17
 msgid "Reference Manual"
-msgstr ""
+msgstr "参考手册"
 
 #: sagenb/data/sage/html/docs.html:18
 msgid "Learn to write Sage programs"
-msgstr "Learn to write AHI programs"
+msgstr "学习写AHI程序"
 
 #: sagenb/data/sage/html/docs.html:18
 msgid "Developer Guide"
-msgstr ""
+msgstr "开发指南"
 
 #: sagenb/data/sage/html/docs.html:19
 msgid "How do I construct ... in Sage?"
-msgstr "How do I construct ... in AHI?"
+msgstr "在AHI中如何构造...?"
 
 #: sagenb/data/sage/html/docs.html:19
 msgid "Constructions"
-msgstr ""
+msgstr "构造"
 
 #: sagenb/data/sage/html/docs.html:22
 msgid "Static version..."
-msgstr ""
+msgstr "静态版本"
 
 #: sagenb/data/sage/html/docs.html:22
 msgid "Fast Static Versions of the Documentation"
-msgstr ""
+msgstr "文档的快速静态版本"
 
 #: sagenb/data/sage/html/docs.html:23
 msgid "Help via Internet Chat (IRC)"
-msgstr ""
+msgstr "通过网络即时通讯获取帮助"
 
 #: sagenb/data/sage/html/docs.html:29
 msgid "How to use the Sage Notebook"
-msgstr "How to use the AHI Notebook"
+msgstr "如何使用AHI手册"
 
 #: sagenb/data/sage/html/docs.html:31
-msgid ""
-"A <em>worksheet</em> is an ordered list of Sage calculations with output."
-msgstr ""
-"A <em>worksheet</em> is an ordered list of AHI calculations with output."
+msgid "A <em>worksheet</em> is an ordered list of Sage calculations with output."
+msgstr "< em >工作稿< / em >是 AHI 计算输出的有序列表。"
 
 #: sagenb/data/sage/html/docs.html:32
 msgid "A <em>session</em> is a worksheet and a set of variables in some state."
-msgstr ""
+msgstr "一个< em >会话< / em >是在某个状态下的一个工作稿和一组变量。"
 
 #: sagenb/data/sage/html/docs.html:33
 msgid ""
 "The <em>Sage notebook</em> is a collection of worksheets, saved objects, and "
 "user information."
-msgstr ""
-"The <em>AHI notebook</em> is a collection of worksheets, saved objects, and "
-"user information."
+msgstr "< em > AHI笔记本< / em >是一个工作稿的集合,保存了很多对象和用户的信息。"
 
 #: sagenb/data/sage/html/docs.html:46
 msgid ""
 "The Sage Notebook was primarily written by William Stein with substantial "
 "contributions from Tom Boothby, Timothy Clemans, Alex Clemesha, Mike Hansen, "
 "Bobby Moretti, Yi Qiang, and Dorian Raymer."
-msgstr ""
-"The AHI Notebook was primarily written by William Stein with substantial "
-"contributions from Tom Boothby, Timothy Clemans, Alex Clemesha, Mike Hansen, "
-"Bobby Moretti, Yi Qiang, and Dorian Raymer. And HITers change it to Special "
-"use for EMC."
+msgstr "AHI笔记本主要是由Python的开源系统而来。"
 
-#: sagenb/data/sage/html/error_message.html:4
-#: sagenb/data/sage/html/login.html:69 sagenb/data/sage/html/login.html:76
-#: sagenb/data/sage/html/login.html:108 sagenb/data/sage/html/login.html:110
-#: sagenb/data/sage/html/recaptcha.html:27
+#: sagenb/data/sage/html/error_message.html:4 sagenb/data/sage/html/login.html:69
+#: sagenb/data/sage/html/login.html:76 sagenb/data/sage/html/login.html:108
+#: sagenb/data/sage/html/login.html:110 sagenb/data/sage/html/recaptcha.html:27
 #: sagenb/data/sage/html/test_report.html:112
 #: sagenb/data/sage/html/test_report.html:131
 #: sagenb/data/sage/html/accounts/registration.html:22
@@ -360,70 +356,67 @@ msgstr ""
 #: sagenb/data/sage/html/settings/admin_add_user.html:18
 #: sagenb/data/sage/js/localization.js:21 sagenb/flask_version/worksheet.py:640
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: sagenb/data/sage/html/error_message.html:19
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: sagenb/data/sage/html/history.html:3
 #, python-format
 msgid "Sage: History for %(u)s"
-msgstr "AHI: History for %(u)s"
+msgstr "AHI: %(u)s 历史 "
 
 #: sagenb/data/sage/html/history.html:13
 msgid "Click here to turn the above into a Sage worksheet"
-msgstr "Click here to turn the above into a AHI worksheet"
+msgstr "点击这里将上面内容变成一个AHI的工作稿"
 
 #: sagenb/data/sage/html/history.html:13
 msgid ""
-"Create a new Sage worksheet version of the last 100 commands in the above "
-"log."
-msgstr ""
-"Create a new AHI worksheet version of the last 100 commands in the above log."
+"Create a new Sage worksheet version of the last 100 commands in the above log."
+msgstr "用上面的日志中的最后的100条命令创建一个新的AHI工作稿版本。"
 
 #: sagenb/data/sage/html/login.html:12
 msgid "username"
-msgstr ""
+msgstr "用户名"
 
 #: sagenb/data/sage/html/login.html:13
 msgid "Select an OpenID provider"
-msgstr ""
+msgstr "选择一个OpenID供应商"
 
 #: sagenb/data/sage/html/login.html:14
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: sagenb/data/sage/html/login.html:22 sagenb/data/sage/html/login.html:81
 msgid "Sign in"
-msgstr ""
+msgstr "登录"
 
 #: sagenb/data/sage/html/login.html:28
 #, python-format
 msgid "Congratulations %(u)s! You can now sign into the Sage Notebook."
-msgstr "Congratulations %(u)s! You can now sign into the AHI Notebook."
+msgstr "恭喜%(u)s !您现在可以登录到AHI笔记本。"
 
 #: sagenb/data/sage/html/login.html:32
 msgid "Welcome!"
-msgstr ""
+msgstr "欢迎！"
 
 #: sagenb/data/sage/html/login.html:33
 msgid "<strong>Sage</strong> is a different approach to mathematics software."
-msgstr "<strong>AHI</strong> is a different approach to mathematics software."
+msgstr "<strong>AHI</strong>是一个不一样的数学软件。"
 
 #: sagenb/data/sage/html/login.html:36
 msgid ""
 "With the Sage Notebook anyone can create, collaborate on, and publish "
-"interactive worksheets. In a worksheet, one can write code using Sage, "
-"Python, and other software included in Sage."
+"interactive worksheets. In a worksheet, one can write code using Sage, Python, "
+"and other software included in Sage."
 msgstr ""
-"With the AHI Notebook anyone can create, collaborate on, and publish "
-"interactive worksheets. In a worksheet, one can write code using AHI, "
-"Python, and other software included in AHI."
+"任何人都可以通过AHI笔记本，创建、协作和发布交互式的工作稿。在工作稿中，他可以使"
+"用AHI里面支持的AHI、Python和其他软件包来编写代码。"
 
 #: sagenb/data/sage/html/login.html:39
 msgid "General and Advanced Pure and Applied Mathematics"
-msgstr ""
+msgstr "通用数学，高级数学和应用数学"
 
 #: sagenb/data/sage/html/login.html:40
 msgid ""
@@ -431,13 +424,12 @@ msgid ""
 "cryptography, commutative algebra, group theory, graph theory, numerical and "
 "exact linear algebra, and more."
 msgstr ""
-"Use AHI for studying calculus, elementary to very advanced number theory, "
-"cryptography, commutative algebra, group theory, graph theory, numerical and "
-"exact linear algebra, and more."
+"使用AHI学习微积分、从初级到高级的的数论、密码学、交换代数、组织理论、图论、数字"
+"和精确的线性代数等等。"
 
 #: sagenb/data/sage/html/login.html:43
 msgid "Use an Open Source Alternative"
-msgstr ""
+msgstr "使用一个开源项目来替代"
 
 #: sagenb/data/sage/html/login.html:44
 msgid ""
@@ -445,99 +437,90 @@ msgid ""
 "Maple, Mathematica, and MATLAB. Sage includes many high-quality open source "
 "math packages."
 msgstr ""
-"By using AHI you help to support a viable open source alternative to Magma, "
-"Maple, Mathematica, and MATLAB. Sage includes many high-quality open source "
-"math packages."
+"通过使用AHI你帮助支持一个可行的开源替代 Magma、Maple、Mathematica和MATLAB。AHI"
+"包括许多高质量的开源数学软件包。"
 
 #: sagenb/data/sage/html/login.html:47
 msgid "Use Most Mathematics Software from Within Sage"
-msgstr "Use Most Mathematics Software from Within AHI"
+msgstr "在AHI中用的最多的是数学软件"
 
 #: sagenb/data/sage/html/login.html:48
 msgid ""
 "Sage makes it easy for you to use most mathematics software together. Sage "
-"includes GAP, GP/PARI, Maxima, and Singular, and dozens of other open "
-"packages."
+"includes GAP, GP/PARI, Maxima, and Singular, and dozens of other open packages."
 msgstr ""
-"AHI makes it easy for you to use most mathematics software together. AHI "
-"includes GAP, GP/PARI, Maxima, and Singular, and dozens of other open "
-"packages."
+"AHI 使您很容易的能一起使用大量数学软件。AHI 包括GAP, GP/PARI, Maxima, 和 "
+"Singular, 以及 许多其他的开源包。"
 
 #: sagenb/data/sage/html/login.html:51
 msgid "Use a Mainstream Programming Language"
-msgstr ""
+msgstr "使用一种主流的程序语言"
 
 #: sagenb/data/sage/html/login.html:52
 msgid ""
 "You work with Sage using the highly regarded scripting language Python. You "
 "can write programs that combine serious mathematics with anything else."
 msgstr ""
-"You work with AHI using the highly regarded scripting language Python. You "
-"can write programs that combine serious mathematics with anything else."
+"AHI 使用备受赞誉的Python脚本语言。您可以编写程序，可以把严谨的数学运算与其它任"
+"何东西结合在一起。"
 
 #: sagenb/data/sage/html/login.html:55
 msgid "Acknowledgement"
-msgstr ""
+msgstr "致谢"
 
 #: sagenb/data/sage/html/login.html:56
 msgid ""
 "The Sage Notebook is based upon work supported by the National Science "
 "Foundation under grants DMS-0821725, DMS-1020378, DMS-0713225, DMS-0555776, "
-"DMS-0545904, DMS-0838212, DMS-0757627, DUE-1020378, DUE-1022574, "
-"DMS-1015114, etc.    Any opinions, findings, and conclusions or "
-"recommendations expressed in this material are those of the author(s) and do "
-"not necessarily reflect the views of the National Science Foundation.   See "
-"also <a href=\"http://sagemath.org/development-ack.html\">http://sagemath."
-"org/development-ack.html</a>."
-msgstr ""
-"The AHI Notebook is based upon work supported by the HIT & CASIC, etc.    "
-"Any opinions, findings, and conclusions or recommendations expressed in this "
-"material are those of the author(s) and do not necessarily reflect the views "
-"of the National Science Foundation.   See also <a href=\"http://ieee.hit.edu."
-"cn\">http://ieee.hit.edu.cn</a>."
+"DMS-0545904, DMS-0838212, DMS-0757627, DUE-1020378, DUE-1022574, DMS-1015114, "
+"etc.    Any opinions, findings, and conclusions or recommendations expressed "
+"in this material are those of the author(s) and do not necessarily reflect the "
+"views of the National Science Foundation.   See also <a href=\"http://sagemath."
+"org/development-ack.html\">http://sagemath.org/development-ack.html</a>."
+msgstr "AHI笔记本"
 
 #: sagenb/data/sage/html/login.html:63
 #, python-format
 msgid "Sign into the Sage Notebook v%(v)s"
-msgstr "Sign into the AHI Notebook v%(v)s"
+msgstr "登录AHI 笔记本 v%(v)s"
 
 #: sagenb/data/sage/html/login.html:66
 #: sagenb/data/sage/html/accounts/account_recovery.html:13
 msgid "Username"
-msgstr ""
+msgstr "用户名"
 
 #: sagenb/data/sage/html/login.html:69
 msgid "Username is not in the system"
-msgstr ""
+msgstr "用户名不在系统中"
 
 #: sagenb/data/sage/html/login.html:73
 #: sagenb/data/sage/html/settings/user_management.html:15
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: sagenb/data/sage/html/login.html:76
 msgid "Wrong password"
-msgstr ""
+msgstr "错误密码"
 
 #: sagenb/data/sage/html/login.html:86
 msgid "Sign up for a new Sage Notebook account"
-msgstr "Sign up for a new AHI Notebook account"
+msgstr "注册一个新的AHI笔记本帐户"
 
 #: sagenb/data/sage/html/login.html:90
 msgid "Browse published Sage worksheets<br>(no login required)"
-msgstr "Browse published AHI worksheets<br>(no login required)"
+msgstr "浏览已发表的AHI工作稿<br>(不需要登录)"
 
 #: sagenb/data/sage/html/login.html:94
 msgid "Forgot password"
-msgstr ""
+msgstr "忘记密码"
 
 #: sagenb/data/sage/html/login.html:108
 msgid "Creating new users is disabled by the administrator."
-msgstr ""
+msgstr "创建新用户被管理员禁用。"
 
 #: sagenb/data/sage/html/login.html:110
 msgid "Javascript must be enabled in order to use the Sage Notebook."
-msgstr "Javascript must be enabled in order to use the AHI Notebook."
+msgstr "为了使用AHI笔记本，需要浏览器启用Javascript。"
 
 #: sagenb/data/sage/html/notebook/afterpublish_window.html:8
 #, python-format
@@ -545,57 +528,59 @@ msgid ""
 "Worksheet is publicly viewable at <a href=\"%(u)s\" style=\"color:#FFF\" "
 "target=\"_blank\">%(u)s"
 msgstr ""
+"工作稿是公开可见的<a href=\"%(u)s\" style=\"color:#FFF\" target=\"_blank\">"
+"%(u)s"
 
 #: sagenb/data/sage/html/notebook/afterpublish_window.html:9
 #, python-format
 msgid "Published on %(t)s"
-msgstr ""
+msgstr "发布在 %(t)s "
 
 #: sagenb/data/sage/html/notebook/afterpublish_window.html:11
 msgid "Re-publish worksheet"
-msgstr ""
+msgstr "重新发布工作稿"
 
 #: sagenb/data/sage/html/notebook/afterpublish_window.html:12
 msgid "Stop publishing"
-msgstr ""
+msgstr "停止发布"
 
 #: sagenb/data/sage/html/notebook/afterpublish_window.html:14
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:18
 msgid "Automatically re-publish when changes are made and saved"
-msgstr ""
+msgstr "当有变化或者被保存时自动重新发布"
 
 #: sagenb/data/sage/html/notebook/base.html:82
 msgid "Click to rename this worksheet"
-msgstr ""
+msgstr "点击来重新命名这个工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:85
 msgid "last edited"
-msgstr ""
+msgstr "最后一次编辑"
 
 #: sagenb/data/sage/html/notebook/base.html:87
 msgid "Someone else is viewing this worksheet"
-msgstr ""
+msgstr "其他人正在查看这个工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 msgid "Save changes and close window"
-msgstr ""
+msgstr "保存更改然后关闭窗口"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 msgid "Save & quit"
-msgstr ""
+msgstr "保存并退出"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 msgid "Discard changes to this worksheet"
-msgstr ""
+msgstr "放弃对这个工作稿的更改"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 msgid "Discard & quit"
-msgstr ""
+msgstr "放弃并离开"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 #: sagenb/data/sage/html/notebook/text_cell.html:56
 msgid "Save changes"
-msgstr ""
+msgstr "保存更改"
 
 #: sagenb/data/sage/html/notebook/base.html:92
 #: sagenb/data/sage/html/settings/account_settings.html:9
@@ -603,739 +588,745 @@ msgstr ""
 #: sagenb/data/sage/html/settings/notebook_settings.html:19
 #: sagenb/data/sage/html/settings/notebook_settings.html:26
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: sagenb/data/sage/html/notebook/base.html:99
 msgid "Select a file related function"
-msgstr ""
+msgstr "选择一个与文件相关的函数"
 
 #: sagenb/data/sage/html/notebook/base.html:99
 msgid "File..."
-msgstr ""
+msgstr "文件"
 
 #: sagenb/data/sage/html/notebook/base.html:100
 msgid "Load a new worksheet stored in a file"
-msgstr ""
+msgstr "加载一个新的工作稿并存到一个文件中"
 
 #: sagenb/data/sage/html/notebook/base.html:100
 msgid "Load worksheet from a file..."
-msgstr ""
+msgstr "从一个文件中加载工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:101
 msgid "Create a new worksheet"
-msgstr ""
+msgstr "创建一个新的工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:101
 msgid "New worksheet"
-msgstr ""
+msgstr "新工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:102
 msgid "Save this worksheet to an sws file"
-msgstr ""
+msgstr "保存这个工作稿到一个sws文件"
 
 #: sagenb/data/sage/html/notebook/base.html:102
 msgid "Save worksheet to a file..."
-msgstr ""
+msgstr "保存工作稿到一个文件"
 
 #: sagenb/data/sage/html/notebook/base.html:103
 #: sagenb/data/sage/html/notebook/base.html:158
 msgid "Print this worksheet"
-msgstr ""
+msgstr "打印工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:103
 #: sagenb/data/sage/html/notebook/base.html:158
 msgid "Print"
-msgstr ""
+msgstr "打印"
 
 #: sagenb/data/sage/html/notebook/base.html:104
 msgid "Rename this worksheet"
-msgstr ""
+msgstr "重命名工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:104
 #: sagenb/data/sage/js/localization.js:15
 msgid "Rename worksheet"
-msgstr ""
+msgstr "重命名工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:105
 msgid "Copy this worksheet"
-msgstr ""
+msgstr "复制这个工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:105
 msgid "Copy worksheet"
-msgstr ""
+msgstr "复制工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:106
 msgid "Move this worksheet to the trash"
-msgstr ""
+msgstr "移动这个工作稿到垃圾箱"
 
 #: sagenb/data/sage/html/notebook/base.html:106
 msgid "Delete worksheet"
-msgstr ""
+msgstr "删除工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:110
 msgid "Select a worksheet function"
-msgstr ""
+msgstr "选择一个工作稿的函数"
 
 #: sagenb/data/sage/html/notebook/base.html:110
 msgid "Action..."
-msgstr ""
+msgstr "操作..."
 
 #: sagenb/data/sage/html/notebook/base.html:111
 msgid "Interrupt currently running calculations, if possible"
-msgstr ""
+msgstr "如果有可能，中断当前运行的计算"
 
 #: sagenb/data/sage/html/notebook/base.html:111
 msgid "Interrupt"
-msgstr ""
+msgstr "中断"
 
 #: sagenb/data/sage/html/notebook/base.html:112
 msgid "Restart the worksheet process"
-msgstr ""
+msgstr "重新启动工作稿进程"
 
 #: sagenb/data/sage/html/notebook/base.html:112
 msgid "Restart worksheet"
-msgstr ""
+msgstr "重新启动工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:113
 msgid "Quit the worksheet process"
-msgstr ""
+msgstr "停止工作稿进程"
 
 #: sagenb/data/sage/html/notebook/base.html:113
 msgid "Save and quit worksheet"
-msgstr ""
+msgstr "保存且离开工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:115
 msgid "Evaluate all input cells in the worksheet"
-msgstr ""
+msgstr "在工作稿中计算所有的输入单元"
 
 #: sagenb/data/sage/html/notebook/base.html:115
 msgid "Evaluate All"
-msgstr ""
+msgstr "求所有的值"
 
 #: sagenb/data/sage/html/notebook/base.html:116
 msgid "Hide all output"
-msgstr ""
+msgstr "隐藏所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:116
 msgid "Hide All Output"
-msgstr ""
+msgstr "隐藏所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:117
 msgid "Show all output"
-msgstr ""
+msgstr "显示所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:117
 msgid "Show All Output"
-msgstr ""
+msgstr "显示所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:118
 msgid "Delete all output"
-msgstr ""
+msgstr "删除所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:118
 msgid "Delete All Output"
-msgstr ""
+msgstr "删除所有的输出"
 
 #: sagenb/data/sage/html/notebook/base.html:120
 msgid "Switch to single-cell mode"
-msgstr ""
+msgstr "切换到一个单元模式"
 
 #: sagenb/data/sage/html/notebook/base.html:120
 msgid "One Cell Mode"
-msgstr ""
+msgstr "一个单元模式"
 
 #: sagenb/data/sage/html/notebook/base.html:121
 msgid "Switch to multi-cell mode"
-msgstr ""
+msgstr "切换到多单元模式"
 
 #: sagenb/data/sage/html/notebook/base.html:121
 msgid "Multi Cell Mode"
-msgstr ""
+msgstr "多单元模式"
 
 #: sagenb/data/sage/html/notebook/base.html:124
 msgid "Select an attached file"
-msgstr ""
+msgstr "选择一个附加文件"
 
 #: sagenb/data/sage/html/notebook/base.html:124
 msgid "Data..."
-msgstr ""
+msgstr "数据"
 
 #: sagenb/data/sage/html/notebook/base.html:125
 msgid "Upload or create a data file in a wide range of formats"
-msgstr ""
+msgstr "上传或创建一个广泛的格式的数据文件"
 
 #: sagenb/data/sage/html/notebook/base.html:125
 msgid "Upload or create file..."
-msgstr ""
+msgstr "上传或创建文件"
 
 #: sagenb/data/sage/html/notebook/base.html:135
 #, python-format
 msgid "Evaluate all input cells using %(i)s"
-msgstr ""
+msgstr "使用%(i)s求所有输入单元的值"
 
 #: sagenb/data/sage/html/notebook/base.html:141
 msgid "Enable/disable pretty_printing"
-msgstr ""
+msgstr "保存这个工作稿到一个sws文件"
 
 #: sagenb/data/sage/html/notebook/base.html:143
 msgid "Typeset"
-msgstr ""
+msgstr "排版"
 
 #: sagenb/data/sage/html/notebook/base.html:144
 msgid "Load 3-D Live. Not recommended for worksheets with > 2 3-D Plots."
-msgstr ""
+msgstr "加载实时3D。不建议用于工作稿 > 2 3D的画图。"
 
 #: sagenb/data/sage/html/notebook/base.html:146
 msgid "Load 3-D Live"
-msgstr ""
+msgstr "加载实时3D"
 
 #: sagenb/data/sage/html/notebook/base.html:147
 msgid "Use java for 3-D. Only applies to this running of worksheet."
-msgstr ""
+msgstr "使用java 3D。只适用于这个工作稿的运行。"
 
 #: sagenb/data/sage/html/notebook/base.html:149
 msgid "Use java for 3-D"
-msgstr ""
+msgstr "使用java 3D"
 
 #: sagenb/data/sage/html/notebook/base.html:159
 msgid "Interactively use this worksheet"
-msgstr ""
+msgstr "交互式地使用这个工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:159
 msgid "Worksheet"
-msgstr ""
+msgstr "工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:160
 msgid "Edit text version of this worksheet"
-msgstr ""
+msgstr "编辑这个工作稿的文本版本"
 
 #: sagenb/data/sage/html/notebook/base.html:160
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: sagenb/data/sage/html/notebook/base.html:161
 msgid "View plain text version of this worksheet"
-msgstr ""
+msgstr "查看这个工作稿的简单文本版本"
 
 #: sagenb/data/sage/html/notebook/base.html:161
 msgid "Text"
-msgstr ""
+msgstr "文本"
 
 #: sagenb/data/sage/html/notebook/base.html:162
 msgid "View changes to this worksheet over time"
-msgstr ""
+msgstr "随着时间的推移观察该工作稿的变化"
 
 #: sagenb/data/sage/html/notebook/base.html:162
 msgid "Revisions"
-msgstr ""
+msgstr "校订"
 
 #: sagenb/data/sage/html/notebook/base.html:163
 msgid "Let others edit this worksheet"
-msgstr ""
+msgstr "让其他人编辑这个工作稿"
 
 #: sagenb/data/sage/html/notebook/base.html:163
 msgid "Share"
-msgstr ""
+msgstr "共享"
 
 #: sagenb/data/sage/html/notebook/base.html:164
 msgid "Make this worksheet publicly viewable"
-msgstr ""
+msgstr "使这个工作稿公众可见"
 
 #: sagenb/data/sage/html/notebook/base.html:164
 msgid "Publish"
-msgstr ""
+msgstr "出版"
 
 #: sagenb/data/sage/html/notebook/base.html:172
 msgid "Exit"
-msgstr ""
+msgstr "退出"
 
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:5
 msgid ""
 "You can publish your worksheet to the Internet, where anyone will be able to "
 "access and view it online."
-msgstr ""
+msgstr "你可以将你的工作稿发布到网上，在那里任何人都能够进入且在线观看。"
 
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:7
 msgid ""
 "Your worksheet will be assigned a unique address (URL) that you can send to "
 "your friends and colleagues."
-msgstr ""
+msgstr "你的工作稿将被分配一个唯一的地址(URL),你可以送给你的朋友和同事。"
 
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:9
 msgid "Do you want to publish this worksheet?"
-msgstr ""
+msgstr "你想要发布这个工作稿吗？"
 
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:14
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: sagenb/data/sage/html/notebook/beforepublish_window.html:15
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: sagenb/data/sage/html/notebook/cell.html:35
 #: sagenb/data/sage/html/notebook/text_cell.html:19
 #: sagenb/data/sage/html/notebook/worksheet_page.html:21
 msgid "Click to insert new compute cell."
-msgstr ""
+msgstr "点击插入新的计算单元。"
 
 #: sagenb/data/sage/html/notebook/cell.html:39
 #: sagenb/data/sage/html/notebook/text_cell.html:22
 #: sagenb/data/sage/html/notebook/worksheet_page.html:25
 msgid "Click to insert new rich-text cell."
-msgstr ""
+msgstr "点击插入新富文本单元格。"
 
 #: sagenb/data/sage/html/notebook/cell.html:90
 msgid "Click here or press shift-return to evaluate"
-msgstr ""
+msgstr "点击这里或者按shift-return评估"
 
 #: sagenb/data/sage/html/notebook/cell.html:91
 msgid "evaluate"
-msgstr ""
+msgstr "运行"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:35
 msgid "Data file"
-msgstr ""
+msgstr "数据文件"
 
+# --------------------------part 1-----------------------------------
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:39
 #, python-format
 msgid ""
-"You may download <a href=\"%(p)s\">%(f)s</a> or create a link to this file "
-"in worksheet "
-msgstr ""
+"You may download <a href=\"%(p)s\">%(f)s</a> or create a link to this file in "
+"worksheet "
+msgstr "你可以下载<a href=\"%(p)s\">%(f)s</a>或者在工作薄中创建链接"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:40
 msgid "select worksheet"
-msgstr ""
+msgstr "选择工作栏"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:44
 #, python-format
 msgid ""
-"or <a href=\"/home/%(wf)s/datafile?name=%(f)s&action=delete\">delete %(f)s.</"
-"a>"
+"or <a href=\"/home/%(wf)s/datafile?name=%(f)s&action=delete\">delete %(f)s.</a>"
 msgstr ""
+"或者<a href=\"/home/%(wf)s/datafile?name=%(f)s&action=delete\">delete %(f)s.</"
+"a>"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:46
 #, python-format
 msgid ""
-"Access %(f)s in this worksheet by typing <tt>DATA+'%(f)s'</tt>. Here DATA is "
-"a special variable that gives the exact path to all data files uploaded to "
-"this worksheet."
+"Access %(f)s in this worksheet by typing <tt>DATA+'%(f)s'</tt>. Here DATA is a "
+"special variable that gives the exact path to all data files uploaded to this "
+"worksheet."
 msgstr ""
+"进入%(f)s in this worksheet by typing <tt>DATA+'%(f)s'</tt>。这里的数据是可变"
+"的，这样可以提供一个在工具栏下载数据文件的准确的方式"
 
 #: sagenb/data/sage/html/notebook/download_or_delete_datafile.html:54
 #: sagenb/data/sage/html/notebook/edit_window.html:11
 msgid "Save Changes"
-msgstr ""
+msgstr "保存更改"
 
 #: sagenb/data/sage/html/notebook/edit_window.html:10
 msgid "Edit plain text"
-msgstr ""
+msgstr "编辑纯文本文件"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:20
 msgid "Edit this."
-msgstr ""
+msgstr "编辑"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:23
 msgid "Log in to edit a copy."
-msgstr ""
+msgstr "注册编辑复制文本"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:26
 msgid "Edit a copy."
-msgstr ""
+msgstr "编辑副本"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:39
 msgid "Download."
-msgstr ""
+msgstr "下载"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:45
 #, python-format
 msgid "This page is rated %(wr).1f."
-msgstr ""
+msgstr "该页的评分为 %(wr).1f。"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:54
 msgid "leave a comment"
-msgstr ""
+msgstr "离开一下 "
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:55
 msgid "Rerate"
-msgstr ""
+msgstr "重新加速"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:55
 msgid "Rate"
-msgstr ""
+msgstr "加速"
 
 #: sagenb/data/sage/html/notebook/guest_worksheet_page.html:59
 msgid "Other published documents..."
-msgstr ""
+msgstr "其他工作稿"
 
 #: sagenb/data/sage/html/notebook/plain_text_window.html:4
 msgid "View plain text"
-msgstr ""
+msgstr "可视纯文本文件"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:5
 #, python-format
 msgid "Revision from %(ta)s ago"
-msgstr ""
+msgstr "可视%(ta)s之前"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:5
 msgid "Revision List"
-msgstr ""
+msgstr "可视列表"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:12
 msgid "Older"
-msgstr ""
+msgstr "更早"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:14
 msgid "Oldest"
-msgstr ""
+msgstr "最早"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:18
 msgid "Newer"
-msgstr ""
+msgstr "更新"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:20
 msgid "Newest"
-msgstr ""
+msgstr "最新"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:23
 msgid "Revert to this one"
-msgstr ""
+msgstr "恢复到当前"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:23
 msgid "(note that images are not recorded)"
-msgstr ""
+msgstr "（注意图像未被记录）"
 
 #: sagenb/data/sage/html/notebook/specific_revision.html:24
 msgid "Publish this one"
-msgstr ""
+msgstr "出版此项"
 
 #: sagenb/data/sage/html/notebook/text_cell.html:57
 msgid "Cancel changes"
-msgstr ""
+msgstr "取消更改"
 
 #: sagenb/data/sage/html/notebook/upload_data_window.html:7
 #, python-format
 msgid "Upload or Create Data File to attach to worksheet \"%(wn)s\""
-msgstr ""
+msgstr "为工作稿 \"%(wn)s\" 上传或创建数据文件"
 
 #: sagenb/data/sage/html/notebook/upload_data_window.html:19
 msgid "Or enter the URL of a file on the web:"
-msgstr ""
+msgstr "或者进入网站上的文件URL"
 
 #: sagenb/data/sage/html/notebook/upload_data_window.html:23
 msgid "Or enter the name of a new file, which will be created:"
-msgstr ""
+msgstr "或者点击一个将被创建的文件名"
 
 #: sagenb/data/sage/html/notebook/upload_data_window.html:30
 msgid "Upload or Create Data File"
-msgstr ""
+msgstr "下载或创建一个数据文件"
 
 #: sagenb/data/sage/html/notebook/worksheet_page.html:40
 #: sagenb/flask_version/worksheet.py:81 sagenb/flask_version/worksheet.py:1029
 #: sagenb/notebook/misc.py:237 sagenb/notebook/worksheet.py:724
 #: sagenb/notebook/worksheet.py:745 sagenb/notebook/worksheet.py:4340
 msgid "Untitled"
-msgstr ""
+msgstr "未命名"
 
 #: sagenb/data/sage/html/notebook/worksheet_revision_list.html:6
 msgid "Revision History -- List of Snapshots"
-msgstr ""
+msgstr "重视历史操作"
 
 #: sagenb/data/sage/html/notebook/worksheet_revision_list.html:15
 msgid "Revision"
-msgstr ""
+msgstr "重视"
 
 #: sagenb/data/sage/html/notebook/worksheet_revision_list.html:22
 #, python-format
 msgid "Revision %(lr)s"
-msgstr ""
+msgstr "重视%(lr)s"
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:10
 msgid "Share this document"
-msgstr ""
+msgstr "分享这个文件"
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:17
 msgid ""
-"Only the owner of a worksheet is allowed to share it. You can do whatever "
-"you want if you <a href=\"copy\">make your own copy</a>."
+"Only the owner of a worksheet is allowed to share it. You can do whatever you "
+"want if you <a href=\"copy\">make your own copy</a>."
 msgstr ""
+"只有工作稿的拥有者被允许分享它，你可以做任何你想做的如果您<a href=\"copy\">创建"
+"个人副本</a>."
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:19
 msgid ""
 "This Sage Worksheet is currently shared with the people listed in the box "
 "below."
-msgstr ""
-"This AHI Worksheet is currently shared with the people listed in the box "
-"below."
+msgstr "这个Sage工作稿目前只能被在下表中列出的人分享"
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:20
 msgid "You may add or remove collaborators (separate user names by commas)."
-msgstr ""
+msgstr "您可以添加或移除合作者（请用逗号分开用户名）"
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:24
 msgid "Give access to your worksheet to the above collaborators"
-msgstr ""
+msgstr "将权限交给上述合作者"
 
 #: sagenb/data/sage/html/notebook/worksheet_share.html:24
 msgid "Update Collaborators"
-msgstr ""
+msgstr "更新和作者"
 
 #: sagenb/data/sage/html/settings/account_settings.html:3
 #: sagenb/data/sage/html/settings/base.html:13
 msgid "Account Settings"
-msgstr ""
+msgstr "账户设置"
 
 #: sagenb/data/sage/html/settings/account_settings.html:13
 msgid "Change Auto-Save Interval"
-msgstr ""
+msgstr "更改自动保存的设置"
 
 #: sagenb/data/sage/html/settings/account_settings.html:15
 msgid "Minutes"
-msgstr ""
+msgstr "分钟"
 
 #: sagenb/data/sage/html/settings/account_settings.html:25
 msgid "Change Password"
-msgstr ""
+msgstr "更改密码"
 
 #: sagenb/data/sage/html/settings/account_settings.html:31
 msgid "Old password"
-msgstr ""
+msgstr "旧密码"
 
 #: sagenb/data/sage/html/settings/account_settings.html:35
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 #: sagenb/data/sage/html/settings/account_settings.html:39
 msgid "Retype new password"
-msgstr ""
+msgstr "重新输入新密码"
 
 #: sagenb/data/sage/html/settings/account_settings.html:46
 msgid "Change E-mail Address"
-msgstr ""
+msgstr "更改e-mail地址"
 
 #: sagenb/data/sage/html/settings/account_settings.html:50
 msgid "Current e-mail"
-msgstr ""
+msgstr "当前e-mail"
 
 #: sagenb/data/sage/html/settings/account_settings.html:54
 msgid "New e-mail"
-msgstr ""
+msgstr "新的e-mail"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:2
 #: sagenb/data/sage/html/settings/admin_add_user.html:6
 msgid "Add New User"
-msgstr ""
+msgstr "添加新用户"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:9
 msgid "Pick a username"
-msgstr ""
+msgstr "选中一个用户名"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:10
 msgid ""
-"The username must start with a letter and be between 4 and 32 characters "
-"long. It can only consist of letters, numbers, underscores, and one dot (.)."
+"The username must start with a letter and be between 4 and 32 characters long. "
+"It can only consist of letters, numbers, underscores, and one dot (.)."
 msgstr ""
+"用户名必须以一个字母开头，字符数在4-32，只能由字母、数字、下划线和一个.构成"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:14
 msgid "Invalid username"
-msgstr ""
+msgstr "无效的用户名"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:16
 msgid "Username taken"
-msgstr ""
+msgstr "用户名已使用"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:18
 msgid "Username Error"
-msgstr ""
+msgstr "用户名错误"
 
 #: sagenb/data/sage/html/settings/admin_add_user.html:24
 msgid "Create Account"
-msgstr ""
+msgstr "创建账户"
 
 #: sagenb/data/sage/html/settings/base.html:10
 msgid "Manage Users"
-msgstr ""
+msgstr "管理用户"
 
 #: sagenb/data/sage/html/settings/base.html:11
 #: sagenb/data/sage/html/settings/notebook_settings.html:2
 msgid "Notebook Settings"
-msgstr ""
+msgstr "笔记本设置"
 
 #: sagenb/data/sage/html/settings/user_management.html:3
 msgid "Users"
-msgstr ""
+msgstr "用户"
 
 #: sagenb/data/sage/html/settings/user_management.html:7
 msgid "User Management"
-msgstr ""
+msgstr "用户管理"
 
 #: sagenb/data/sage/html/settings/user_management.html:8
 msgid "Add User"
-msgstr ""
+msgstr "添加用户"
 
 #: sagenb/data/sage/html/settings/user_management.html:10
 #, python-format
-msgid ""
-"The password for the user %(u)s has been reset to <strong>%(p)s</strong>"
-msgstr ""
+msgid "The password for the user %(u)s has been reset to <strong>%(p)s</strong>"
+msgstr "用户 %(u)s 的密码已被重置为 <strong>%(p)s</strong>"
 
 #: sagenb/data/sage/html/settings/user_management.html:14
 #: sagenb/data/sage/html/worksheet/ratings_info.html:9
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: sagenb/data/sage/html/settings/user_management.html:16
 msgid "Suspension"
-msgstr ""
+msgstr "暂停"
 
 #: sagenb/data/sage/html/settings/user_management.html:17
 msgid "Admin"
-msgstr ""
+msgstr "认可"
 
 #: sagenb/data/sage/html/settings/user_management.html:26
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: sagenb/data/sage/html/settings/user_management.html:29
 msgid "Unsuspend"
-msgstr ""
+msgstr "停止延缓"
 
 #: sagenb/data/sage/html/settings/user_management.html:29
 msgid "Suspend"
-msgstr ""
+msgstr "延缓"
 
 #: sagenb/data/sage/html/settings/user_management.html:30
 msgid "Revoke"
-msgstr ""
+msgstr "撤回"
 
 #: sagenb/data/sage/html/settings/user_management.html:30
 msgid "Grant"
-msgstr ""
+msgstr "授权"
 
 #: sagenb/data/sage/html/source_code.html:3 sagenb/notebook/tutorial.py:358
 msgid "Source Code"
-msgstr ""
+msgstr "源代码"
 
 #: sagenb/data/sage/html/source_code.html:13
 msgid "Sage Source Browser"
-msgstr "AHI Source Browser"
+msgstr "AHI源浏览器"
 
 #: sagenb/data/sage/html/source_code.html:14
 msgid "browse directory"
-msgstr ""
+msgstr "浏览字典"
 
 #: sagenb/data/sage/html/test_report.html:79
 msgid "Sage Notebook version"
-msgstr "AHI Notebook version"
+msgstr "AHI笔记本版本"
 
 #: sagenb/data/sage/html/test_report.html:85
 msgid "Sage version"
-msgstr "AHI version"
+msgstr "AHI视图"
 
 #: sagenb/data/sage/html/test_report.html:91
 msgid "Environment"
-msgstr ""
+msgstr "环境"
 
 #: sagenb/data/sage/html/test_report.html:96
 msgid "Start"
-msgstr ""
+msgstr "开始"
 
 #: sagenb/data/sage/html/test_report.html:100
 #: sagenb/data/sage/html/worksheet_listing.html:77
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: sagenb/data/sage/html/test_report.html:104
 msgid "Elapsed"
-msgstr ""
+msgstr "消逝"
 
 #: sagenb/data/sage/html/test_report.html:108
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #: sagenb/data/sage/html/test_report.html:110
 #: sagenb/data/sage/html/test_report.html:129
 msgid "Pass"
-msgstr ""
+msgstr "通过"
 
 #: sagenb/data/sage/html/test_report.html:111
 #: sagenb/data/sage/html/test_report.html:130
 msgid "Fail"
-msgstr ""
+msgstr "失败"
 
 #: sagenb/data/sage/html/test_report.html:113
 msgid "Total"
-msgstr ""
+msgstr "统共"
 
 #: sagenb/data/sage/html/test_report.html:121
 msgid "Hide"
-msgstr ""
+msgstr "隐藏"
 
 #: sagenb/data/sage/html/test_report.html:122
 msgid "Show"
-msgstr ""
+msgstr "展示"
 
 #: sagenb/data/sage/html/test_report.html:128
 msgid "Cases / Tests"
-msgstr ""
+msgstr "情况/测试"
 
 #: sagenb/data/sage/html/test_report.html:132
 msgid "Count"
-msgstr ""
+msgstr "账户"
 
 #: sagenb/data/sage/html/test_report.html:141
 msgid "Totals"
-msgstr ""
+msgstr "总共"
 
 #: sagenb/data/sage/html/upload.html:3
 msgid "Upload File"
-msgstr ""
+msgstr "上传文件"
 
 #: sagenb/data/sage/html/upload.html:11 sagenb/data/sage/html/upload.html:27
 msgid "Upload worksheet to the Sage Notebook"
-msgstr "Upload worksheet to the AHI Notebook"
+msgstr "上传工作稿于AHI笔记"
 
 #: sagenb/data/sage/html/upload.html:15
 msgid "URL of file on web"
-msgstr ""
+msgstr "网络URL文件"
 
 #: sagenb/data/sage/html/upload.html:19 sagenb/data/sage/html/upload.html:48
 #: sagenb/data/sage/html/notebook/upload_data_window.html:27
 msgid "What do you want to call it? (if different than the original name)"
-msgstr ""
+msgstr "你想叫它什么？（如果与原始名不同）"
 
 #: sagenb/data/sage/html/upload.html:22 sagenb/data/sage/html/upload.html:51
 msgid "Upload Worksheet"
-msgstr ""
+msgstr "上传工作稿"
 
 #: sagenb/data/sage/html/upload.html:28
 msgid "Supported file formats:"
-msgstr ""
+msgstr "支持文件格式"
 
 #: sagenb/data/sage/html/upload.html:30
 msgid "a Sage worksheet"
-msgstr "a AHI worksheet"
+msgstr "一个AHI工作稿"
 
 #: sagenb/data/sage/html/upload.html:31
 msgid ""
 "or <tt>.txt</tt> - a worksheet text file with html code and cells surrounded "
-"by <tt>&#123;&#123;&#123;</tt> and <tt>&#125;&#125;&#125;</tt> that defines "
-"a worksheet"
+"by <tt>&#123;&#123;&#123;</tt> and <tt>&#125;&#125;&#125;</tt> that defines a "
+"worksheet"
 msgstr ""
+"或者<tt>.txt</tt> - 一个拥有 html码 工作稿测试文件被<tt>&#123;&#123;&#123;</"
+"tt> 和 <tt>&#125;&#125;&#125;</tt>包围"
 
 #: sagenb/data/sage/html/upload.html:32
 msgid ""
 "the URL of a page of the Sage Documentation, for example the URL of <a class="
-"\"reference external\" href=\"http://www.sagemath.org/doc/reference/sage/"
-"rings/integer.html\">this page</a>"
+"\"reference external\" href=\"http://www.sagemath.org/doc/reference/sage/rings/"
+"integer.html\">this page</a>"
 msgstr ""
-"the URL of a page of the AHI Documentation, for example the URL of <a class="
-"\"reference external\" href=\"http://ieee.hit.edu.cn”>this page</a>"
+"AHI的文档页面  <a class=\"reference external\" href=\"http://www.sagemath.org/"
+"doc/reference/sage/rings/integer.html\">这里</a>"
 
 #: sagenb/data/sage/html/upload.html:33
 msgid "an HTML page generated by docutils from a ReStructuredText file"
-msgstr ""
+msgstr "一个HTML页面由docutils ReStructuredText文件生成的"
 
 #: sagenb/data/sage/html/upload.html:34
 msgid ""
@@ -1344,175 +1335,178 @@ msgid ""
 "backticks \"<tt>`</tt>\" or dollar signs \"<tt>$</tt>\" or \"<tt>$$</tt>\". "
 "Math role is not supported for now.)"
 msgstr ""
+"ReStructuredText文件(添加“< tt > . .escape-backslashes < / tt >”文件中的一行,如"
+"果你想要反斜杠转义。将乳胶代码放在引号的“< tt > < / tt >”或美元符号”美元< tt > "
+"< / tt >”或“< tt > $ $ < / tt >”。数学的作用现在不支持)。"
 
 #: sagenb/data/sage/html/upload.html:35
 msgid "a zip archive of any of the above"
-msgstr ""
+msgstr "以上的zip归档"
 
 #: sagenb/data/sage/html/upload.html:40
 #: sagenb/data/sage/html/notebook/upload_data_window.html:15
 msgid "Browse your computer to select a file to upload:"
-msgstr ""
+msgstr "浏览你的电脑上选择一个文件上传:"
 
 #: sagenb/data/sage/html/upload.html:44
 msgid ""
-"Or enter the URL of a file on the web. This can be a direct link to any of "
-"the above kinds of files, or the URL of any HTML page that supports \"linked "
+"Or enter the URL of a file on the web. This can be a direct link to any of the "
+"above kinds of files, or the URL of any HTML page that supports \"linked "
 "worksheet autodiscovery\"."
 msgstr ""
+"或输入文件的URL。这可以直接链接到任何上述类型的文件,或任何HTML页面的URL,它支"
+"持“联系表自动发现”。"
 
 #: sagenb/data/sage/html/worksheet/ratings_info.html:3
 #: sagenb/data/sage/html/worksheet/ratings_info.html:6
 #, python-format
 msgid "Ratings for %(wn)s"
-msgstr ""
+msgstr " 评分%(wn)s"
 
 #: sagenb/data/sage/html/worksheet/ratings_info.html:7
 msgid "Go to the worksheet."
-msgstr ""
+msgstr "进入工作稿"
 
 #: sagenb/data/sage/html/worksheet/ratings_info.html:9
 msgid "Comment"
-msgstr ""
+msgstr "评论"
 
 #: sagenb/data/sage/html/worksheet/time_last_edited.html:6
 #, python-format
 msgid "%(t)s by %(le)s"
-msgstr ""
+msgstr "%(t)s by %(le)s"
 
 #: sagenb/data/sage/html/worksheet/time_since_last_edited.html:6
 #: sagenb/notebook/worksheet.py:2128
 #, python-format
 msgid "%(t)s ago by %(le)s"
-msgstr ""
+msgstr "%(t)s在 %(le)s之前"
 
 #: sagenb/data/sage/html/worksheet_listing.html:10
 msgid "Published Worksheets"
-msgstr ""
+msgstr "出版工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:12
 msgid "Deleted Worksheets"
-msgstr ""
+msgstr "删除工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:14
 msgid "Active Worksheets"
-msgstr ""
+msgstr "活跃工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:16
 msgid "Archived Worksheets"
-msgstr ""
+msgstr "工作稿已存档"
 
 #: sagenb/data/sage/html/worksheet_listing.html:45
 #: sagenb/data/sage/html/notebook/base.html:75
 msgid "Account is read only.  You may download or delete worksheets or data."
-msgstr ""
+msgstr "账户只读。您可以下载或删除工作稿或数据"
 
 #: sagenb/data/sage/html/worksheet_listing.html:49
 msgid "New Worksheet"
-msgstr ""
+msgstr "新建工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:50
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
 #: sagenb/data/sage/html/worksheet_listing.html:51
 msgid "Download All Active"
-msgstr ""
+msgstr "下载所有的活动"
 
 #: sagenb/data/sage/html/worksheet_listing.html:58
 msgid "Search Worksheets"
-msgstr ""
+msgstr "搜索工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:66
-msgid ""
-"Unarchive selected worksheets so it appears in the default worksheet list"
-msgstr ""
+msgid "Unarchive selected worksheets so it appears in the default worksheet list"
+msgstr "已选工作稿未存档，所以它会出现在默认工作稿列表中"
 
 #: sagenb/data/sage/html/worksheet_listing.html:66
 msgid "Unarchive"
-msgstr ""
+msgstr "未存档"
 
 #: sagenb/data/sage/html/worksheet_listing.html:68
 msgid ""
-"Archive selected worksheets so they do not appear in the default worksheet "
-"list"
-msgstr ""
+"Archive selected worksheets so they do not appear in the default worksheet list"
+msgstr "将已选工作稿存档，所以他们将不会出现于默认工作稿列表中"
 
 #: sagenb/data/sage/html/worksheet_listing.html:68
 msgid "Archive"
-msgstr ""
+msgstr "存档"
 
 #: sagenb/data/sage/html/worksheet_listing.html:72
 msgid "Move the selected worksheets to the trash"
-msgstr ""
+msgstr "将已选工作稿移入垃圾站"
 
 #: sagenb/data/sage/html/worksheet_listing.html:72
 #: sagenb/data/sage/html/settings/user_management.html:18
 #: sagenb/data/sage/html/settings/user_management.html:31
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: sagenb/data/sage/html/worksheet_listing.html:74
 msgid "Move the selected worksheets out of the trash"
-msgstr ""
+msgstr "将已选工作稿移出垃圾站"
 
 #: sagenb/data/sage/html/worksheet_listing.html:74
 msgid "Undelete"
-msgstr ""
+msgstr "撤销删除"
 
 #: sagenb/data/sage/html/worksheet_listing.html:77
 msgid "Stop selected worksheets"
-msgstr ""
+msgstr "停止选择工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:78
 msgid "Download selected worksheets"
-msgstr ""
+msgstr "下载已选工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:78
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #: sagenb/data/sage/html/worksheet_listing.html:81
 msgid "Current Folder"
-msgstr ""
+msgstr "当前文件夹"
 
 #: sagenb/data/sage/html/worksheet_listing.html:82
 msgid "Active"
-msgstr ""
+msgstr "活跃的"
 
 #: sagenb/data/sage/html/worksheet_listing.html:83
 msgid "Archived"
-msgstr ""
+msgstr "完成"
 
 #: sagenb/data/sage/html/worksheet_listing.html:84
 msgid "Trash"
-msgstr ""
+msgstr "垃圾"
 
 #: sagenb/data/sage/html/worksheet_listing.html:88
 msgid "Empty Trash"
-msgstr ""
+msgstr "垃圾清空"
 
 #: sagenb/data/sage/html/worksheet_listing.html:103
 #: sagenb/data/sage/html/worksheet/ratings_info.html:9
 msgid "Rating"
-msgstr ""
+msgstr "等级"
 
 #: sagenb/data/sage/html/worksheet_listing.html:114
 msgid "Owner"
-msgstr ""
+msgstr "所有者"
 
 #: sagenb/data/sage/html/worksheet_listing.html:114
 msgid "Collaborators"
-msgstr ""
+msgstr "合作者"
 
 #: sagenb/data/sage/html/worksheet_listing.html:120
 #: sagenb/data/sage/html/notebook/worksheet_revision_list.html:16
 msgid "Last Edited"
-msgstr ""
+msgstr "最终编辑"
 
 #: sagenb/data/sage/html/worksheet_listing.html:130
 msgid "There are no published worksheets."
-msgstr ""
+msgstr "这里没有出版的工作稿"
 
 #: sagenb/data/sage/html/worksheet_listing.html:136
 msgid ""
@@ -1520,188 +1514,189 @@ msgid ""
 "a>, view <a href=\"/pub/\">published worksheets</a>, or read the <a href=\"/"
 "help\" target=\"_new\">documentation</a>."
 msgstr ""
-"Welcome to AHI! You can <a href=\"/new_worksheet\">create a new worksheet</"
-"a>, view <a href=\"/pub/\">published worksheets</a>, or read the <a href=\"h"
-"ttp://ieee.hit.edu.cn\" target=\"_new\">documentation</a>."
+"欢迎来到AHI！您可以<a href=\"/new_worksheet\">创建一个新的工作稿</a>、<a href="
+"\"/pub/\">观察已出版的工作稿</a>，或者阅读<a href= \"http://ieee.hit.edu.cn\" target=\"_new\">文"
+"档</a>"
 
 #: sagenb/data/sage/html/worksheet_listing.html:178
 msgid "running"
-msgstr ""
+msgstr "运行中"
 
 #: sagenb/data/sage/html/worksheet_listing.html:211
 msgid "Add or Delete"
-msgstr ""
+msgstr "添加或删除"
 
 #: sagenb/data/sage/html/worksheet_listing.html:213
 msgid "Share now"
-msgstr ""
+msgstr "立刻分享"
 
 #: sagenb/data/sage/html/worksheet_listing.html:218
 msgid "published"
-msgstr ""
+msgstr "出版"
 
 #: sagenb/data/sage/js/localization.js:9
 msgid ""
-"Your browser / OS combination is not supported.\\nPlease use Firefox or "
-"Opera under Linux, Windows, or Mac OS X, or Safari."
+"Your browser / OS combination is not supported.\\nPlease use Firefox or Opera "
+"under Linux, Windows, or Mac OS X, or Safari."
 msgstr ""
+"您的浏览器/OS合并不被支持，请用 Firefox 或者 Opera under Linux, Windows, 或者 "
+"Mac OS X, or Safari."
 
 #: sagenb/data/sage/js/localization.js:10
 msgid "Java Applet Hidden"
-msgstr ""
+msgstr "Java小程序隐藏"
 
 #: sagenb/data/sage/js/localization.js:11
 msgid "Click here to pop out"
-msgstr ""
+msgstr "点击此处弹出"
 
 #: sagenb/data/sage/js/localization.js:12
 msgid "Error applying function to worksheet(s)."
-msgstr ""
+msgstr "工作稿功能错误"
 
 #: sagenb/data/sage/js/localization.js:13
 msgid "Title of saved worksheet"
-msgstr ""
+msgstr "已保存工作稿的名字"
 
 #: sagenb/data/sage/js/localization.js:14
 msgid "Failed to save worksheet."
-msgstr ""
+msgstr "保存工作稿失败"
 
 #: sagenb/data/sage/js/localization.js:16
 msgid "Please enter a name for this worksheet."
-msgstr ""
+msgstr "请为该工作稿输入一个名字"
 
 #: sagenb/data/sage/js/localization.js:17
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: sagenb/data/sage/js/localization.js:18
 msgid "Possible failure deleting worksheet."
-msgstr ""
+msgstr "删除工作稿可能错误"
 
 #: sagenb/data/sage/js/localization.js:19
 msgid "unprinted"
-msgstr ""
+msgstr "未打印"
 
 #: sagenb/data/sage/js/localization.js:20
 msgid ""
-"You requested to evaluate a cell that, for some reason, the server is "
-"unaware of."
-msgstr ""
+"You requested to evaluate a cell that, for some reason, the server is unaware "
+"of."
+msgstr "您由于一些原因请求分析该单元，服务者没有意识到"
 
 #: sagenb/data/sage/js/localization.js:22
 msgid ""
-"This worksheet is read only. Please make a copy or contact the owner to "
-"change it."
-msgstr ""
+"This worksheet is read only. Please make a copy or contact the owner to change "
+"it."
+msgstr "这个工作稿是只读状态，请复制或者联系拥有者来改变它"
 
 #: sagenb/data/sage/js/localization.js:23
 msgid "loading..."
-msgstr ""
+msgstr "下载中"
 
 #: sagenb/data/sage/js/localization.js:24
 msgid "Error updating cell output after "
-msgstr ""
+msgstr "错误上传单元稍后将被停止"
 
 #: sagenb/data/sage/js/localization.js:25
 msgid "s (canceling further update checks)."
-msgstr ""
+msgstr "s (取消以后的上传检查)"
 
 #: sagenb/data/sage/js/localization.js:26
 msgid "Problem inserting new input cell after current input cell.\\n"
-msgstr ""
+msgstr "在当前操作之前文本引入新问题"
 
 #: sagenb/data/sage/js/localization.js:27
 msgid "Problem inserting new input cell before current input cell.\\n"
-msgstr ""
+msgstr "在当前操作之前文本引入新问题"
 
 #: sagenb/data/sage/js/localization.js:28
 msgid "Problem inserting new text cell before current input cell."
-msgstr ""
+msgstr "在当前操作之前文本引入新问题"
 
 #: sagenb/data/sage/js/localization.js:29
 msgid "Problem inserting new text cell before current input cell.\\n"
-msgstr ""
+msgstr "在当前操作之前文本引入新问题"
 
 #: sagenb/data/sage/js/localization.js:30
 msgid "Worksheet is locked. Cannot insert cells."
-msgstr ""
+msgstr "工作稿已被锁定，不能插入单元"
 
 #: sagenb/data/sage/js/localization.js:31
 msgid "Unable to interrupt calculation."
-msgstr ""
+msgstr "不能停止分析"
 
 #: sagenb/data/sage/js/localization.js:32
 msgid "Close this box to stop trying."
-msgstr ""
+msgstr "关闭该窗口停止操作"
 
 #: sagenb/data/sage/js/localization.js:33
 msgid "Interrupt attempt"
-msgstr ""
+msgstr "操作中断"
 
 #: sagenb/data/sage/js/localization.js:34
 msgid "<a href='javascript:restart_sage();'>Restart</a>, instead?"
-msgstr ""
+msgstr "<a href='javascript:restart_sage();'>重启</a>, 代替?"
 
 #: sagenb/data/sage/js/localization.js:35
 msgid ""
 "Emptying the trash will permanently delete all items in the trash. Continue?"
-msgstr ""
+msgstr "清空回收站将彻底删除已删垃圾，继续？"
 
 #: sagenb/data/sage/js/localization.js:36
 msgid "Get Image"
-msgstr ""
+msgstr "获得图像"
 
 #: sagenb/data/sage/js/localization.js:37
 msgid "Jmol Image"
-msgstr ""
+msgstr "Jmol图像"
 
 #: sagenb/data/sage/js/localization.js:38
 msgid ""
-"To save this image, you can try right-clicking on the image to copy it or "
-"save it to a file, or you may be able to just drag the image to your desktop."
+"To save this image, you can try right-clicking on the image to copy it or save "
+"it to a file, or you may be able to just drag the image to your desktop."
 msgstr ""
+"保存这个图像，您可以尝试右键图像来复制或将它存入一个新的文件夹，或者您可以仅将"
+"图像拖入您的桌面"
 
 #: sagenb/data/sage/js/localization.js:39
 msgid "Sorry, but you need a browser that supports the &lt;canvas&gt; tag."
-msgstr ""
+msgstr "对不起，您需要一个新的浏览器来支持 &lt;canvas&gt; tag."
 
 #: sagenb/data/sage/js/localization.js:43
 #, python-format
 msgid "Trying again in %(num)d second..."
 msgid_plural "Trying again in %(num)d seconds..."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "请 %(num)d 秒后重试"
 
 #: sagenb/flask_version/admin.py:98
 #, python-format
 msgid ""
 "The temporary password for the new user <em>%(username)s</em> is <em>"
 "%(password)s</em>"
-msgstr ""
+msgstr "新用户 <em>%(username)s</em>的暂用密码是<em>%(password)s</em>"
 
 #: sagenb/flask_version/admin.py:100
 msgid "New User"
-msgstr ""
+msgstr "新用户"
 
 #: sagenb/flask_version/authentication.py:36
 msgid ""
-"Please enable cookies or delete all Sage cookies and localhost cookies in "
-"your browser and try again."
-msgstr ""
-"Please enable cookies or delete all AHI cookies and localhost cookies in "
-"your browser and try again."
+"Please enable cookies or delete all Sage cookies and localhost cookies in your "
+"browser and try again."
+msgstr "请开启操作或删除操作和在本地浏览器操作和重试"
 
 #: sagenb/flask_version/authentication.py:63
 msgid "Your account is currently suspended"
-msgstr ""
+msgstr "您的账户暂时被停用"
 
 #: sagenb/flask_version/authentication.py:239
 msgid "Sage Notebook Registration"
-msgstr "AHI Notebook Registration"
+msgstr "AHI 笔记本 注册"
 
 #: sagenb/flask_version/authentication.py:258
 msgid "The confirmation system is not active."
-msgstr ""
+msgstr "确认系统不活跃"
 
 #: sagenb/flask_version/authentication.py:261
 msgid ""
@@ -1711,176 +1706,186 @@ msgid ""
 "    server. Please <a href=\"/register\">register</a> with the server.</p>\n"
 "    "
 msgstr ""
+"<h1>无效的确认码</h1>\n"
+"    <p>您要报告尚未分配由该服务器确认键。请与服务器<a href=“/register”>注册</"
+"a>。</p>"
 
 #: sagenb/flask_version/authentication.py:272
 #, python-format
 msgid "<h1>Email address confirmed for user %(username)s</h1>"
-msgstr ""
+msgstr "<h1>邮件地址被用户确认 %(username)s</h1>"
 
 #: sagenb/flask_version/authentication.py:274
 msgid "Email Confirmed"
-msgstr ""
+msgstr "邮件认证"
 
 #: sagenb/flask_version/authentication.py:280
 msgid "The account recovery system is not active."
-msgstr ""
+msgstr "账户恢复系统不活跃"
 
 #: sagenb/flask_version/authentication.py:292
 msgid "Username is invalid."
-msgstr ""
+msgstr "用户名不可用"
 
 #: sagenb/flask_version/authentication.py:295
 msgid "The e-mail address hasn't been confirmed."
-msgstr ""
+msgstr "e-mail地址不被认证"
 
 #: sagenb/flask_version/authentication.py:315
 msgid "Sage Notebook Account Recovery"
-msgstr "AHI Notebook Account Recovery"
+msgstr "AHI 笔记本 账户恢复"
 
 #: sagenb/flask_version/authentication.py:318
 #, python-format
 msgid "The new password couldn't be sent to %(dest)s."
-msgstr ""
+msgstr "新密码未能发送至%(dest)s."
 
 #: sagenb/flask_version/authentication.py:322
 msgid "A new password has been sent to your e-mail address."
-msgstr ""
+msgstr "新密码已发送至您的邮箱"
 
 #: sagenb/flask_version/base.py:478
 msgid "500: Internal server error."
-msgstr ""
+msgstr "500：网络服务错误"
 
 #: sagenb/flask_version/decorators.py:30
 msgid "You do not have permission to access this location"
-msgstr ""
+msgstr "您没有这项操作的权限"
 
 #: sagenb/flask_version/doc.py:41
 msgid "nothing to see."
-msgstr ""
+msgstr "未显示"
 
 #: sagenb/flask_version/settings.py:33
 msgid "Old password not given"
-msgstr ""
+msgstr "旧密码未被给出"
 
 #: sagenb/flask_version/settings.py:35
 msgid "Incorrect password given"
-msgstr ""
+msgstr "错误的密码被提出"
 
 #: sagenb/flask_version/settings.py:37
 msgid "New password not given"
-msgstr ""
+msgstr "新密码未给出"
 
 #: sagenb/flask_version/settings.py:39
 msgid ""
-"Password not acceptable. Must be 4 to 32 characters and not contain spaces "
-"or username."
-msgstr ""
+"Password not acceptable. Must be 4 to 32 characters and not contain spaces or "
+"username."
+msgstr "密码不被认可，必须是4到32字符以及不能存在空格或用户姓名"
 
+# -----------------Part 2-----------------------------------------------
 #: sagenb/flask_version/settings.py:41
 msgid "Please type in new password again."
-msgstr ""
+msgstr "请重新输入请密码"
 
 #: sagenb/flask_version/settings.py:43
 msgid "The passwords you entered do not match."
-msgstr ""
+msgstr "键入的密码不匹配"
 
 #: sagenb/flask_version/settings.py:59
 msgid "Invalid e-mail address."
-msgstr ""
+msgstr "无效的邮箱地址"
 
 #: sagenb/flask_version/settings.py:80
 msgid "Confirmed"
-msgstr ""
+msgstr "认证成功"
 
 #: sagenb/flask_version/settings.py:82
 msgid "Not confirmed"
-msgstr ""
+msgstr "认证失败"
 
 #: sagenb/flask_version/worksheet.py:30 sagenb/flask_version/worksheet.py:39
 #: sagenb/flask_version/worksheet_listing.py:174
 #: sagenb/flask_version/worksheet_listing.py:183
 msgid "You do not have permission to access this worksheet"
-msgstr ""
+msgstr "没有许可，你必将不能访问工作稿"
 
 #: sagenb/flask_version/worksheet.py:79 sagenb/flask_version/worksheet.py:129
 #: sagenb/flask_version/worksheet_listing.py:240
 #: sagenb/flask_version/worksheet_listing.py:340
 msgid "Account is in read-only mode"
-msgstr ""
+msgstr "账目为只读模式"
 
 #: sagenb/flask_version/worksheet.py:587
 msgid "Error: can't add more than 500 collaborators at a time"
-msgstr ""
+msgstr "错误：不能同时加入多余500各合作者"
 
 #: sagenb/flask_version/worksheet.py:685
 msgid "Invalid JSmol encoding: "
-msgstr ""
+msgstr "无效的JSmol编码："
 
 #: sagenb/flask_version/worksheet.py:695
 msgid "Invalid JSmol query: "
-msgstr ""
+msgstr "无效的JSmol查询："
 
 #: sagenb/flask_version/worksheet.py:706
 msgid "Invalid JSmol request: "
-msgstr ""
+msgstr "无效的JSmol请求："
 
 #: sagenb/flask_version/worksheet.py:734
 msgid "No data files"
-msgstr ""
+msgstr "无数据文件"
 
 #: sagenb/flask_version/worksheet.py:748
 #, python-format
 msgid "Successfully deleted '%(filename)s'"
-msgstr ""
+msgstr " '%(filename)s' 文件被成功删除"
 
 #: sagenb/flask_version/worksheet.py:775
 msgid "illegal link attempt!"
-msgstr ""
+msgstr "非法链接尝试"
 
 #: sagenb/flask_version/worksheet.py:777
 msgid ""
 "The data filename already exists in other worksheet\n"
 "Delete the file in the other worksheet before creating a link."
 msgstr ""
+"数据文件名已存在于另一个工作稿\n"
+"在创建链接前删除另一个工作稿中的文件"
 
 #: sagenb/flask_version/worksheet.py:791
 #, python-format
 msgid ""
-" Return to <a href=\"%(upload_url)s\" title=\"Upload or create a data file "
-"in a wide range of formats\"><strong>Upload or Create Data File</strong></a> "
-"or <a href=\"%(worksheet_url)s\" title=\"Interactively use the worksheet"
+" Return to <a href=\"%(upload_url)s\" title=\"Upload or create a data file in "
+"a wide range of formats\"><strong>Upload or Create Data File</strong></a> or "
+"<a href=\"%(worksheet_url)s\" title=\"Interactively use the worksheet"
 "\"><strong>%(worksheet_name)s</strong></a>."
 msgstr ""
+"返回 <a href=\"%(upload_url)s\" title=\"Upload or create a data file in a wide "
+"range of formats\"><strong>上传或创建数据文件</strong></a> 或者 <a href="
+"\"%(worksheet_url)s\" title=\"Interactively use the worksheet\"><strong>"
+"%(worksheet_name)s</strong></a>。"
 
 #: sagenb/flask_version/worksheet.py:795
 #, python-format
 msgid "Error uploading file (missing field \"file\"). %(backlinks)s"
-msgstr ""
+msgstr "上传文件时错误 (没有指定\"文件\")。%(backlinks)s"
 
 #: sagenb/flask_version/worksheet.py:802
 #, python-format
 msgid "Error uploading file (missing %(field)s arg).%(backlinks)s"
-msgstr ""
+msgstr "上传文件时错误 (没有指定\"声明\" %(field)s)。%(backlinks)s"
 
 #: sagenb/flask_version/worksheet.py:815
 #, python-format
 msgid "Error uploading file (missing filename).%(backlinks)s"
-msgstr ""
+msgstr "上传文件时错误 (没有指定 文件名)。%(backlinks)s"
 
 #: sagenb/flask_version/worksheet.py:823
 #, python-format
 msgid "URL must start with http, https, or ftp.%(backlinks)s"
-msgstr ""
+msgstr "URL 必须以http，https或者ftp开头。%(backlinks)s"
 
 #: sagenb/flask_version/worksheet.py:830
 #, python-format
 msgid ""
 "Suspicious filename \"%(filename)s\" encountered uploading file.%(backlinks)s"
-msgstr ""
+msgstr "可疑文件名\"%(filename)s\"与上传文件.%(backlinks)s冲突"
 
 #: sagenb/flask_version/worksheet.py:920
 msgid "Gees -- You can't fool the rating system that easily!"
-msgstr ""
+msgstr "你不可以那么轻易地愚弄评分系统！"
 
 #: sagenb/flask_version/worksheet.py:928
 #, python-format
@@ -1890,44 +1895,47 @@ msgid ""
 "    You can <a href=\"rating_info\">see all ratings of this worksheet.</a>\n"
 "    "
 msgstr ""
+"\n"
+"感谢您为 <b><i>%(worksheet_name)s</i></b> 工作稿评分\n"
+"你可以 <a href=\"rating_info\">看到所有对这个工作稿的评分。</a>\n"
+"    "
 
 #: sagenb/flask_version/worksheet.py:930
 msgid "Rating Accepted"
-msgstr ""
+msgstr "评估被接受"
 
 #: sagenb/flask_version/worksheet.py:952
 msgid "No such worksheet."
-msgstr ""
+msgstr "没有此工作稿"
 
 #: sagenb/flask_version/worksheet.py:1037
 msgid "Document does not exist."
-msgstr ""
+msgstr "文档不存在"
 
 #: sagenb/flask_version/worksheet_listing.py:50
 msgid "Error displaying worksheet listing."
-msgstr ""
+msgstr "显示工作稿列表时产生错误"
 
 #: sagenb/flask_version/worksheet_listing.py:65
 #, python-format
 msgid ""
 "User '%(user)s' does not have permission to view the home page of '%(name)s'."
-msgstr ""
+msgstr "用户 '%(user)s' 没有权限查看 '%(name)s' 的主页。"
 
 #: sagenb/flask_version/worksheet_listing.py:155
 msgid "Requested public worksheet does not exist"
-msgstr ""
+msgstr "要求的公共工作稿不存在"
 
 #: sagenb/flask_version/worksheet_listing.py:277
 #, python-format
 msgid ""
-"This Sage notebook is not configured to load worksheets from 'https' URLs. "
-"Try a different URL or download the worksheet and upload it directly from "
-"your computer.\n"
+"This Sage notebook is not configured to load worksheets from 'https' URLs. Try "
+"a different URL or download the worksheet and upload it directly from your "
+"computer.\n"
 "%(backlinks)s"
 msgstr ""
-"This AHI notebook is not configured to load worksheets from 'https' URLs. "
-"Try a different URL or download the worksheet and upload it directly from "
-"your computer.\n"
+"此AHI笔记本没有被配置从 'https' 协议的URLs网址 提取工作稿。请尝试一个不同的URL"
+"或者下载这个工作稿到你的电脑，然后从你的电脑直接上传它。\n"
 "%(backlinks)s"
 
 #: sagenb/flask_version/worksheet_listing.py:342
@@ -1935,11 +1943,13 @@ msgid ""
 "Return to <a href=\"/upload\" title=\"Upload a worksheet\"><strong>Upload "
 "File</strong></a>."
 msgstr ""
+"返回到<a href=\"/upload\" title=\"Upload a worksheet\"><strong>上传文件</"
+"strong></a>."
 
 #: sagenb/flask_version/worksheet_listing.py:354
 #, python-format
 msgid "Unknown worksheet extension: %(ext)s. %(links)s"
-msgstr ""
+msgstr "未知的工作稿扩展: %(ext)s. %(links)s"
 
 #: sagenb/flask_version/worksheet_listing.py:361
 #, python-format
@@ -1947,6 +1957,8 @@ msgid ""
 "Unable to load file URL's when not running on localhost.\n"
 "%(backlinks)s"
 msgstr ""
+"当不是运行在本地主机时是无法提取文件的URL's地址的。\n"
+"%(backlinks)s"
 
 #: sagenb/flask_version/worksheet_listing.py:376
 #, python-format
@@ -1954,6 +1966,8 @@ msgid ""
 "Please specify a worksheet to load.\n"
 "%(backlinks)s"
 msgstr ""
+"请指定要上传的工作稿。\n"
+"%(backlinks)s"
 
 #: sagenb/flask_version/worksheet_listing.py:380
 #, python-format
@@ -1961,6 +1975,8 @@ msgid ""
 "Invalid filename.\n"
 "%(backlinks)s"
 msgstr ""
+"无效的文件名。\n"
+"%(backlinks)s"
 
 #: sagenb/flask_version/worksheet_listing.py:424
 #, python-format
@@ -1972,69 +1988,68 @@ msgid ""
 "tarball; take a look inside!\n"
 "%(backlinks)s"
 msgstr ""
-"There was an error uploading the worksheet.  It could be an old unsupported "
-"format or worse.  If you desperately need its contents contact the <a href="
-"\"http://groups.google.com/group/sage-support\">sage-support group</a> and "
-"post a link to your worksheet.  Alternatively, an sws file is just a bzip2 "
-"tarball; take a look inside!\n"
+"在上传工作稿时产生了一个错误。可能是一个旧的不支持的格式或者更糟。如果你非常想"
+"要它的内容请联系 <a href=\"http://groups.google.com/group/sage-support\">sage-"
+"support group</a> 并在后面附上你工作稿的链接。此外，sws文件仅是一个 bzip2 的包"
+"文件；可以进入包里面进行查看!\n"
 "%(backlinks)s"
 
 #: sagenb/flask_version/worksheet_listing.py:435
 #, python-format
 msgid "Error uploading worksheet '%(msg)s'.%(backlinks)s"
-msgstr ""
+msgstr "上传工作稿时发生错误 '%(msg)s'.%(backlinks)s"
 
 #: sagenb/notebook/challenge.py:180
 msgid "Please ask the server administrator to configure a challenge!"
-msgstr ""
+msgstr "请询问主机管理员以进行配置"
 
 #: sagenb/notebook/challenge.py:221
 msgid "Is pi > e?"
-msgstr ""
+msgstr "pi > e?"
 
 #: sagenb/notebook/challenge.py:221
 msgid "y|yes"
-msgstr ""
+msgstr "y|yes"
 
 #: sagenb/notebook/challenge.py:222
 msgid "What is 3 times 8?"
-msgstr ""
+msgstr "3乘以8等于多少"
 
 #: sagenb/notebook/challenge.py:222
 msgid "24|twenty-four"
-msgstr ""
+msgstr "24|二十四"
 
 #: sagenb/notebook/challenge.py:223
 msgid "What is 2 plus 3?"
-msgstr ""
+msgstr "2+3=？"
 
 #: sagenb/notebook/challenge.py:223 sagenb/notebook/challenge.py:225
 msgid "5|five"
-msgstr ""
+msgstr "5|五"
 
 #: sagenb/notebook/challenge.py:224
 msgid "How many bits are in one byte?"
-msgstr ""
+msgstr "一个字节里有多少位"
 
 #: sagenb/notebook/challenge.py:224
 msgid "8|eight"
-msgstr ""
+msgstr "8|八"
 
 #: sagenb/notebook/challenge.py:225
 msgid "What is the largest prime factor of 15?"
-msgstr ""
+msgstr "15的最大素因子是？"
 
 #: sagenb/notebook/conf.py:130
 msgid "Updated"
-msgstr ""
+msgstr "已更新"
 
 #: sagenb/notebook/notebook.py:211
 msgid "optional"
-msgstr ""
+msgstr "可选择的"
 
 #: sagenb/notebook/notebook.py:1731
 msgid "The worksheet does not exist"
-msgstr ""
+msgstr "此工作稿不存在"
 
 #: sagenb/notebook/register.py:19 sagenb/notebook/register.py:29
 #, python-format
@@ -2042,6 +2057,8 @@ msgid ""
 "Hi %(username)s!\n"
 "\n"
 msgstr ""
+"你好 %(username)s!\n"
+"\n"
 
 #: sagenb/notebook/register.py:20
 #, python-format
@@ -2051,16 +2068,11 @@ msgid ""
 "\n"
 "%(url_prefix)s://%(addr)s:%(port)s/confirm?key=%(key)s\n"
 "\n"
-"You will be taken to a page which will confirm that you have indeed "
-"registered."
+"You will be taken to a page which will confirm that you have indeed registered."
 msgstr ""
-"Thank you for registering for the AHI notebook. To complete your "
-"registration, copy and paste the following link into your browser:\n"
+"感谢您注册 AHI笔记本。为了完成注册，请在你的浏览器中靠背和粘贴如下内容：\n"
 "\n"
-"%(url_prefix)s://%(addr)s:%(port)s/confirm?key=%(key)s\n"
-"\n"
-"You will be taken to a page which will confirm that you have indeed "
-"registered."
+"%(url_prefix)s://%(addr)s:%(port)s/confirm?key=%(key)s"
 
 #: sagenb/notebook/register.py:30
 #, python-format
@@ -2071,190 +2083,191 @@ msgid ""
 "\n"
 "Make sure to reset your password by going to Settings in the upper right bar."
 msgstr ""
+"你的新密码是  %(key)s\n"
+"\n"
+"登入 %(url_prefix)s://%(addr)s:%(port)s/\n"
+"\n"
+"确保去右上角的工具栏的设置里面去重置密码."
 
 #: sagenb/notebook/server_conf.py:60 sagenb/notebook/user_conf.py:23
 msgid "Appearance"
-msgstr ""
+msgstr "外观"
 
 #: sagenb/notebook/server_conf.py:61
 msgid "Authentication"
-msgstr ""
+msgstr "认证"
 
 #: sagenb/notebook/server_conf.py:62
 msgid "Server"
-msgstr ""
+msgstr "服务器"
 
 #: sagenb/notebook/server_conf.py:63
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #: sagenb/notebook/server_conf.py:68
 msgid "Maximum history length"
-msgstr ""
+msgstr "最大历史长度"
 
 #: sagenb/notebook/server_conf.py:75
 msgid "Idle timeout for normal worksheets (seconds)"
-msgstr ""
+msgstr "工作稿空闲时间超时"
 
 #: sagenb/notebook/server_conf.py:82
 msgid "Idle timeout for live documentation (seconds)"
-msgstr ""
+msgstr "活动状态的工作稿空闲时间超时（秒）"
 
 #: sagenb/notebook/server_conf.py:88
 msgid "Idle check interval (seconds)"
-msgstr ""
+msgstr "检查区间间隙（秒）"
 
 #: sagenb/notebook/server_conf.py:94
 msgid "Save interval (seconds)"
-msgstr ""
+msgstr "保存间隔（秒）"
 
 #: sagenb/notebook/server_conf.py:100
 msgid "Doc worksheet pool size"
-msgstr ""
+msgstr "文档工作稿的工作池的大小"
 
 #: sagenb/notebook/server_conf.py:106
 msgid "Enable published interacts (EXPERIMENTAL; USE AT YOUR OWN RISK)"
-msgstr ""
+msgstr "使用发行的交互（试验型的；可能有风险）"
 
 #: sagenb/notebook/server_conf.py:112
 msgid "Worksheet process users (comma-separated list)"
-msgstr ""
+msgstr "工作稿处理用户"
 
 #: sagenb/notebook/server_conf.py:118
 msgid "Default system"
-msgstr ""
+msgstr "默认系统"
 
 #: sagenb/notebook/server_conf.py:124
 msgid "Worksheet process limits"
-msgstr ""
+msgstr "工作稿处理限制"
 
 #: sagenb/notebook/server_conf.py:130
 msgid "Model Version"
-msgstr ""
+msgstr "模型版本"
 
 #: sagenb/notebook/server_conf.py:136
 msgid "Send notification e-mails to (comma-separated list)"
-msgstr ""
+msgstr "发送通知邮箱到（逗号分隔列表）"
 
 #: sagenb/notebook/server_conf.py:142
 msgid "Number of word-wrap columns"
-msgstr ""
+msgstr "字包列数"
 
 #: sagenb/notebook/server_conf.py:148
 msgid "Pretty print (typeset) output"
-msgstr ""
+msgstr "漂亮的打印输出（排版）"
 
 #: sagenb/notebook/server_conf.py:154
 msgid "Default Language"
-msgstr ""
+msgstr "默认语言"
 
 #: sagenb/notebook/server_conf.py:163
 msgid "Allow OpenID authentication (requires python ssl module)"
-msgstr ""
+msgstr "允许OpenID授权（需要python ssl模块）"
 
 #: sagenb/notebook/server_conf.py:170
 msgid "Enable user registration"
-msgstr ""
+msgstr "启用用户注册"
 
 #: sagenb/notebook/server_conf.py:177
 msgid "Require e-mail for account registration"
-msgstr ""
+msgstr "要求电子邮件账户注册"
 
 #: sagenb/notebook/server_conf.py:184
 msgid "Use a challenge for account registration"
-msgstr ""
+msgstr "使用一个账户注册"
 
 #: sagenb/notebook/server_conf.py:191
 msgid "Type of challenge"
-msgstr ""
+msgstr "挑战类型"
 
 #: sagenb/notebook/server_conf.py:194
 msgid "simple"
-msgstr ""
+msgstr "简单的"
 
 #: sagenb/notebook/server_conf.py:194
 msgid "recaptcha"
-msgstr ""
+msgstr "翻新的"
 
 #: sagenb/notebook/server_conf.py:198
 msgid "reCAPTCHA public key"
-msgstr ""
+msgstr "重新体验公共秘钥"
 
 #: sagenb/notebook/server_conf.py:204
 msgid "reCAPTCHA private key"
-msgstr ""
+msgstr "重新体验私人秘钥"
 
 #: sagenb/notebook/server_conf.py:212
 msgid "Enable LDAP Authentication"
-msgstr ""
+msgstr "启用LDAP认证"
 
 #: sagenb/notebook/server_conf.py:219
 msgid "LDAP URI"
-msgstr ""
+msgstr "LDAP URI"
 
 #: sagenb/notebook/server_conf.py:226
 msgid "Bind DN"
-msgstr ""
+msgstr "绑定DN"
 
 #: sagenb/notebook/server_conf.py:233
 msgid "Bind Password"
-msgstr ""
+msgstr "绑定密码"
 
 #: sagenb/notebook/server_conf.py:240
 msgid "Use GSSAPI instead of Bind DN/Password"
-msgstr ""
+msgstr "使用GSSAPI替代绑定DN/密码"
 
 #: sagenb/notebook/server_conf.py:247
 msgid "Base DN"
-msgstr ""
+msgstr "基于DN建立"
 
 #: sagenb/notebook/server_conf.py:254
 msgid "Username Attribute (i.e. cn, uid or userPrincipalName)"
-msgstr ""
+msgstr "任意用户名（例如cn，uid或者基本名字）"
 
 #: sagenb/notebook/server_conf.py:261
 msgid "Query timeout (seconds)"
-msgstr ""
+msgstr "查询超时（秒）"
 
 #: sagenb/notebook/template.py:72
 #, python-format
 msgid "%(num)d second"
 msgid_plural "%(num)d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d 秒"
 
 #: sagenb/notebook/template.py:75
 #, python-format
 msgid "%(num)d minute"
 msgid_plural "%(num)d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d 分"
 
 #: sagenb/notebook/template.py:78
 #, python-format
 msgid "%(num)d hour"
 msgid_plural "%(num)d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d 小时"
 
 #: sagenb/notebook/template.py:80
 #, python-format
 msgid "%(num)d day"
 msgid_plural "%(num)d days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(num)d 天"
 
 #: sagenb/notebook/template.py:134
 msgid "Sage Notebook"
-msgstr "AHI Notebook"
+msgstr "AHI工作稿"
 
 #: sagenb/notebook/tutorial.py:354
 msgid "Find Help and Documentation"
-msgstr ""
+msgstr "找到帮助和文档"
 
 #: sagenb/notebook/tutorial.py:355
 msgid "Get Started with Sage"
-msgstr "Get Started with AHI"
+msgstr "开始使用AHI吧"
 
 #: sagenb/notebook/tutorial.py:355
 msgid ""
@@ -2262,10 +2275,13 @@ msgid ""
 "you have trouble with it, view the <a href=\"/doc/static/tutorial/index.html"
 "\">static version</a>)."
 msgstr ""
+"<a href=\"/doc/live/tutorial/index.html\">Work through the tutorial</a> (if "
+"you have trouble with it, view the <a href=\"/doc/static/tutorial/index.html"
+"\">static version</a>)."
 
 #: sagenb/notebook/tutorial.py:356
 msgid "Help About"
-msgstr ""
+msgstr "关于帮助"
 
 #: sagenb/notebook/tutorial.py:357
 msgid ""
@@ -2273,6 +2289,8 @@ msgid ""
 "(shift-enter overwrites output and saves to worksheet).  Doing this twice or "
 "more toggles with formatted source code."
 msgstr ""
+"类型？就在对象或函数，按Tab或Shift输入（移位进入覆盖输出和保存到工作稿）。在这"
+"两次或更多格式化源代码切换。"
 
 #: sagenb/notebook/tutorial.py:359
 msgid ""
@@ -2280,22 +2298,26 @@ msgid ""
 "output and saves to worksheet).  Doing this twice or more toggles with just "
 "the documentation."
 msgstr ""
+"放？？对象之后，按Tab或移位（移位输入输出和输入覆盖保存到工作稿）。在这两次或更"
+"多的只是文件切换。"
 
 #: sagenb/notebook/tutorial.py:360
 msgid "Full Text Search of Docs and Source"
-msgstr ""
+msgstr "文档和源代码的全文搜索"
 
 #: sagenb/notebook/tutorial.py:361
 msgid ""
-"Search the SAGE documentation by typing <pre>search_doc(\"my query\")</pre> "
-"in an input cell and press shift-enter.  Search the source code of SAGE by "
-"typing <pre>search_src(\"my query\")</pre> and pressing shift-enter.  "
-"Arbitrary regular expressions are allowed as queries."
+"Search the SAGE documentation by typing <pre>search_doc(\"my query\")</pre> in "
+"an input cell and press shift-enter.  Search the source code of SAGE by typing "
+"<pre>search_src(\"my query\")</pre> and pressing shift-enter.  Arbitrary "
+"regular expressions are allowed as queries."
 msgstr ""
+"通过在输入单元和按shift确认键入 <pre>search_doc(\"my query\")</pre> 搜索S引擎的"
+"源代码（“我的查询”）< /预>和按Shift进入。任意正则表达式被允许作为查询。"
 
 #: sagenb/notebook/tutorial.py:362
 msgid "Live Documentation"
-msgstr ""
+msgstr "有效的文件"
 
 #: sagenb/notebook/tutorial.py:363
 msgid ""
@@ -2303,40 +2325,44 @@ msgid ""
 "full Sage documentation \"live\". (Only new compute cells allowed, click the "
 "icon.)"
 msgstr ""
-"Use <a href=\"/doc/live/index.html\">live documentation</a> to try out the "
-"full AHI documentation \"live\". (Only new compute cells allowed, click the "
-"icon.)"
+"使用 <a href=\"/doc/live/index.html\">在线文档</a>搜索整个S引擎文档“实时”。（只"
+"允许新计算单元格，点击图标。）"
 
 #: sagenb/notebook/tutorial.py:367
 msgid "Key and Mouse Bindings"
-msgstr ""
+msgstr "键鼠绑定"
 
 #: sagenb/notebook/tutorial.py:368
 msgid "Evaluate Input"
-msgstr ""
+msgstr "评估输入"
 
 #: sagenb/notebook/tutorial.py:369
 msgid ""
-"Press <strong>shift-enter</strong> or click the \"evaluate\" button.  You "
-"can start several calculations at once.  If you press <strong>alt-enter</"
-"strong> instead, then a new cell is created after the current one.  If you "
-"press <strong>ctrl-enter</strong> then the cell is split and both pieces are "
+"Press <strong>shift-enter</strong> or click the \"evaluate\" button.  You can "
+"start several calculations at once.  If you press <strong>alt-enter</strong> "
+"instead, then a new cell is created after the current one.  If you press "
+"<strong>ctrl-enter</strong> then the cell is split and both pieces are "
 "evaluated separately."
 msgstr ""
+"按<strong>shift-enter</strong>或者点击“评估”按钮。你可以开始几次计算。如果你按 "
+"<strong>alt-enter</strong>，一个新的单元是在当前的一个。如果你按<strong>ctrl-"
+"enter</strong>，接下来单元分裂，这两个片段分别进行评价。"
 
 #: sagenb/notebook/tutorial.py:370
 msgid "Tab Completion"
-msgstr ""
+msgstr "Tab 编辑"
 
 #: sagenb/notebook/tutorial.py:371
 msgid ""
 "Press <strong>tab</strong> while the cursor is on an identifier. On some web "
 "browsers (e.g., Opera) you must use control-space instead of tab."
 msgstr ""
+"当光标位于标识符时按<strong>tab</strong>。在一些浏览器中（例如opera），你必须使"
+"用 control-space来代替tab"
 
 #: sagenb/notebook/tutorial.py:372
 msgid "Insert New Cell"
-msgstr ""
+msgstr "插入新单元"
 
 #: sagenb/notebook/tutorial.py:373
 msgid ""
@@ -2344,18 +2370,20 @@ msgid ""
 "appears and click, or click the \"plus\" icon.  If you press Alt-Enter in a "
 "cell, the cell is evaluated and a new cell is inserted after it."
 msgstr ""
+"把鼠标放在输出和输入之间，直到蓝色的水平线出现并点击，或点击“加”图标。如果你按"
+"在一个单元格中输入Alt-Enter，新的单元将会在其之后插入。"
 
 #: sagenb/notebook/tutorial.py:374
 msgid "Delete Cell"
-msgstr ""
+msgstr "删除单元"
 
 #: sagenb/notebook/tutorial.py:375
 msgid "Delete all cell contents, then press <strong>backspace</strong>."
-msgstr ""
+msgstr "删除所有的单元内容，然后按 <strong>backspace</strong>."
 
 #: sagenb/notebook/tutorial.py:376
 msgid "Split and Join Cells"
-msgstr ""
+msgstr "分类并重组单元"
 
 #: sagenb/notebook/tutorial.py:377
 msgid ""
@@ -2363,62 +2391,73 @@ msgid ""
 "<strong>ctrl-backspace</strong> to join them.  Press <strong>ctrl-enter</"
 "strong> to split a cell and evaluate both pieces."
 msgstr ""
+"在一个单元中按<strong>ctrl-;</strong>以把它分类成两个单元，然后<strong>ctrl-"
+"backspace</strong>以重组它们。按 <strong>ctrl-enter</strong>以分类单元并评估两"
+"片。"
 
 #: sagenb/notebook/tutorial.py:378
 msgid "Insert New Text Cell"
-msgstr ""
+msgstr "插入新内容单元"
 
 #: sagenb/notebook/tutorial.py:379
 msgid ""
 "Move the mouse between cells until a blue bar appears.  <strong>Shift-click</"
 "strong> on the blue bar, or click on the text bubble icon, to create a new "
-"text cell.  Use $...$ and $$...$$ to include typeset math in the text "
-"block.  Click the button to save changes, or press <strong>shift-enter</"
-"strong>."
+"text cell.  Use $...$ and $$...$$ to include typeset math in the text block.  "
+"Click the button to save changes, or press <strong>shift-enter</strong>."
 msgstr ""
+"将鼠标移动到一个蓝色栏出现时。<strong>Shift-click</strong>在“蓝”栏上，或单击“文"
+"本”图标，以创建一个新的文本单元格。使用在“蓝”栏上，或单击“文本”图标，以创建一个"
+"新的文本单元格。使用 $...$ and $$...$$包括排版文本区域中的数学，单击按钮以保存"
+"变更，或者按 $...$ and $$...$$"
 
 #: sagenb/notebook/tutorial.py:380
 msgid "Edit Text Cell"
-msgstr ""
+msgstr "编辑内容单元"
 
 #: sagenb/notebook/tutorial.py:381
 msgid "Double click on existing text to edit it."
-msgstr ""
+msgstr "双击现存文档以进行修改"
 
 #: sagenb/notebook/tutorial.py:382
 msgid "Hide/Show Output"
-msgstr ""
+msgstr "隐藏/显示输出"
 
 #: sagenb/notebook/tutorial.py:383
 msgid ""
 "Click on the left side of output to toggle between hidden, shown with word "
 "wrap, and shown without word wrap."
-msgstr ""
+msgstr "点击左侧的输出切换到切换之间的隐藏，显示用字结束，并没有用词包。"
 
 #: sagenb/notebook/tutorial.py:384
 msgid "Indenting Blocks"
-msgstr ""
+msgstr "缩进排版区域"
 
 #: sagenb/notebook/tutorial.py:385
 msgid ""
-"Highlight text and press > to indent it all and < to unindent it all (works "
-"in Safari and Firefox).  In Firefox you can also press tab and shift-tab."
+"Highlight text and press > to indent it all and < to unindent it all (works in "
+"Safari and Firefox).  In Firefox you can also press tab and shift-tab."
 msgstr ""
+"突出显示文本，并按>缩进一切＜取消缩排一切（Safari和Firefox）。在浏览器中，您还"
+"可以按“标签”和“移位”选项卡。"
 
 #: sagenb/notebook/tutorial.py:386
 msgid "Comment/Uncomment Blocks"
-msgstr ""
+msgstr "批注/取消批注区域"
 
 #: sagenb/notebook/tutorial.py:387
 msgid ""
 "Highlight text and press <strong>ctrl-.</strong> to comment it and "
-"<strong>ctrl-,</strong> to uncomment it. As an alternative (necessary in "
-"some browsers), use <strong>ctrl-3</strong> and <strong>ctrl-4</strong>."
+"<strong>ctrl-,</strong> to uncomment it. As an alternative (necessary in some "
+"browsers), use <strong>ctrl-3</strong> and <strong>ctrl-4</strong>."
 msgstr ""
+"突出文本并按<strong>ctrl-.</strong>以批注并 <strong>ctrl-,</strong>以取消批注。"
+"作为一种替代（在某些浏览器中必须），使用<strong>ctrl-3</strong> and "
+"<strong>ctrl-4</strong>."
 
 #: sagenb/notebook/tutorial.py:388
 msgid "Paren matching"
-msgstr ""
+msgstr "Paren匹配"
 
 #: sagenb/notebook/tutorial.py:388
 msgid ""
@@ -2426,42 +2465,42 @@ msgid ""
 "<strong>ctrl-0</strong>.  Parentheses before the cursor will be matched, "
 "minding strings and (Python) comments."
 msgstr ""
+"为了修正不匹配的插入，单括号或双括号，按<strong>ctrl-0</strong>.在光标将匹配的"
+"括号，注意字符串（Python）的评论。"
 
 #: sagenb/notebook/tutorial.py:392
 msgid "Interrupt and Restart Sessions"
-msgstr ""
+msgstr "中断和重新启动会话"
 
 #: sagenb/notebook/tutorial.py:393
 msgid "Interrupt Running Calculations"
-msgstr ""
+msgstr "中断运行计算"
 
 #: sagenb/notebook/tutorial.py:394
 msgid ""
-"Click <u>Interrupt</u> or press escape in any input cell. This will "
-"(attempt) to interrupt SAGE by sending many interrupt signals."
+"Click <u>Interrupt</u> or press escape in any input cell. This will (attempt) "
+"to interrupt SAGE by sending many interrupt signals."
 msgstr ""
-"Click <u>Interrupt</u> or press escape in any input cell. This will "
-"(attempt) to interrupt AHI by sending many interrupt signals."
+"单击 <u>打断</u>或者在任意输入单元按escape。这将（尝试）通过发送许多中断信号来"
+"中断S引擎。"
 
 #: sagenb/notebook/tutorial.py:395
 msgid "Restart"
-msgstr ""
+msgstr "重新开始"
 
 #: sagenb/notebook/tutorial.py:396
 msgid ""
-"Type \"restart\" to restart the SAGE interpreter for a given worksheet.  "
-"(You have to interrupt first.)"
-msgstr ""
-"Type \"restart\" to restart the AHI interpreter for a given worksheet.  (You "
+"Type \"restart\" to restart the SAGE interpreter for a given worksheet.  (You "
 "have to interrupt first.)"
+msgstr "类型“重新启动”为一个给定的工作稿重新启动”SAGE翻译“（你必须先中断）"
 
 #: sagenb/notebook/tutorial.py:398
 msgid "Special Cell Blocks"
-msgstr ""
+msgstr "特殊单元区域"
 
 #: sagenb/notebook/tutorial.py:399
 msgid "Evaluate Cell using GAP, Singular, etc."
-msgstr ""
+msgstr "使用GAP，单数的词等评估单元"
 
 #: sagenb/notebook/tutorial.py:400
 #, python-format
@@ -2469,10 +2508,12 @@ msgid ""
 "Put \"%%gap\", \"%%singular\", etc. as the first input line of a cell; the "
 "rest of the cell is evaluated in that system."
 msgstr ""
+"把\"%%gap\", \"%%singular\",放在最先输入单元队列；在该系统中的其余的单元进行评"
+"估。"
 
 #: sagenb/notebook/tutorial.py:401
 msgid "Shell Scripts"
-msgstr ""
+msgstr "shell脚本"
 
 #: sagenb/notebook/tutorial.py:402
 #, python-format
@@ -2480,117 +2521,129 @@ msgid ""
 "Begin a block with %%sh to have the rest of the block evaluated as a shell "
 "script.  The current working directory is maintained."
 msgstr ""
+"为将其余的区域作为一个壳脚本进行评估，以%%sh开始一个区域。保持当前工作目录。"
 
 #: sagenb/notebook/tutorial.py:403
 msgid "Interactive Dynamic Widgets"
-msgstr ""
+msgstr "交互式动态部件"
 
 #: sagenb/notebook/tutorial.py:404
 msgid ""
 "Put @interact on the line before a function definition.  Type interact? for "
 "more details."
-msgstr ""
+msgstr "将@interact放在函数定义之前。类型相互作用？更多细节。"
 
 #: sagenb/notebook/tutorial.py:405
 msgid "Autoevaluate Cells on Load"
-msgstr ""
+msgstr "自动评估单元负荷"
 
 #: sagenb/notebook/tutorial.py:406
 msgid ""
 "Any cells with \"#auto\" in the input is automatically evaluated when the "
 "worksheet is first opened."
-msgstr ""
+msgstr "任何再输入中包含 \"#auto\"单元当工作稿第一次打开时会自动进行评价。"
 
 #: sagenb/notebook/tutorial.py:407
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 #: sagenb/notebook/tutorial.py:408
 #, python-format
 msgid "Type \"%%time\" at the beginning of the cell."
-msgstr ""
+msgstr "单元开始时的键入 \"%%time\" 。"
 
 #: sagenb/notebook/tutorial.py:410
 msgid "Useful Tips"
-msgstr ""
+msgstr "有用的建议"
 
 #: sagenb/notebook/tutorial.py:411
 msgid "Input Rules"
-msgstr ""
+msgstr "输入规则"
 
 #: sagenb/notebook/tutorial.py:412
 msgid ""
-"Code is evaluated by exec'ing (after preparsing).  Only the output of the "
-"last line of the cell is implicitly printed.  If any line starts with \"sage:"
-"\" or \">>>\" the entire block is assumed to contain text and examples, so "
-"only lines that begin with a prompt are executed.   Thus you can paste in "
-"complete examples from the docs without any editing, and you can write input "
-"cells that contains non-evaluated plain text mixed with examples by starting "
-"the block with \">>>\" or including an example."
+"Code is evaluated by exec'ing (after preparsing).  Only the output of the last "
+"line of the cell is implicitly printed.  If any line starts with \"sage:\" or "
+"\">>>\" the entire block is assumed to contain text and examples, so only "
+"lines that begin with a prompt are executed.   Thus you can paste in complete "
+"examples from the docs without any editing, and you can write input cells that "
+"contains non-evaluated plain text mixed with examples by starting the block "
+"with \">>>\" or including an example."
 msgstr ""
+"代码是通过执行（准备后）。只有输出的最后一行的单元格是隐式打印。如果任一行以 "
+"\"AHI:\"或者 \">>>\"开始，整个区域被假定为包含文本和实例，因此只有在开始时才执"
+"行的行。因此你可以粘贴在完整的实例文档没有任何编辑，你可以写输入的单元格包含文"
+"本和非评价实例启动区域”> > >”为例。"
 
 #: sagenb/notebook/tutorial.py:413
 msgid "History"
-msgstr ""
+msgstr "历史"
 
 #: sagenb/notebook/tutorial.py:414
 msgid ""
-"Click <a href=\"/history\">log</a> commands you have entered in any "
-"worksheet of this notebook."
+"Click <a href=\"/history\">log</a> commands you have entered in any worksheet "
+"of this notebook."
 msgstr ""
+"单击<a href=\"/history\">log</a>在此手册中任一工作稿中输入你已经输入的指令"
 
 #: sagenb/notebook/tutorial.py:415
 msgid "Typesetting All Output"
-msgstr ""
+msgstr "排版输出"
 
 #: sagenb/notebook/tutorial.py:416
 msgid ""
 "Type pretty_print_default() in an input cell and press shift-enter.  All "
 "future output will be typeset automatically."
 msgstr ""
+"型pretty_print_default()输入单元，按住Shift键输入。所有未来的输出将自动排版。"
 
 #: sagenb/notebook/tutorial.py:418
 msgid "Files and Scripts"
-msgstr ""
+msgstr "文档和脚本"
 
 #: sagenb/notebook/tutorial.py:419
 msgid "Loading SAGE/Python Scripts"
-msgstr "Loading AHI/Python Scripts"
+msgstr "正在下载AHI/Python脚本"
 
 #: sagenb/notebook/tutorial.py:420
 msgid ""
-"Use \"load filename.sage\" and \"load filename.py\".  Load is relative to "
-"the path you started the notebook in.  The .sage files are preparsed and .py "
-"files are not.   You may omit the .sage or .py extension.  Files may load "
-"other files."
+"Use \"load filename.sage\" and \"load filename.py\".  Load is relative to the "
+"path you started the notebook in.  The .sage files are preparsed and .py files "
+"are not.   You may omit the .sage or .py extension.  Files may load other "
+"files."
 msgstr ""
+"使用 \"load filename.sage\"并\"load filename.py\"。负载是相对的路径你开始在笔记"
+"本电脑的。AHI文件preparsed和.py文件不。你可以省略。AHI或.py扩展。文件可以载入其"
+"他文件。"
 
 #: sagenb/notebook/tutorial.py:421
 msgid "Attaching Scripts"
-msgstr ""
+msgstr "附上脚本"
 
 #: sagenb/notebook/tutorial.py:422
 msgid ""
 "(Currently no different from \"load\", see <a href=\"https://github.com/"
 "sagemath/sagenb/issues/169\" target=\"_blank\">bug report</a>) Use \"attach "
 "filename.sage\" or \"attach filename.py\".  Attached files are automatically "
-"reloaded when the file changes.  The file $HOME/.sage/init.sage is attached "
-"on startup if it exists."
-msgstr ""
+"reloaded when the file changes.  The file $HOME/.sage/init.sage is attached on "
+"startup if it exists."
+msgstr "（目前从\"load\"看到 github 提交bug 没有不同）"
 
 #: sagenb/notebook/tutorial.py:423
 msgid "Working Directory"
-msgstr ""
+msgstr "工作目录"
 
 #: sagenb/notebook/tutorial.py:424
 msgid ""
 "Each block of code is run from its own directory.  If any images are created "
 "as a side effect, they will automatically be displayed."
 msgstr ""
+"每个代码区域都是从它自己的目录中运行的。如果任何图像被创建作为副作用，他们会自"
+"动显示。"
 
 #: sagenb/notebook/tutorial.py:425
 msgid "DIR Variable"
-msgstr ""
+msgstr "DIR变量"
 
 #: sagenb/notebook/tutorial.py:426
 msgid ""
@@ -2598,33 +2651,29 @@ msgid ""
 "notebook.  For example, to open a file in that directory, do \"open(DIR"
 "+'filename')\"."
 msgstr ""
-"The variable DIR contains the directory from which you started the AHI "
-"notebook.  For example, to open a file in that directory, do \"open(DIR"
-"+'filename')\"."
+"DIR变量包含你开始使用AHI手册的目录，例如，为了打开一个在目录中的文档，执行"
+"\"open(DIR+'filename')\"."
 
 #: sagenb/notebook/tutorial.py:427
 msgid "DATA Variable"
-msgstr ""
+msgstr "DATA变量"
 
 #: sagenb/notebook/tutorial.py:428
 msgid ""
-"Use the Data menu to upload images and other files, and create new files "
-"that can be shared between worksheets.  The DATA variable contains the path "
-"to the data files.  For example, to open a file in that directory, do "
-"\"open(DATA+'filename')\".  If foo.sage is a Sage file that you uploaded, "
-"type \"load foo.sage\"; if foo.py is a Python file, you can import it by "
-"typing \"import foo\"."
+"Use the Data menu to upload images and other files, and create new files that "
+"can be shared between worksheets.  The DATA variable contains the path to the "
+"data files.  For example, to open a file in that directory, do \"open(DATA"
+"+'filename')\".  If foo.sage is a Sage file that you uploaded, type \"load foo."
+"sage\"; if foo.py is a Python file, you can import it by typing \"import foo\"."
 msgstr ""
-"Use the Data menu to upload images and other files, and create new files "
-"that can be shared between worksheets.  The DATA variable contains the path "
-"to the data files.  For example, to open a file in that directory, do "
-"\"open(DATA+'filename')\".  If foo.sage is a AHI file that you uploaded, "
-"type \"load foo.sage\"; if foo.py is a Python file, you can import it by "
-"typing \"import foo\"."
+"使用“数据”菜单里面的命令来上传图片和其他文件，并创建新的文件之间可以共享工作"
+"稿。DATA变量包含数据文件的路径。例如，在该目录中打开一个文件，执行\"open(DATA"
+"+'filename')\".如果foo.sage是一个你上传的S引擎文件，键入\"load foo.sage\";如果"
+"foo.py是一个Python文件，你可以通过键入\"import foo\"导出它。"
 
 #: sagenb/notebook/tutorial.py:429
 msgid "Loading and Saving Objects"
-msgstr ""
+msgstr "加载和保存对象"
 
 #: sagenb/notebook/tutorial.py:430
 msgid ""
@@ -2633,105 +2682,107 @@ msgid ""
 "objects between worksheets, you may save to any filename (given as a string) "
 "Sage can write to on your system."
 msgstr ""
-"Use \"save(obj1,DATA+'foo')\" to save an object to the data directory of a "
-"worksheet, and \"obj1 = load(DATA+'foo')\" to load it again.  To use such "
-"objects between worksheets, you may save to any filename (given as a string) "
-"AHI can write to on your system."
+"使用 \"save(obj1,DATA+'foo')\"以将对象保存到工作稿的数据目录，\"obj1 = "
+"load(DATA+'foo')\"来重新下载它。使用工作稿对象之间，你可以保存任何文件名（作为"
+"一个字符串）圣人可以写在你的系统。"
 
 #: sagenb/notebook/tutorial.py:431
 msgid "Loading and Saving Sessions"
-msgstr ""
+msgstr "下载并保存会话。"
 
 #: sagenb/notebook/tutorial.py:432
 msgid ""
 "Use \"save_session('name')\" to save all variables to an object.  Use "
-"\"load_session('name')\" to <i>merge</i> in all variables from a saved "
-"session."
+"\"load_session('name')\" to <i>merge</i> in all variables from a saved session."
 msgstr ""
+"使用 \"save_session('name')\"以保存所有变量到对象中。使用 来自于一个一存储的绘"
+"画中\"load_session('name')\" to <i>merge</i>的所有变量。"
 
 #: sagenb/notebook/tutorial.py:433
 msgid "Customizing the Notebook CSS"
-msgstr ""
+msgstr "定制笔记本的CSS"
 
 #: sagenb/notebook/tutorial.py:434
 msgid ""
 "If you create a file <tt>$HOME/.sage/notebook.css</tt> then it will get "
 "applied when rendering the notebook.   See "
 msgstr ""
+"如果你新建一个文件<tt>$HOME/.sage/notebook.css</tt>，那么它将在渲染笔记本时发挥"
+"作用. 看"
 
 #: sagenb/notebook/user_conf.py:22
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: sagenb/notebook/wiki2html.py:647
 #, python-format
 msgid "Expected \"%(wanted)s\" after \"%(key)s\", got \"%(token)s\""
-msgstr ""
+msgstr "期望的\"%(wanted)s\"在 \"%(key)s\"后得到\"%(token)s\""
 
 #: sagenb/notebook/wiki2html.py:653
 #, python-format
 msgid "Expected an integer \"%(key)s\" before \"%(token)s\""
-msgstr ""
+msgstr "在\"%(token)s\"前期望一个整数 \"%(key)s\""
 
 #: sagenb/notebook/wiki2html.py:663 sagenb/notebook/wiki2html.py:673
 #, python-format
 msgid "Expected an integer \"%(arg)s\" after \"%(key)s\""
-msgstr ""
+msgstr "在 \"%(key)s\"后期望一个整数 \"%(arg)s\""
 
 #: sagenb/notebook/wiki2html.py:699
 #, python-format
 msgid "Expected a color value \"%(arg)s\" after \"%(key)s\""
-msgstr ""
+msgstr "在 \"%(key)s\"后给一个颜色值\"%(arg)s\""
 
 #: sagenb/notebook/worksheet.py:2133
 #, python-format
 msgid "%(seconds)s ago"
-msgstr ""
+msgstr "%(seconds)s 以前"
 
 #: sagenb/notebook/worksheet.py:4416
 msgid "January"
-msgstr ""
+msgstr "一月"
 
 #: sagenb/notebook/worksheet.py:4417
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 #: sagenb/notebook/worksheet.py:4418
 msgid "March"
-msgstr ""
+msgstr "三月"
 
 #: sagenb/notebook/worksheet.py:4419
 msgid "April"
-msgstr ""
+msgstr "四月"
 
 #: sagenb/notebook/worksheet.py:4420
 msgid "May"
-msgstr ""
+msgstr "五月"
 
 #: sagenb/notebook/worksheet.py:4421
 msgid "June"
-msgstr ""
+msgstr "六月"
 
 #: sagenb/notebook/worksheet.py:4422
 msgid "July"
-msgstr ""
+msgstr "七月"
 
 #: sagenb/notebook/worksheet.py:4423
 msgid "August"
-msgstr ""
+msgstr "八月"
 
 #: sagenb/notebook/worksheet.py:4424
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 #: sagenb/notebook/worksheet.py:4425
 msgid "October"
-msgstr ""
+msgstr "十月"
 
 #: sagenb/notebook/worksheet.py:4426
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
 #: sagenb/notebook/worksheet.py:4427
 msgid "December"
-msgstr ""
+msgstr "十二月"
