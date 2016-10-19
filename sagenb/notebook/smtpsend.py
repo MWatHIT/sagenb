@@ -8,6 +8,7 @@
 #  The full text of the GPL is available at:
 #                  http://www.gnu.org/licenses/
 #############################################################################
+from __future__ import print_function  # must be here !
 
 """
 Sending mail using Twisted
@@ -16,12 +17,16 @@ AUTHOR:
     -- Bobby Moretti
 """
 
+
 from twisted.mail import smtp, relaymanager
 from twisted.internet import reactor, defer
 from email.MIMEBase import MIMEBase
 from email.MIMEMultipart import MIMEMultipart
 from email import Encoders
-import sys, mimetypes, os
+import sys
+import mimetypes
+import os
+
 
 def buildMessage(fromaddr, toaddr, subject, body):
     message = MIMEMultipart()
@@ -34,16 +39,16 @@ def buildMessage(fromaddr, toaddr, subject, body):
     return message
 
 def sendComplete(result):
-    print "Message sent."
+    print("Message sent.")
 
 def handleError(error):
-    print >> sys.stderr, "Error", error.getErrorMessage()
+    print("Error {}".format(error.getErrorMessage()), file=sys.stderr)
 
 def send_mail(fromaddr, toaddr, subject, body, on_success=sendComplete, on_failure=handleError):
     try:
         recpt_domain = toaddr.split('@')[1].encode("ascii")
     except (ValueError, IndexError, UnicodeDecodeError):
-        raise ValueError, "mal-formed destination address"
+        raise ValueError("mal-formed destination address")
     message = buildMessage(fromaddr, toaddr, subject, body)
     messageData = message.as_string(unixfrom=False)
 

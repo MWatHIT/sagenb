@@ -4,7 +4,7 @@ The Sage Notebook
 
 AUTHORS:
 
-  - William Stein
+- William Stein
 """
 
 #############################################################################
@@ -15,6 +15,7 @@ AUTHORS:
 #                  http://www.gnu.org/licenses/
 #
 #############################################################################
+from __future__ import print_function, absolute_import
 
 # For debugging sometimes it is handy to use only the reference implementation.
 USE_REFERENCE_WORKSHEET_PROCESSES = False
@@ -27,9 +28,14 @@ import shutil
 import socket
 import time
 import bz2
-import cPickle
 from cgi import escape
 
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+
+from six import iteritems
 
 # Sage libraries
 from sagenb.misc.misc import (pad_zeros, cputime, tmp_dir, load, save,
@@ -44,7 +50,7 @@ from . import keyboards    # keyboard layouts
 from . import server_conf  # server configuration
 from . import user_conf    # user configuration
 from . import user         # users
-from   template import template, prettify_time_ago
+from   .template import template, prettify_time_ago
 from flask.ext.babel import gettext, lazy_gettext
 
 try:
@@ -97,19 +103,19 @@ class WorksheetDict(dict):
 
         try:
             if '/' not in item:
-                raise KeyError, item
+                raise KeyError(item)
         except TypeError:
-            raise KeyError, item
+            raise KeyError(item)
 
         username, id = item.split('/')
         try:
             id=int(id)
         except ValueError:
-            raise KeyError, item
+            raise KeyError(item)
         try:
             worksheet = self.storage.load_worksheet(username, id)
         except ValueError:
-            raise KeyError, item
+            raise KeyError(item)
 
         dict.__setitem__(self, item, worksheet)
         return worksheet
@@ -142,7 +148,7 @@ class Notebook(object):
             # Worksheet has never been saved before, so the server conf doesn't exist.
             self.__worksheets = WorksheetDict(self)
 
-        from user_manager import SimpleUserManager, OpenIDUserManager
+        from .user_manager import SimpleUserManager, OpenIDUserManager
         self._user_manager = OpenIDUserManager(conf=self.conf()) if user_manager is None else user_manager
 
         # Set up email notification logger
@@ -171,7 +177,7 @@ class Notebook(object):
                         self.__worksheets[a] = self.__storage.load_worksheet("pub",int(id_number))
                     except Exception:
                         import traceback
-                        print "Warning: problem loading %s/%s: %s"%("pub", int(id_number), traceback.format_exc())
+                        print("Warning: problem loading %s/%s: %s" % ("pub", int(id_number), traceback.format_exc()))
 
         # Set the openid-user dict
         try:
@@ -241,20 +247,21 @@ class Notebook(object):
 
         EXAMPLES::
 
+            sage: from six import iteritems
             sage: nb = sagenb.notebook.notebook.Notebook(tmp_dir(ext='.sagenb'))
             sage: nb.create_default_users('password')
-            sage: list(sorted(nb.user_manager().users().iteritems()))
+            sage: sorted(list(iteritems(nb.user_manager().users())))
             [('_sage_', _sage_), ('admin', admin), ('guest', guest), ('pub', pub)]
-            sage: list(sorted(nb.user_manager().passwords().iteritems())) #random
+            sage: sorted(list(iteritems(nb.user_manager().passwords()))) #random
             [('_sage_', ''), ('admin', ''), ('guest', ''), ('pub', '')]
             sage: nb.create_default_users('newpassword')
             WARNING: User 'pub' already exists -- and is now being replaced.
             WARNING: User '_sage_' already exists -- and is now being replaced.
             WARNING: User 'guest' already exists -- and is now being replaced.
             WARNING: User 'admin' already exists -- and is now being replaced.
-            sage: list(sorted(nb.user_manager().passwords().iteritems())) #random
+            sage: sorted(list(iteritems(nb.user_manager().passwords()))) #random
             [('_sage_', ''), ('admin', ''), ('guest', ''), ('pub', '')]
-            sage: len(list(sorted(nb.user_manager().passwords().iteritems())))
+            sage: len(list(iteritems(nb.user_manager().passwords())))
             4
         """
         self.user_manager().create_default_users(passwd)
@@ -366,7 +373,7 @@ class Notebook(object):
                         v.append(self.__worksheets[a])
                     except Exception:
                         import traceback
-                        print "Warning: problem loading %s/%s: %s"%("pub", id_number, traceback.format_exc())
+                        print("Warning: problem loading %s/%s: %s" % ("pub", id_number, traceback.format_exc()))
         return v
 
     def users_worksheets(self, username):
@@ -494,7 +501,7 @@ class Notebook(object):
         try:
             W = self.__worksheets[filename]
         except KeyError:
-            raise KeyError, "Attempt to delete missing worksheet '%s'"%filename
+            raise KeyError("Attempt to delete missing worksheet '%s'" % filename)
         
         W.quit()
         shutil.rmtree(W.directory(), ignore_errors=False)
@@ -864,7 +871,7 @@ class Notebook(object):
             W = self._import_worksheet_rst(filename, owner)
         else:
             # We only support txt, sws, html and rst files
-            raise ValueError, "unknown extension '%s'"%ext
+            raise ValueError("unknown extension '%s'" % ext)
         self.__worksheets[W.filename()] = W
         return W
 
@@ -983,28 +990,28 @@ class Notebook(object):
             sage: name = tmp_filename() + '.html'
             sage: fd = open(name,'w')
             sage: fd.write(''.join([
-            ... '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"\n',
-            ... '  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n',
-            ... '\n',
-            ... '<html xmlns="http://www.w3.org/1999/xhtml">\n',
-            ... '  <head>\n',
-            ... '   <title>Test notebook &mdash; test</title>\n',
-            ... ' </head>\n',
-            ... '  <body>\n',
-            ... '   <div class="document">\n',
-            ... '      <div class="documentwrapper">\n',
-            ... '        <div class="bodywrapper">\n',
-            ... '          <div class="body">\n',
-            ... '<p>Here are some computations:</p>\n',
-            ... '\n',
-            ... '<div class="highlight-python"><div class="highlight"><pre>\n',
-            ... '<span class="gp">sage',
-            ... ': </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>\n',
-            ... '<span class="go">2</span>\n',
-            ... '</pre></div></div>\n',
-            ... '\n',
-            ... '</div></div></div></div>\n',
-            ... '</body></html>']))
+            ....: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"\n',
+            ....: '  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n',
+            ....: '\n',
+            ....: '<html xmlns="http://www.w3.org/1999/xhtml">\n',
+            ....: '  <head>\n',
+            ....: '   <title>Test notebook &mdash; test</title>\n',
+            ....: ' </head>\n',
+            ....: '  <body>\n',
+            ....: '   <div class="document">\n',
+            ....: '      <div class="documentwrapper">\n',
+            ....: '        <div class="bodywrapper">\n',
+            ....: '          <div class="body">\n',
+            ....: '<p>Here are some computations:</p>\n',
+            ....: '\n',
+            ....: '<div class="highlight-python"><div class="highlight"><pre>\n',
+            ....: '<span class="gp">sage',
+            ....: ': </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>\n',
+            ....: '<span class="go">2</span>\n',
+            ....: '</pre></div></div>\n',
+            ....: '\n',
+            ....: '</div></div></div></div>\n',
+            ....: '</body></html>']))
             sage: fd.close()
             sage: W = nb._import_worksheet_html(name, 'admin')
             sage: W.name()
@@ -1030,12 +1037,12 @@ class Notebook(object):
         """
         # Inspired from sagenb.notebook.twist.WorksheetFile.render
         doc_page_html = open(filename).read()
-        from docHTMLProcessor import SphinxHTMLProcessor
+        from .docHTMLProcessor import SphinxHTMLProcessor
         # FIXME: does SphinxHTMLProcessor raise an appropriate message
         # if the html file does not contain a Sphinx HTML page?
         doc_page = SphinxHTMLProcessor().process_doc_html(doc_page_html)
 
-        from misc import extract_title
+        from .misc import extract_title
         title = extract_title(doc_page_html).replace('&mdash;','--')
 
         worksheet = self.create_new_worksheet(title, owner)
@@ -1066,18 +1073,18 @@ class Notebook(object):
 
             sage: sprompt = 'sage' + ':'
             sage: rst = '\n'.join(['=============',
-            ...       'Test Notebook',
-            ...       '=============',
-            ...       '',
-            ...       'Let\'s do some computations::',
-            ...       '',
-            ...       '    %s 2+2' % sprompt,
-            ...       '    4',
-            ...       '',
-            ...       '::',
-            ...       '',
-            ...       '    %s x^2' % sprompt,
-            ...       '    x^2'])
+            ....:     'Test Notebook',
+            ....:     '=============',
+            ....:     '',
+            ....:     'Let\'s do some computations::',
+            ....:     '',
+            ....:     '    %s 2+2' % sprompt,
+            ....:     '    4',
+            ....:     '',
+            ....:     '::',
+            ....:     '',
+            ....:     '    %s x^2' % sprompt,
+            ....:     '    x^2'])
             sage: name = tmp_filename() + '.rst'
             sage: fd = open(name,'w')
             sage: fd.write(rst)
@@ -1119,7 +1126,7 @@ class Notebook(object):
         html = D['whole']
 
         # Do the translation html -> txt
-        from docHTMLProcessor import docutilsHTMLProcessor
+        from .docHTMLProcessor import docutilsHTMLProcessor
         translator = docutilsHTMLProcessor()
         worksheet_txt = translator.process_doc_html(html)
 
@@ -1148,18 +1155,18 @@ class Notebook(object):
 
             sage: sprompt = 'sage' + ':'
             sage: rst = '\n'.join(['=============',
-            ...       'Test Notebook',
-            ...       '=============',
-            ...       '',
-            ...       'Let\'s do some computations::',
-            ...       '',
-            ...       '    %s 2+2' % sprompt,
-            ...       '    4',
-            ...       '',
-            ...       '::',
-            ...       '',
-            ...       '    %s x^2' % sprompt,
-            ...       '    x^2'])
+            ....:     'Test Notebook',
+            ....:     '=============',
+            ....:     '',
+            ....:     'Let\'s do some computations::',
+            ....:     '',
+            ....:     '    %s 2+2' % sprompt,
+            ....:     '    4',
+            ....:     '',
+            ....:     '::',
+            ....:     '',
+            ....:     '    %s x^2' % sprompt,
+            ....:     '    x^2'])
             sage: from docutils.core import publish_string
             sage: html = publish_string(rst, writer_name='html')
             sage: name = tmp_filename() + '.html'
@@ -1189,12 +1196,12 @@ class Notebook(object):
         html = open(filename).read()
 
         # Do the translation html -> txt
-        from docHTMLProcessor import docutilsHTMLProcessor
+        from .docHTMLProcessor import docutilsHTMLProcessor
         translator = docutilsHTMLProcessor()
         worksheet_txt = translator.process_doc_html(html)
 
         # Extract title
-        from worksheet import extract_name
+        from .worksheet import extract_name
         title, _ = extract_name(worksheet_txt)
         if title.startswith('<h1 class="title">'):
             title = title[18:]
@@ -1500,7 +1507,7 @@ class Notebook(object):
         try:
             return self.__worksheets[filename]
         except KeyError:
-            raise KeyError, "No worksheet with filename '%s'"%filename
+            raise KeyError("No worksheet with filename '%s'" % filename)
 
     ###########################################################
     # Saving the whole notebook
@@ -1519,7 +1526,7 @@ class Notebook(object):
             if not n.startswith('doc_browser'):
                 S.save_worksheet(W)
         if hasattr(self, '_user_history'):
-            for username, H in self._user_history.iteritems():
+            for username, H in iteritems(self._user_history):
                 S.save_user_history(username, H)
 
     def save_worksheet(self, W, conf_only=False):
@@ -1753,14 +1760,14 @@ class Notebook(object):
         """
         model_version=self.conf()['model_version']
         if model_version is None or model_version<1:
-            print "Upgrading model version to version 1"
+            print("Upgrading model version to version 1")
             # this uses code from get_all_worksheets()
             user_manager = self.user_manager()
             num_users=0
             for username in self._user_manager.users():
                 num_users+=1
                 if num_users%1000==0:
-                    print 'Upgraded %d users'%num_users
+                    print('Upgraded %d users' % num_users)
                 if username in ['_sage_', 'pub']:
                     continue
                 try:
@@ -1774,7 +1781,7 @@ class Notebook(object):
                             except KeyError:
                                 # user doesn't exist
                                 pass
-                except (UnicodeEncodeError,OSError):
+                except (UnicodeEncodeError, OSError):
                     # Catch UnicodeEncodeError because sometimes a username has a non-ascii character
                     # Catch OSError since sometimes when moving user directories (which happens
                     #   automatically when getting user's worksheets), OSError: [Errno 39] Directory not empty
@@ -1783,10 +1790,11 @@ class Notebook(object):
                     # problems logging in anyway, so they probably won't notice not having shared worksheets
                     import sys
                     import traceback
-                    print >> sys.stderr, 'Error on username %s'%username.encode('utf8')
-                    print >> sys.stderr, traceback.format_exc()
+                    print('Error on username %s' % username.encode('utf8'),
+                          file=sys.stderr)
+                    print(traceback.format_exc(), file=sys.stderr)
                     pass
-            print 'Done upgrading to model version 1'
+            print('Done upgrading to model version 1')
             self.conf()['model_version'] = 1
         
 ####################################################################
@@ -1840,27 +1848,27 @@ def migrate_old_notebook_v1(dir):
     Back up and migrates an old saved version of notebook to the new one (`sagenb`)
     """
     nb_sobj = os.path.join(dir, 'nb.sobj')
-    old_nb = cPickle.loads(open(nb_sobj).read())
+    old_nb = pickle.loads(open(nb_sobj).read())
 
     ######################################################################
     # Tell user what is going on and make a backup
     ######################################################################
 
-    print ""
-    print "*" * 80
-    print "*"
-    print "* The Sage notebook at"
-    print "*"
-    print "*      '%s'" % os.path.abspath(dir)
-    print "*"
-    print "* will be upgraded to a new format and stored in"
-    print "*"
-    print "*      '%s.sagenb'." % os.path.abspath(dir)
-    print "*"
-    print "* Your existing notebook will not be modified in any way."
-    print "*"
-    print "*" * 80
-    print ""
+    print("")
+    print("*" * 80)
+    print("*")
+    print("* The Sage notebook at")
+    print("*")
+    print("*      '%s'" % os.path.abspath(dir))
+    print("*")
+    print("* will be upgraded to a new format and stored in")
+    print("*")
+    print("*      '%s.sagenb'." % os.path.abspath(dir))
+    print("*")
+    print("* Your existing notebook will not be modified in any way.")
+    print("*")
+    print("*" * 80)
+    print("")
     ans = raw_input("Would like to continue? [YES or no] ").lower()
     if ans not in ['', 'y', 'yes']:
         raise RuntimeError("User aborted upgrade.")
@@ -1882,9 +1890,9 @@ def migrate_old_notebook_v1(dir):
             new_nb.conf().confs[t] = getattr(old_nb, '_Notebook__' + t)
 
     # Now update the user data from the old notebook to the new one:
-    print "Migrating %s user accounts..." % len(old_nb.user_manager().users())
+    print("Migrating %s user accounts..." % len(old_nb.user_manager().users()))
     users = new_nb.user_manager().users()
-    for username, old_user in old_nb.user_manager().users().iteritems():
+    for username, old_user in iteritems(old_nb.user_manager().users()):
         new_user = user.User(old_user.username(), '',
                              old_user.get_email(), old_user.account_type())
         new_user.set_hashed_password(old_user.password())
@@ -1911,7 +1919,7 @@ def migrate_old_notebook_v1(dir):
         # some ugly creation of new attributes from what used to be stored
         tags = {}
         try:
-            for user, val in old_ws._Worksheet__user_view.iteritems():
+            for user, val in iteritems(old_ws._Worksheet__user_view):
                 if isinstance(user, str):
                     # There was a bug in the old notebook where sometimes the
                     # user was the *module* "user", so we don't include that
@@ -1960,8 +1968,8 @@ def migrate_old_notebook_v1(dir):
             if os.path.exists(dest): 
                 shutil.rmtree(dest)
             shutil.copytree(old_ws.data_directory(), dest)
-        except Exception, msg:
-            print msg
+        except Exception as msg:
+            print(msg)
 
         try:
             if os.path.exists(old_ws.cells_directory()):
@@ -1969,27 +1977,27 @@ def migrate_old_notebook_v1(dir):
                 if os.path.exists(dest): 
                     shutil.rmtree(dest)
                 shutil.copytree(old_ws.cells_directory(), dest)
-        except Exception, msg:
-            print msg
+        except Exception as msg:
+            print(msg)
 
 
         return new_ws
 
     worksheets = WorksheetDict(new_nb)
     num_worksheets = len(old_nb._Notebook__worksheets)
-    print "Migrating (at most) %s worksheets..." % num_worksheets
+    print("Migrating (at most) %s worksheets..." % num_worksheets)
     from sage.misc.all import walltime
     tm = walltime()
     i = 0
-    for ws_name, old_ws in old_nb._Notebook__worksheets.iteritems():
+    for ws_name, old_ws in iteritems(old_nb._Notebook__worksheets):
         if old_ws.docbrowser(): continue
         i += 1
         if i % 25==0:
             percent = i / float(num_worksheets)
             # total_time * percent = time_so_far, so
             # remaining_time = total_time - time_so_far = time_so_far*(1/percent - 1)
-            print "    Migrated %s (of %s) worksheets (about %.0f seconds remaining)" % (
-                i, num_worksheets, walltime(tm) * (1 / percent - 1))
+            print("    Migrated %s (of %s) worksheets (about %.0f seconds remaining)" % (
+                i, num_worksheets, walltime(tm) * (1 / percent - 1)))
         new_ws = migrate_old_worksheet(old_ws)
         worksheets[new_ws.filename()] = new_ws
     new_nb._Notebook__worksheets = worksheets
@@ -1999,12 +2007,12 @@ def migrate_old_notebook_v1(dir):
     for username in old_nb.user_manager().users().keys():
         history_file = os.path.join(dir, 'worksheets', username, 'history.sobj')
         if os.path.exists(history_file):
-            new_nb._user_history[username] = cPickle.loads(open(history_file).read())
+            new_nb._user_history[username] = pickle.loads(open(history_file).read())
 
     # Save our newly migrated notebook to disk
     new_nb.save()
 
-    print "Worksheet migration completed."
+    print("Worksheet migration completed.")
     return new_nb
 
 def make_path_relative(dir):
@@ -2046,21 +2054,23 @@ def sort_worksheet_list(v, sort, reverse):
     """
     f = None
     if sort == 'last_edited':
-        def c(a, b):
-            return -cmp(a.last_edited(), b.last_edited())
+        def c(a):
+            return a.last_edited()
+        reverse = not reverse
         f = c
     elif sort == 'name':
-        def c(a, b):
-            return cmp((a.name().lower(), -a.last_edited()), (b.name().lower(), -b.last_edited()))
+        def c(a):
+            return (a.name().lower(), -a.last_edited())
         f = c
     elif sort == 'owner':
-        def c(a, b):
-            return cmp((a.owner().lower(), -a.last_edited()), (b.owner().lower(), -b.last_edited()))
+        def c(a):
+            return (a.owner().lower(), -a.last_edited())
         f = c
     elif sort == "rating":
-        def c(a, b):
-            return -cmp((a.rating(), -a.last_edited()), (b.rating(), -b.last_edited()))
+        def c(a):
+            return (a.rating(), -a.last_edited())
+        reverse = not reverse
         f = c
     else:
         raise ValueError("invalid sort key '%s'" % sort)
-    v.sort(cmp = f, reverse=reverse)
+    v.sort(key=f, reverse=reverse)

@@ -24,7 +24,12 @@ AUTHORS:
 
 """
 
-import os, random, re, urllib2, urllib
+import os
+import random
+import re
+
+from six.moves.urllib.parse import urlencode
+from six.moves.urllib.request import urlopen, Request
 
 from sagenb.notebook.template import template
 from flask.ext.babel import gettext, lazy_gettext
@@ -173,7 +178,7 @@ class NotConfiguredChallenge(AbstractChallenge):
             sage: import sagenb.notebook.notebook as n
             sage: nb = n.Notebook(tmp)
             sage: chal = NotConfiguredChallenge(nb.conf())
-            sage: print chal.html()
+            sage: print(chal.html())
             Please ask the server administrator to configure a challenge!
 
         """
@@ -329,9 +334,9 @@ class SimpleChallenge(AbstractChallenge):
             sage: from sagenb.notebook.challenge import QUESTIONS
             sage: ques, ans = sorted(QUESTIONS.items())[0]
             sage: ans = ans.split('|')[0]
-            sage: print ques
+            sage: print(ques)
             How many bits are in one byte?
-            sage: print ans
+            sage: print(ans)
             8
             sage: req['simple_response_field'] = ans
             sage: chal.is_valid_response(req).is_valid
@@ -527,14 +532,14 @@ class reCAPTCHAChallenge(AbstractChallenge):
                 return s.encode('utf-8')
             return s
 
-        params = urllib.urlencode({
+        params = urlencode({
                 'privatekey': encode_if_necessary(self.private_key),
                 'remoteip' :  encode_if_necessary(self.remote_ip),
                 'challenge':  encode_if_necessary(challenge_field),
                 'response' :  encode_if_necessary(response_field)
                 })
 
-        request = urllib2.Request(
+        request = Request(
             url = "http://%s/verify" % RECAPTCHA_VERIFY_SERVER,
             data = params,
             headers = {
@@ -543,7 +548,7 @@ class reCAPTCHAChallenge(AbstractChallenge):
                 }
             )
 
-        httpresp = urllib2.urlopen(request)
+        httpresp = urlopen(request)
         return_values = httpresp.read().splitlines();
         httpresp.close();
         return_code = return_values[0]
@@ -624,7 +629,7 @@ class ChallengeDispatcher(object):
             '<p>...'
             sage: nb.conf()['challenge_type'] = 'mistake'
             sage: disp = ChallengeDispatcher(nb.conf())
-            sage: print disp().html()
+            sage: print(disp().html())
             Please ask the server administrator to configure a challenge!
 
         """

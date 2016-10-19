@@ -11,7 +11,7 @@ This is called by sws2rst
 #
 # Distributed under the terms of the GPL License
 #**************************************************
-
+from six import iteritems
 
 import re
 import os
@@ -19,7 +19,7 @@ try:
     from BeautifulSoup import (ICantBelieveItsBeautifulSoup, Tag,
                                CData, Comment, Declaration, ProcessingInstruction)
 except ImportError:
-    raise ImportError, """BeautifulSoup must be installed.
+    raise ImportError("""BeautifulSoup must be installed.
 
 Please either install using Sage spkg installation
 
@@ -31,7 +31,7 @@ or by using one of
     easy_install BeautifulSoup
 
 in the Sage shell (sage --sh).
-"""
+""")
 
 #negative lookbehind: http://www.regular-expressions.info/lookaround.html
 double_dollar = re.compile(r'(?<!\\)\$\$')
@@ -74,7 +74,7 @@ def preprocess_display_latex(text):
             elif count == -1:
                 ls.append('</p>')
             elif abs(count)>1:
-                raise Exception, 'display latex was messed up with html code'
+                raise Exception('display latex was messed up with html code')
         start_tag = not start_tag
     ls.append(parts[-1])
     return ''.join(ls)
@@ -87,9 +87,11 @@ escapable_chars = { '+' :r'\+',
                     '*' :r'\*',
                     '|' :r'\|',
                     '-' :r'\-'}
+
+
 def escape_chars(text):
-    for c,r in escapable_chars.iteritems():
-        text = text.replace(c,r)
+    for c, r in iteritems(escapable_chars):
+        text = text.replace(c, r)
     return text
 
 #This is supposed to be handled by BeautifulSoup, but doesn't work
@@ -99,9 +101,11 @@ xml_entities = {'&lt;':'<',
             '&quot;':'"',
             '&apos;':"'",
 }
+
+
 def replace_xml_entities(text):
-    for c,r in xml_entities.iteritems():
-        text = text.replace(c,r)
+    for c, r in iteritems(xml_entities):
+        text = text.replace(c, r)
     return text
  
 
@@ -112,7 +116,7 @@ def replace_courier(soup):
     Most users won't be needing this(?), so this code is not called anywhere
     but kept for reference
     """
-    for t in soup.findAll(lambda s:s.has_key('style') and 'courier' in s['style']):
+    for t in soup.findAll(lambda s: ('style' in s) and 'courier' in s['style']):
         tag = Tag(soup, 'code')
         while t.contents:
             tag.append(t.contents[0])
@@ -205,7 +209,7 @@ class Soup2Rst(object):
                 visitor = getattr(self, 'visit_' + self.tags[node.name])
                 return visitor(node)
             except (KeyError, AttributeError):
-                print 'Warning: node not supported (or something else?) ' + node.name
+                print('Warning: node not supported (or something else?) ' + node.name)
                 return unicode(node)
         else:
             #Assume plain string

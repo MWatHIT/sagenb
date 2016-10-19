@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*
 """nodoctest
 """
-
-# -*- coding: utf-8 -*-
 #############################################################################
 #       Copyright (C) 2007 William Stein <wstein@gmail.com>
 #  Distributed under the terms of the GNU General Public License (GPL)
@@ -22,7 +20,7 @@
 import cgi
 import string
 import sys
-import cStringIO
+from six.moves import cStringIO as StringIO
 import keyword
 import token
 import tokenize
@@ -68,22 +66,26 @@ class Parser:
 
         # parse the source and write it
         self.pos = 0
-        text = cStringIO.StringIO(self.raw)
+        text = StringIO(self.raw)
         try:
             tokenize.tokenize(text.readline, self)
-        except tokenize.TokenError, ex:
+        except tokenize.TokenError as ex:
             msg = ex[0]
             line = ex[1][0]
             self.out.write("<h3>ERROR: %s</h3>%s\n" % (
                 msg, self.raw[self.lines[line]:]))
 
 
-    def __call__(self, toktype, toktext, (srow,scol), (erow,ecol), line):
-        """ Token handler.
+    def __call__(self, toktype, toktext, srow_scol, erow_ecol, line):
         """
+        Token handler.
+        """
+        srow, scol = srow_scol
+        erow, ecol = erow_ecol
         if 0:
-            print "type", toktype, token.tok_name[toktype], "text", toktext,
-            print "start", srow, scol, "end", erow, ecol, "<br />"
+            txt = "type {} {} text {} start {} {} end {} {} <br/>"
+            print(txt.format(toktype, token.tok_name[toktype], toktext,
+                             srow, scol, erow, ecol))
 
         # calculate new positions
         oldpos = self.pos
@@ -122,9 +124,10 @@ class Parser:
 
 
 def colorize(source):
-    import os, sys
-    # write colorized version to "[filename].py.html"
-    html = cStringIO.StringIO()
+    """
+    write colorized version to "[filename].py.html"
+    """
+    html = StringIO()
     Parser(source, html).format(None, None)
     html.flush()
     html.seek(0)

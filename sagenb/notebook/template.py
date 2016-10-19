@@ -8,6 +8,7 @@ AUTHORS:
 
 - Timothy Clemans and Mike Hansen (2008-10-27): major update
 """
+from __future__ import absolute_import
 #############################################################################
 #       Copyright (C) 2007 William Stein <wstein@gmail.com>
 #  Distributed under the terms of the GNU General Public License (GPL)
@@ -23,7 +24,7 @@ from sagenb.misc.misc import SAGE_VERSION, DATA
 from flask.ext.babel import gettext, ngettext, lazy_gettext
 from flask import current_app as app
 
-if os.environ.has_key('SAGENB_TEMPLATE_PATH'):
+if 'SAGENB_TEMPLATE_PATH' in os.environ:
     if not os.path.isdir(os.environ['SAGENB_TEMPLATE_PATH']):
         raise ValueError("Enviromental variable SAGENB_TEMPLATE_PATH points to\
                          a non-existant directory")
@@ -90,7 +91,7 @@ def clean_name(name):
     EXAMPLES::
 
         sage: from sagenb.notebook.template import clean_name
-        sage: print clean_name('this!is@bad+string')
+        sage: print(clean_name('this!is@bad+string'))
         this_is_bad_string
     """
     return ''.join([x if x.isalnum() else '_' for x in name])
@@ -129,7 +130,7 @@ def template(filename, **user_context):
         True
     """
     from sagenb.notebook.notebook import MATHJAX, JEDITABLE_TINYMCE
-    from misc import notebook
+    from .misc import notebook
     #A dictionary containing the default context
     default_context = {'sitename': gettext('Sage Notebook'),
                        'sage_version': SAGE_VERSION,

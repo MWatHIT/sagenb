@@ -139,7 +139,7 @@ def sphinxify(docstring, format='html'):
         # Remove spurious \(, \), \[, \].
         output = output.replace('\\(', '').replace('\\)', '').replace('\\[', '').replace('\\]', '')
     else:
-        print "BUG -- Sphinx error"
+        print("BUG -- Sphinx error")
         if format == 'html':
             output = '<pre class="introspection">%s</pre>' % docstring
         else:
@@ -263,7 +263,7 @@ todo_include_todos = True
 
 # HTML style sheet NOTE: This overrides a HTML theme's corresponding
 # setting.
-#html_style = 'default.css'
+#html_style = 'classic.css'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -488,12 +488,13 @@ def check_nested_class_picklability(app, what, name, obj, skip, options):
     """
     Print a warning if pickling is broken for nested classes.
     """
+    from six import iteritems
     import types
     if hasattr(obj, '__dict__') and hasattr(obj, '__module__'):
         # Check picklability of nested classes.  Adapted from
         # sage.misc.nested_class.modify_for_nested_pickle.
         module = sys.modules[obj.__module__]
-        for (nm, v) in obj.__dict__.iteritems():
+        for (nm, v) in iteritems(obj.__dict__):
             if (isinstance(v, (type, types.ClassType)) and
                 v.__name__ == nm and
                 v.__module__ == module.__name__ and
@@ -612,10 +613,10 @@ def setup(app):
 if __name__ == '__main__':
     import sys
     if len(sys.argv) == 2:
-        print sphinxify(sys.argv[1])
+        print(sphinxify(sys.argv[1]))
     else:
-        print """Usage:
+        print("""Usage:
 %s 'docstring'
 
 docstring -- docstring to be processed
-"""
+""")

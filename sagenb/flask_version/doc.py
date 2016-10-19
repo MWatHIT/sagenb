@@ -13,9 +13,10 @@ URLS to do:
 /src/<name>       - Source(os.path.join(SRC,name), self.username)
 
 """
+from __future__ import absolute_import
 import os
 from flask import Module, url_for, render_template, request, session, redirect, g, current_app
-from decorators import login_required, guest_or_login_required
+from .decorators import login_required, guest_or_login_required
 
 from flask.ext.babel import gettext, ngettext, lazy_gettext
 _ = gettext
@@ -66,7 +67,7 @@ def doc_static_file(manual, path_static, filename):
 def doc_live(filename):
     filename = os.path.join(DOC, filename)
     if filename.endswith('.html'):
-        from worksheet import worksheet_file
+        from .worksheet import worksheet_file
         return worksheet_file(filename)
     else:
         from flask.helpers import send_file

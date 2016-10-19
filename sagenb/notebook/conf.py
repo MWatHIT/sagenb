@@ -2,6 +2,7 @@
 """nodoctest
 Configuration
 """
+from __future__ import absolute_import
 
 #############################################################################
 #       Copyright (C) 2007 William Stein <wstein@gmail.com>
@@ -55,7 +56,7 @@ class Configuration(object):
         try:
             return self.confs[key]
         except KeyError:
-            if self.defaults().has_key(key):
+            if key in self.defaults():
                 A = self.defaults()[key]
                 self.confs[key] = A
                 return A
@@ -132,7 +133,7 @@ class Configuration(object):
         return updated
 
     def html_table(self, updated = {}):
-        from server_conf import G_LDAP
+        from .server_conf import G_LDAP
 
         # check if LDAP can be used
         try:
@@ -173,14 +174,10 @@ class Configuration(object):
             s += u'<div class="section">\n  <h2>%s</h2>\n  <table>\n' % lazy_gettext(group)
 
             opts = G[group]
-            def sortf(x, y):
-                wx = DS[x].get(POS, POS_DEFAULT)
-                wy = DS[y].get(POS, POS_DEFAULT)
-                if wx == wy:
-                    return cmp(x, y)
-                else:
-                    return cmp(wx, wy)
-            opts.sort(sortf)
+
+            def sort_key(x):
+                return (DS[x].get(POS, POS_DEFAULT), x)
+            opts.sort(key=sort_key)
             for o in opts:
                 s += u'    <tr>\n      <td>%s</td>\n      <td>\n' % lazy_gettext(DS[o][DESC])
                 input_type = 'text'

@@ -19,7 +19,7 @@ __docformat__ = "restructuredtext en"
 
 # This file has been automatically generated via XSL
 
-import httplib
+import http.client
 import urllib
 import re
 
@@ -191,14 +191,14 @@ class selenium:
         try:
             self.sessionId = result
         except ValueError:
-            raise Exception, result
+            raise Exception(result)
         
     def stop(self):
         self.do_command("testComplete", [])
         self.sessionId = None
 
     def do_command(self, verb, args):
-        conn = httplib.HTTPConnection(self.host, self.port)
+        conn = http.client.HTTPConnection(self.host, self.port)
         body = u'cmd=' + urllib.quote_plus(unicode(verb).encode('utf-8'))
         for i in range(len(args)):
             body += '&' + unicode(i+1) + '=' + urllib.quote_plus(unicode(args[i]).encode('utf-8'))
@@ -208,12 +208,10 @@ class selenium:
         conn.request("POST", "/selenium-server/driver/", body, headers)
     
         response = conn.getresponse()
-        #print response.status, response.reason
         data = unicode(response.read(), "UTF-8")
         result = response.reason
-        #print "Selenium Result: " + repr(data) + "\n\n"
         if (not data.startswith('OK')):
-            raise Exception, data
+            raise Exception(data)
         return data
     
     def get_string(self, verb, args):
@@ -255,7 +253,7 @@ class selenium:
             return True
         if ("false" == boolstr):
             return False
-        raise ValueError, "result is neither 'true' nor 'false': " + boolstr
+        raise ValueError("result is neither 'true' nor 'false': " + boolstr)
     
     def get_boolean_array(self, verb, args):
         boolarr = self.get_string_array(verb, args)
@@ -266,7 +264,7 @@ class selenium:
             if ("false" == boolstr):
                 boolarr[i] = False
                 continue
-            raise ValueError, "result is neither 'true' nor 'false': " + boolarr[i]
+            raise ValueError("result is neither 'true' nor 'false': " + boolarr[i])
         return boolarr
     
     

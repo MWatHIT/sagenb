@@ -14,13 +14,19 @@ import os
 import base64
 import string
 import sys
-import __builtin__
-from cPickle import PicklingError
 import pydoc
 
-from misc import loads, dumps, cython, session_init
+from six import iteritems
+import __builtin__
 
-import sageinspect
+try:
+    from cPickle import PicklingError
+except ImportError:
+    from pickle import PicklingError
+
+from .misc import loads, dumps, cython, session_init
+
+from . import sageinspect
 
 try:
     from sage.misc.sagedoc import format_src
@@ -32,8 +38,8 @@ except ImportError:
 try:
     from sagenb.misc.sphinxify import sphinxify, is_sphinx_markup
 except ImportError as msg:
-    print msg
-    print "Sphinx docstrings not available."
+    print(msg)
+    print("Sphinx docstrings not available.")
     # Don't do any Sphinxifying if sphinx's dependencies aren't around
     def sphinxify(s):
         return s
@@ -44,8 +50,8 @@ try:
     from sage.misc.displayhook import DisplayHook
     sys.displayhook = DisplayHook()
 except ImportError as msg:
-    print msg
-    print 'Graphics will not be shown automatically'
+    print(msg)
+    print('Graphics will not be shown automatically')
 
 
 ######################################################################
@@ -92,7 +98,7 @@ def init(object_directory=None, globs={}):
 
 
 def setup_systems(globs):
-    from misc import InlineFortran
+    from .misc import InlineFortran
     fortran = InlineFortran(globs)
     globs['fortran'] = fortran
 
@@ -130,7 +136,7 @@ def help(obj):
     from pydoc import resolve, html, describe
     import sagenb.notebook.interact as interact
 
-    print '<html><table notracebacks bgcolor="#386074" cellpadding=10 cellspacing=10><tr><td bgcolor="#f5f5f5"><font color="#37546d">'
+    print('<html><table notracebacks bgcolor="#386074" cellpadding=10 cellspacing=10><tr><td bgcolor="#f5f5f5"><font color="#37546d">')
     object, name = resolve(obj)
     page = html.page(describe(object), html.document(object, name))
     page = page.replace('<a href','<a ')
@@ -140,8 +146,8 @@ def help(obj):
         if not os.path.exists(filename): break
         n += 1
     open(filename, 'w').write(page)
-    print "&nbsp;&nbsp;&nbsp;<a target='_new' href='cell://%s'>Click to open help window</a>&nbsp;&nbsp;&nbsp;"%filename
-    print '<br></font></tr></td></table></html>'
+    print("&nbsp;&nbsp;&nbsp;<a target='_new' href='cell://%s'>Click to open help window</a>&nbsp;&nbsp;&nbsp;" % filename)
+    print('<br></font></tr></td></table></html>')
     
 def get_rightmost_identifier(s):
     X = string.ascii_letters + string.digits + '._'
@@ -203,11 +209,11 @@ def completions(s, globs, format=False, width=90, system="None"):
                     v = [obj + '.'+x for x in D if x and x[0] != '_']
                 else:
                     v = [obj + '.'+x for x in D if x[:n] == method]
-            except Exception, msg:
+            except Exception:
                 v = []
         v = list(set(v))   # make unique
         v.sort()
-    except Exception, msg:
+    except Exception:
         v = []
 
     if prepend:
@@ -287,7 +293,7 @@ def docstring(obj_name, globs, system='sage'):
 def html_markup(s):
     try:
         from sagenb.misc.sphinxify import sphinxify, is_sphinx_markup
-    except ImportError, msg:
+    except ImportError:
         # sphinx not available
         def is_sphinx_markup(s): return False
 
@@ -366,7 +372,7 @@ def source_code(s, globs, system='sage'):
             output += src
         return html_markup(output)
     
-    except (TypeError, IndexError), msg:
+    except (TypeError, IndexError):
         return html_markup("Source code for {} is not available.".format(s) +
                            "\nUse {}? to see the documentation.".format(s))
     
@@ -418,7 +424,7 @@ def syseval(system, cmd, dir=None):
     EXAMPLES::
 
         sage: from sage.misc.python import python
-        sage: sagenb.misc.support.syseval(python, '2+4/3')
+        sage: sagenb.misc.support.syseval(python, '2+4//3')
         3
         ''
         sage: sagenb.misc.support.syseval(python, 'import os; os.chdir(".")')
@@ -482,7 +488,7 @@ def cython_import_all(filename, globals, verbose=False, compile_message=False,
     m = cython_import(filename, verbose=verbose, compile_message=compile_message,
                      use_cache=use_cache,
                      create_local_c_file=create_local_c_file)
-    for k, x in m.__dict__.iteritems():
+    for k, x in iteritems(m.__dict__):
         if k[0] != '_':
             globals[k] = x
             
@@ -561,9 +567,9 @@ try:
         # functions until everything is defined.
         for _ in range(max_names):
             try:
-                exec s in globals
+                exec(s , globals)
                 return
-            except NameError, msg:
+            except NameError as msg:
                 # Determine if we hit a NameError that is probably
                 # caused by a variable or function not being defined:
                 if len(msg.args) == 0: raise  # not NameError with
@@ -576,7 +582,7 @@ try:
                                       # again.
                 nm = v[1]
                 globals[nm] = AutomaticVariable(SR, SR.var(nm))
-        raise NameError, "Too many automatic variable names and functions created (limit=%s)"%max_names
+        raise NameError("Too many automatic variable names and functions created (limit=%s)" % max_names)
 
     def automatic_name_filter(s):
         """

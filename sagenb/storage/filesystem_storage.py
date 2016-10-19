@@ -37,11 +37,18 @@ Sage notebook server::
              
 """
 
-import copy, cPickle, shutil, tarfile, tempfile
-
+import copy
+import shutil
+import tarfile
+import tempfile
 import os
+try:
+   import cPickle as pickle
+except ImportError:
+   import pickle
+from six import iteritems
 
-from abstract_storage import Datastore
+from .abstract_storage import Datastore
 from sagenb.misc.misc import set_restrictive_permissions, encoded_str
 
 from sage.misc.temporary_file import atomic_write
@@ -166,7 +173,7 @@ class FilesystemDatastore(Datastore):
     #########################################################################
     def _load(self, filename):
         with open(self._abspath(filename)) as f:
-            result = cPickle.load(f)
+            result = pickle.load(f)
         return result
 
     def _save(self, obj, filename):
@@ -191,7 +198,7 @@ class FilesystemDatastore(Datastore):
             sage: len(D._load(fn))
             100000
         """
-        s = cPickle.dumps(obj)
+        s = pickle.dumps(obj)
         if len(s) == 0:
             raise ValueError("Invalid Pickle")
         with atomic_write(self._abspath(filename)) as f:
@@ -211,7 +218,7 @@ class FilesystemDatastore(Datastore):
         return dict([(name, User_from_basic(basic)) for name, basic in obj])
 
     def _users_to_basic(self, users):
-        new = list(sorted([[name, U.basic()] for name, U in users.iteritems()]))
+        new = sorted([[name, U.basic()] for name, U in iteritems(users)])
         return new
 
     def _basic_to_server_conf(self, obj):
@@ -441,12 +448,12 @@ class FilesystemDatastore(Datastore):
         except Exception:
             #the worksheet conf loading didn't work, so we make up one
             import traceback
-            print "Warning: problem loading config for %s/%s; using default config: %s"%(username, id_number, traceback.format_exc())
+            print("Warning: problem loading config for %s/%s; using default config: %s" % (username, id_number, traceback.format_exc()))
             W = self._basic_to_worksheet({'owner':username, 'id_number': id_number})
             if username=='_sage_':
                 # save the default configuration, since this may be loaded by a random other user
                 # since *anyone* looking at docs will load all _sage_ worksheets
-                print "Saving default configuration (overwriting corrupt configuration) for %s/%s"%(username, id_number)
+                print("Saving default configuration (overwriting corrupt configuration) for %s/%s" % (username, id_number))
                 self.save_worksheet(W, conf_only=True)
         return W
 
@@ -471,7 +478,7 @@ class FilesystemDatastore(Datastore):
         # Remove metainformation that perhaps shouldn't be distributed
         for k in ['owner', 'ratings', 'worksheet_that_was_published', 'viewers', 'tags', 'published_id_number',
                   'collaborators', 'auto_publish']:
-            if basic.has_key(k):
+            if k in basic:
                 del basic[k]
                 
         self._save(basic, self._worksheet_conf_filename(username, id_number) + '2')
@@ -523,7 +530,7 @@ class FilesystemDatastore(Datastore):
         T = tarfile.open(filename, 'r:bz2')
         members = [a for a in T.getmembers() if 'worksheet.txt' in a.name and is_safe(a.name)]
         if len(members) == 0:
-            raise RuntimeError, "unable to import worksheet"
+            raise RuntimeError("unable to import worksheet")
 
         worksheet_txt = members[0].name
         W = self.load_worksheet(username, id_number)
@@ -629,7 +636,7 @@ class FilesystemDatastore(Datastore):
                     v.append(self.load_worksheet(username, int(id_number)))
                 except Exception:
                     import traceback
-                    print "Warning: problem loading %s/%s: %s"%(username, id_number, traceback.format_exc())
+                    print("Warning: problem loading %s/%s: %s" % (username, id_number, traceback.format_exc()))
         return v
 
     def readonly_user(self, username):
@@ -651,7 +658,6 @@ class FilesystemDatastore(Datastore):
         Delete all files associated with this datastore.  Dangerous!
         This is only here because it is useful for doctesting.
         """
-        import shutil
         shutil.rmtree(self._path, ignore_errors=True)
 
 

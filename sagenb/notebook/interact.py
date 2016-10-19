@@ -154,7 +154,8 @@ import collections
 from base64 import standard_b64decode
 
 # Sage libraries
-from sagenb.misc.misc import srange, sage_eval, Color, is_Matrix
+from sagenb.misc.misc import sage_eval, Color, is_Matrix
+from sage.arith.srange import srange
 from sage.misc.cachefunc import cached_method
 
 # SAGE_CELL_ID is a module scope variable that is always set equal to
@@ -234,7 +235,7 @@ def html(s):
         sage: sagenb.notebook.interact.html('hello')
         <html>hello</html>
     """
-    print "<html>%s</html>" % s
+    print("<html>%s</html>" % s)
 
 def html_slider(id, values, callback, steps, default=0, margin=0):
     """
@@ -1034,7 +1035,7 @@ class InputBox(InteractControl):
                 try:
                     return Color('#' + value)
                 except ValueError:
-                    print "Invalid color '%s', using default Color()" % value
+                    print("Invalid color '%s', using default Color()" % value)
                     return Color()
         else:
             return self.__type(sage_eval(value, globs))
@@ -1338,7 +1339,7 @@ class Selector(InteractControl):
         self.__labels = lbls
         if nrows is None:
             if ncols is not None:
-                nrows = len(values) / ncols
+                nrows = len(values) // ncols
                 if ncols * nrows < len(values):
                     nrows += 1
             else:
@@ -1348,7 +1349,7 @@ class Selector(InteractControl):
             if nrows <= 0:
                 nrows = 1
         if ncols is None:
-            ncols = len(values) / nrows
+            ncols = len(values) // nrows
             if ncols * nrows < len(values):
                 ncols += 1
                 
@@ -2283,22 +2284,22 @@ def interact(f, layout=None, width='800px'):
     ::
 
         sage: @interact
-        ... def _(a=5, y=(0..20)): print a + y
-        ...
+        ....: def _(a=5, y=(0..20)): print(a + y)
+        ....:
         <html>...
 
     ::
 
         sage: @interact(layout=[['a','b'],['d']])
-        ... def _(a=x^2, b=(0..20), c=100, d=x+1): print a+b+c+d
-        ...
+        ....: def _(a=x^2, b=(0..20), c=100, d=x+1): print(a+b+c+d)
+        ....:
         <html>...
 
     ::
 
         sage: @interact(layout={'top': [['a', 'b']], 'left': [['c']], 'bottom': [['d']]})
-        ... def _(a=x^2, b=(0..20), c=100, d=x+1): print a+b+c+d
-        ...
+        ....: def _(a=x^2, b=(0..20), c=100, d=x+1): print(a+b+c+d)
+        ....:
         <html>...
     
 
@@ -2308,30 +2309,30 @@ def interact(f, layout=None, width='800px'):
     ::
 
         sage: @interact
-        ... def _(a=(0,2)):
-        ...     show(plot(sin(x*(1+a*x)), (x,0,6)), figsize=4)
+        ....: def _(a=(0,2)):
+        ....:     show(plot(sin(x*(1+a*x)), (x,0,6)), figsize=4)
         <html>...
 
     Interact a variable in steps of 1 (we also use an unnamed
     function)::
 
         sage: @interact
-        ... def _(n=(10,100,1)):
-        ...     show(factor(x^n - 1))
+        ....: def _(n=(10,100,1)):
+        ....:     show(factor(x^n - 1))
         <html>...
 
     Interact two variables::
 
         sage: @interact
-        ... def _(a=(1,4), b=(0,10)):
-        ...     show(plot(sin(a*x+b), (x,0,6)), figsize=3)
+        ....: def _(a=(1,4), b=(0,10)):
+        ....:     show(plot(sin(a*x+b), (x,0,6)), figsize=3)
         <html>...
 
     Place a block of text among the controls::
 
         sage: @interact
-        ... def _(t1=text_control("Factors an integer."), n="1"):
-        ...     print factor(Integer(n))
+        ....: def _(t1=text_control("Factors an integer."), n="1"):
+        ....:     print(factor(Integer(n)))
         <html>...
 
     If your the time to evaluate your function takes awhile, you may
@@ -2344,8 +2345,8 @@ def interact(f, layout=None, width='800px'):
     ::
 
         sage: @interact
-        ... def _(n=(10,100,1), auto_update=False):
-        ...     show(factor(x^n - 1))
+        ....: def _(n=(10,100,1), auto_update=False):
+        ....:     show(factor(x^n - 1))
         <html>...
 
     DEFAULTS:
@@ -2441,15 +2442,15 @@ def interact(f, layout=None, width='800px'):
         following::
 
             sage: @interact
-            ... def _(v = input_box((1,0,0))):
-            ...       show(plot(sin,color=v))
+            ....: def _(v = input_box((1,0,0))):
+            ....:       show(plot(sin,color=v))
             <html>...
 
         An alternative::
 
             sage: @interact
-            ... def _(c = color_selector((1, 0, 0))):
-            ...       show(plot(sin, color = c))
+            ....: def _(c = color_selector((1, 0, 0))):
+            ....:       show(plot(sin, color = c))
             <html>...
 
     MORE EXAMPLES:
@@ -2458,8 +2459,8 @@ def interact(f, layout=None, width='800px'):
     strings::
 
         sage: @interact
-        ... def _(a=input_box('sage', label="Enter your name", type=str)):
-        ...        print "Hello there %s"%a.capitalize()
+        ....: def _(a=input_box('sage', label="Enter your name", type=str)):
+        ....:        print("Hello there %s"%a.capitalize())
         <html>...
 
     The scope of variables that you control via :func:`interact` are local
@@ -2469,9 +2470,9 @@ def interact(f, layout=None, width='800px'):
 
         sage: xyz = 10
         sage: @interact
-        ... def _(a=('xyz',5)):
-        ...       global xyz
-        ...       xyz = a
+        ....: def _(a=('xyz',5)):
+        ....:       global xyz
+        ....:       xyz = a
         <html>...
 
     If you enter the above you obtain an :func:`interact` canvas.
@@ -2479,107 +2480,107 @@ def interact(f, layout=None, width='800px'):
     Here's a example with several controls::
 
         sage: @interact
-        ... def _(title=["A Plot Demo", "Something silly", "something tricky"], a=input_box(sin(x*sin(x*sin(x))), 'function'),
-        ...     clr = Color('red'), thickness=[1..30], zoom=(1,0.95,..,0.1), plot_points=(200..2000)):
-        ...     html('<h1 align=center>%s</h1>'%title)
-        ...     print plot_points
-        ...     show(plot(a, -zoom*pi,zoom*pi, color=clr, thickness=thickness, plot_points=plot_points))
+        ....: def _(title=["A Plot Demo", "Something silly", "something tricky"], a=input_box(sin(x*sin(x*sin(x))), 'function'),
+        ....:     clr = Color('red'), thickness=[1..30], zoom=(1,0.95,..,0.1), plot_points=(200..2000)):
+        ....:     html('<h1 align=center>%s</h1>'%title)
+        ....:     print(plot_points)
+        ....:     show(plot(a, -zoom*pi,zoom*pi, color=clr, thickness=thickness, plot_points=plot_points))
         <html>...
 
     For a more compact color control, use an empty label and
     hide the input box::
 
         sage: @interact
-        ... def _(color=color_selector((1,0,1), label='', hide_box=True)):
-        ...     show(plot(x/(8/7+sin(x)), (x,-50,50), fill=True, fillcolor=color))
+        ....: def _(color=color_selector((1,0,1), label='', hide_box=True)):
+        ....:     show(plot(x/(8/7+sin(x)), (x,-50,50), fill=True, fillcolor=color))
         <html>...
 
     We give defaults and name the variables::
 
         sage: @interact
-        ... def _(a=('first', (1,4)), b=(0,10)):
-        ...       show(plot(sin(a*x+sin(b*x)), (x,0,6)), figsize=3)
+        ....: def _(a=('first', (1,4)), b=(0,10)):
+        ....:     show(plot(sin(a*x+sin(b*x)), (x,0,6)), figsize=3)
         <html>...
 
     Another example involving labels, defaults, and the slider
     command::
 
         sage: @interact
-        ... def _(a = slider(1, 4, default=2, label='Multiplier'),
-        ...       b = slider(0, 10, default=0, label='Phase Variable')):
-        ...     show(plot(sin(a*x+b), (x,0,6)), figsize=4)
+        ....: def _(a = slider(1, 4, default=2, label='Multiplier'),
+        ....:     b = slider(0, 10, default=0, label='Phase Variable')):
+        ....:     show(plot(sin(a*x+b), (x,0,6)), figsize=4)
         <html>...
 
     An example where the range slider control is useful::
 
         sage: @interact
-        ... def _(b = range_slider(-20, 20, 1, default=(-19,3), label='Range')):
-        ...     plot(sin(x)/x, b[0], b[1]).show(xmin=b[0],xmax=b[1])
+        ....: def _(b = range_slider(-20, 20, 1, default=(-19,3), label='Range')):
+        ....:     plot(sin(x)/x, b[0], b[1]).show(xmin=b[0],xmax=b[1])
         <html>...
 
     An example using checkboxes, obtained by making the default values
     bools::
 
         sage: @interact
-        ... def _(axes=('Show axes', True), square=False):
-        ...       show(plot(sin, -5,5), axes=axes, aspect_ratio = (1 if square else None))
+        ....: def _(axes=('Show axes', True), square=False):
+        ....:     show(plot(sin, -5,5), axes=axes, aspect_ratio = (1 if square else None))
         <html>...
 
     An example generating a random walk that uses a checkbox control
     to determine whether points are placed at each step::
 
         sage: @interact
-        ... def foo(pts = checkbox(True, "points"), n = (50,(10..100))):
-        ...       s = 0; v = [(0,0)]
-        ...       for i in range(n):
-        ...            s += random() - 0.5
-        ...            v.append((i, s))
-        ...       L = line(v, rgbcolor='#4a8de2')
-        ...       if pts: L += points(v, pointsize=20, rgbcolor='black')
-        ...       show(L)
+        ....: def foo(pts = checkbox(True, "points"), n = (50,(10..100))):
+        ....:     s = 0; v = [(0,0)]
+        ....:     for i in range(n):
+        ....:          s += random() - 0.5
+        ....:          v.append((i, s))
+        ....:     L = line(v, rgbcolor='#4a8de2')
+        ....:     if pts: L += points(v, pointsize=20, rgbcolor='black')
+        ....:     show(L)
         <html>...
 
     You can rotate and zoom into 3-D graphics while interacting with a
     variable::
 
         sage: @interact
-        ... def _(a=(0,1)):
-        ...     x,y = var('x,y')
-        ...     show(plot3d(sin(x*cos(y*a)), (x,0,5), (y,0,5)), figsize=4)
+        ....: def _(a=(0,1)):
+        ....:     x,y = var('x,y')
+        ....:     show(plot3d(sin(x*cos(y*a)), (x,0,5), (y,0,5)), figsize=4)
         <html>...
 
     A random polygon::
 
         sage: pts = [(random(), random()) for _ in xrange(20)]
         sage: @interact
-        ... def _(n = (4..len(pts)), c=Color('purple') ):
-        ...     G = points(pts[:n],pointsize=60) + polygon(pts[:n], rgbcolor=c)
-        ...     show(G, figsize=5, xmin=0, ymin=0)
+        ....: def _(n = (4..len(pts)), c=Color('purple') ):
+        ....:     G = points(pts[:n],pointsize=60) + polygon(pts[:n], rgbcolor=c)
+        ....:     show(G, figsize=5, xmin=0, ymin=0)
         <html>...
 
     Two "sinks" displayed simultaneously via a contour plot and a 3-D
     interactive plot::
 
         sage: @interact
-        ... def _(q1=(-1,(-3,3)), q2=(-2,(-3,3))):
-        ...     x,y = var('x,y')
-        ...     f = q1/sqrt((x+1)^2 + y^2) + q2/sqrt((x-1)^2+(y+0.5)^2)
-        ...     C = contour_plot(f, (-2,2), (-2,2), plot_points=30, contours=15, cmap='cool')
-        ...     show(C, figsize=3, aspect_ratio=1)
-        ...     show(plot3d(f, (x,-2,2), (y,-2,2)), figsize=4)
+        ....: def _(q1=(-1,(-3,3)), q2=(-2,(-3,3))):
+        ....:     x,y = var('x,y')
+        ....:     f = q1/sqrt((x+1)^2 + y^2) + q2/sqrt((x-1)^2+(y+0.5)^2)
+        ....:     C = contour_plot(f, (-2,2), (-2,2), plot_points=30, contours=15, cmap='cool')
+        ....:     show(C, figsize=3, aspect_ratio=1)
+        ....:     show(plot3d(f, (x,-2,2), (y,-2,2)), figsize=4)
         <html>...
 
     This is similar to above, but you can select the color map from a
     dropdown menu::
 
         sage: @interact
-        ... def _(q1=(-1,(-3,3)), q2=(-2,(-3,3)),
-        ...    cmap=['autumn', 'bone', 'cool', 'copper', 'gray', 'hot', 'hsv',
-        ...          'jet', 'pink', 'prism', 'spring', 'summer', 'winter']):
-        ...     x,y = var('x,y')
-        ...     f = q1/sqrt((x+1)^2 + y^2) + q2/sqrt((x-1)^2+(y+0.5)^2)
-        ...     C = contour_plot(f, (x,-2,2), (y,-2,2), plot_points=30, contours=15, cmap=cmap)
-        ...     show(C, figsize=3, aspect_ratio=1)
+        ....: def _(q1=(-1,(-3,3)), q2=(-2,(-3,3)),
+        ....:     cmap=['autumn', 'bone', 'cool', 'copper', 'gray', 'hot', 'hsv',
+        ....:           'jet', 'pink', 'prism', 'spring', 'summer', 'winter']):
+        ....:     x,y = var('x,y')
+        ....:     f = q1/sqrt((x+1)^2 + y^2) + q2/sqrt((x-1)^2+(y+0.5)^2)
+        ....:     C = contour_plot(f, (x,-2,2), (y,-2,2), plot_points=30, contours=15, cmap=cmap)
+        ....:     show(C, figsize=3, aspect_ratio=1)
         <html>...
 
     A quadratic roots etch-a-sketch::
@@ -2588,13 +2589,13 @@ def interact(f, layout=None, width='800px'):
         sage: html('<h2>Quadratic Root Etch-a-sketch</h2>')
         <html>...<h2>Quadratic Root Etch-a-sketch</h2>...</html>
         sage: @interact
-        ... def _(a=[-10..10], b=[-10..10], c=[-10..10]):
-        ...       f = a*x^2 + b*x + c == 0; show(f)
-        ...       soln = solve(a*x^2 + b*x + c == 0, x)[0].rhs()
-        ...       show(soln)
-        ...       P = tuple(CDF(soln))
-        ...       v.append(P)
-        ...       show(line(v, rgbcolor='purple') + point(P, pointsize=200))
+        ....: def _(a=[-10..10], b=[-10..10], c=[-10..10]):
+        ....:     f = a*x^2 + b*x + c == 0; show(f)
+        ....:     soln = solve(a*x^2 + b*x + c == 0, x)[0].rhs()
+        ....:     show(soln)
+        ....:     P = tuple(CDF(soln))
+        ....:     v.append(P)
+        ....:     show(line(v, rgbcolor='purple') + point(P, pointsize=200))
         <html>...
 
     In the following example, we only generate data for a given ``n``
@@ -2604,31 +2605,31 @@ def interact(f, layout=None, width='800px'):
 
         sage: data = {}
         sage: @interact
-        ... def _(n=(500,(100,5000,1)), p=(1,(0.1,10))):
-        ...     n = int(n)
-        ...     if not data.has_key(n):
-        ...         data[n] = [(random(), random()) for _ in xrange(n)]
-        ...     show(points([(x^p,y^p) for x,y in data[n]], rgbcolor='black'), xmin=0, ymin=0, axes=False)
+        ....: def _(n=(500,(100,5000,1)), p=(1,(0.1,10))):
+        ....:     n = int(n)
+        ....:     if n not in data:
+        ....:         data[n] = [(random(), random()) for _ in xrange(n)]
+        ....:     show(points([(x^p,y^p) for x,y in data[n]], rgbcolor='black'), xmin=0, ymin=0, axes=False)
         <html>...
 
     A conchoid::
 
         sage: @interact
-        ... def _(k=(1.2,(1.1,2)), k_2=(1.2,(1.1,2)), a=(1.5,(1.1,2))):
-        ...     u, v = var('u,v')
-        ...     f = (k^u*(1+cos(v))*cos(u), k^u*(1+cos(v))*sin(u), k^u*sin(v)-a*k_2^u)
-        ...     show(parametric_plot3d(f, (u,0,6*pi), (v,0,2*pi), plot_points=[40,40], texture=(0,0.5,0)))
+        ....: def _(k=(1.2,(1.1,2)), k_2=(1.2,(1.1,2)), a=(1.5,(1.1,2))):
+        ....:     u, v = var('u,v')
+        ....:     f = (k^u*(1+cos(v))*cos(u), k^u*(1+cos(v))*sin(u), k^u*sin(v)-a*k_2^u)
+        ....:     show(parametric_plot3d(f, (u,0,6*pi), (v,0,2*pi), plot_points=[40,40], texture=(0,0.5,0)))
         <html>...
 
     An input grid::
 
         sage: @interact
-        ... def _(A=matrix(QQ,3,3,range(9)), v=matrix(QQ,3,1,range(3))):
-        ...     try:
-        ...         x = A\v
-        ...         html('$$%s %s = %s$$'%(latex(A), latex(x), latex(v)))
-        ...     except:
-        ...         html('There is no solution to $$%s x=%s$$'%(latex(A), latex(v)))
+        ....: def _(A=matrix(QQ,3,3,range(9)), v=matrix(QQ,3,1,range(3))):
+        ....:     try:
+        ....:         x = A\v
+        ....:         html('$$%s %s = %s$$'%(latex(A), latex(x), latex(v)))
+        ....:     except:
+        ....:         html('There is no solution to $$%s x=%s$$'%(latex(A), latex(v)))
         <html>...
     """
     if not isinstance(f, types.FunctionType) and callable(f):
@@ -2665,7 +2666,7 @@ def interact(f, layout=None, width='800px'):
     def _():
         z = f(*[variables[arg] for arg in args])
         if z: 
-            print z
+            print(z)
 
     state[SAGE_CELL_ID]['function'] = _
 
@@ -3174,7 +3175,7 @@ class slider_generic(control):
             if self.__step_size is None:
                 self.__step_size = (self.__vmax-self.__vmin) / 499.0
             elif self.__step_size <= 0:
-                raise ValueError, "invalid negative step size -- step size must be positive"
+                raise ValueError("invalid negative step size -- step size must be positive")
 
             #Compute list of values
             num_steps = int(math.ceil((self.__vmax-self.__vmin)/float(self.__step_size)))
@@ -3524,19 +3525,19 @@ class selector(control):
         matrices over various rings::
 
             sage: @interact
-            ... def _(R=selector([ZZ,QQ,GF(17),RDF,RR]), n=(1..10)):
-            ...      M = random_matrix(R, n)
-            ...      show(M)
-            ...      show(matrix_plot(M,cmap='Oranges'))
-            ...      f = M.charpoly()
-            ...      print f
+            ....: def _(R=selector([ZZ,QQ,GF(17),RDF,RR]), n=(1..10)):
+            ....:      M = random_matrix(R, n)
+            ....:      show(M)
+            ....:      show(matrix_plot(M,cmap='Oranges'))
+            ....:      f = M.charpoly()
+            ....:      print(f)
             <html>...
 
         Here we create a drop-down::
 
             sage: @interact
-            ... def _(a=selector([(2,'second'), (3,'third')])):
-            ...       print a
+            ....: def _(a=selector([(2,'second'), (3,'third')])):
+            ....:       print(a)
             <html>...
         """
         if nrows is not None or ncols is not None:
@@ -3848,7 +3849,7 @@ def update(cell_id, var, adapt, value, globs):
     except KeyError:
         # If you change this, make sure to change notebook_lib.js as
         # well.
-        print INTERACT_RESTART
+        print(INTERACT_RESTART)
 
 def recompute(cell_id):
     """
@@ -3885,5 +3886,5 @@ def recompute(cell_id):
     except KeyError:
         # If you change this, make sure to change notebook_lib.js as
         # well.
-        print INTERACT_RESTART
+        print(INTERACT_RESTART)
         

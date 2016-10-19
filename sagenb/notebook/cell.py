@@ -5,6 +5,7 @@ A Cell
 A cell is a single input/output block. Worksheets are built out of
 a list of cells.
 """
+from __future__ import absolute_import
 
 ###########################################################################
 #       Copyright (C) 2006 William Stein <wstein@gmail.com>
@@ -23,14 +24,14 @@ from cgi import escape
 from sagenb.misc.misc import (word_wrap, strip_string_literals,
                               set_restrictive_permissions, unicode_str,
                               encoded_str)
-from interact import (INTERACT_RESTART, INTERACT_UPDATE_PREFIX,
-                      INTERACT_TEXT, INTERACT_HTML)
+from .interact import (INTERACT_RESTART, INTERACT_UPDATE_PREFIX,
+                       INTERACT_TEXT, INTERACT_HTML)
 
 # Maximum number of characters allowed in output.  This is needed
 # avoid overloading web browser.  For example, it should be possible
 # to gracefully survive:
 #    while True:
-#       print "hello world"
+#       print("hello world")
 # On the other hand, we don't want to loose the output of big matrices
 # and numbers, so don't make this too small.
 MAX_OUTPUT = 32000
@@ -99,7 +100,40 @@ class Cell_generic(object):
         """
         return "Cell_generic %s" % self._id
 
-    def __cmp__(self, right):
+    def __lt__(self, right):
+        """
+        Compares generic cells by ID.
+
+        INPUT:
+
+        - ``right`` - a :class:`Cell_generic` instance; the cell to
+          compare to this cell
+
+        OUTPUT:
+
+        - a boolean
+
+        EXAMPLES::
+
+            sage: C1 = sagenb.notebook.cell.Cell_generic(0, None)
+            sage: C2 = sagenb.notebook.cell.Cell_generic(1, None)
+            sage: C3 = sagenb.notebook.cell.Cell_generic(0, None)
+            sage: [C1 < C2, C1 < C3, C2 < C3]
+            [True, False, False]
+            sage: C1 = sagenb.notebook.cell.TextCell('bagel', 'abc', None)
+            sage: C2 = sagenb.notebook.cell.TextCell('lox', 'abc', None)
+            sage: C3 = sagenb.notebook.cell.TextCell('lox', 'xyz', None)
+            sage: [C1 < C2, C1 < C3, C2 < C3]
+            [True, True, False]
+            sage: C1 = sagenb.notebook.cell.Cell(7, '3+2', '5', None)
+            sage: C2 = sagenb.notebook.cell.Cell(7, '3+2', 'five', None)
+            sage: C3 = sagenb.notebook.cell.Cell('7', '2+3', '5', None)
+            sage: [C1 < C2, C1 < C3, C2 < C3]
+            [False, False, False]
+        """
+        return self.id() < right.id()
+
+    def __eq__(self, right):
         """
         Compares generic cells by ID.
 
@@ -130,7 +164,7 @@ class Cell_generic(object):
             sage: [C1 == C2, C1 == C3, C2 == C3]
             [True, True, True]
         """
-        return cmp(self.id(), right.id())
+        return self.id() == right.id()
 
     def id(self):
         """
@@ -360,7 +394,7 @@ class Cell_generic(object):
         try:
             k = L.index(self)
         except ValueError:
-            print "Warning -- cell %s no longer exists" % self.id()
+            print("Warning -- cell %s no longer exists" % self.id())
             return L[0].id()
         try:
             return L[k + 1].id()
@@ -563,7 +597,7 @@ class TextCell(Cell_generic):
             u'...text_cell...2+3...'
             sage: C.set_input_text("$2+3$")
         """
-        from template import template
+        from .template import template
         return template(os.path.join('html', 'notebook', 'text_cell.html'),
                         cell = self, wrap = wrap, div_wrap = div_wrap,
                         do_print = do_print,
@@ -571,7 +605,7 @@ class TextCell(Cell_generic):
 
 
     def plain_text(self, prompts=False):
-        ur"""
+        r"""
         Returns a plain text version of this text cell.
 
         INPUT:
@@ -1129,7 +1163,7 @@ class Cell(Cell_generic):
         return plaintext_output
 
     def edit_text(self, ncols=0, prompts=False, max_out=None):
-        ur"""
+        r"""
         Returns the text displayed for this compute cell in the Edit
         window.
 
@@ -1188,7 +1222,7 @@ class Cell(Cell_generic):
         try:
             k = L.index(self)
         except ValueError:
-            print "Warning -- cell %s no longer exists" % self.id()
+            print("Warning -- cell %s no longer exists" % self.id())
             return L[0].id()
         try:
             return L[k + 1].id()
@@ -1273,7 +1307,7 @@ class Cell(Cell_generic):
             sage: nb = sagenb.notebook.notebook.Notebook(tmp_dir(ext='.sagenb'))
             sage: nb.user_manager().add_user('sage','sage','sage@sagemath.org',force=True)
             sage: W = nb.create_new_worksheet('Test', 'sage')
-            sage: C = W.new_cell_after(0, "@interact\ndef f(a=slider(0,10,1,5):\n    print a^2")
+            sage: C = W.new_cell_after(0, "@interact\ndef f(a=slider(0,10,1,5):\n    print(a^2)")
             sage: C.is_interactive_cell()
             True
             sage: C = W.new_cell_after(C.id(), "2+2")
@@ -1303,7 +1337,7 @@ class Cell(Cell_generic):
             sage: nb = sagenb.notebook.notebook.Notebook(tmp_dir(ext='.sagenb'))
             sage: nb.user_manager().add_user('sage','sage','sage@sagemath.org',force=True)
             sage: W = nb.create_new_worksheet('Test', 'sage')
-            sage: C = W.new_cell_after(0, "@interact\ndef f(a=slider(0,10,1,5):\n    print a^2")
+            sage: C = W.new_cell_after(0, "@interact\ndef f(a=slider(0,10,1,5):\n    print(a^2)")
             sage: C.is_interacting()
             False
         """
@@ -1727,7 +1761,7 @@ class Cell(Cell_generic):
         return urls
 
     def output_text(self, ncols=0, html=True, raw=False, allow_interact=True):
-        ur"""
+        r"""
         Returns this compute cell's output text.
 
         INPUT:
@@ -1779,8 +1813,8 @@ class Cell(Cell_generic):
                     z = z.replace(INTERACT_TEXT, output)
                     z = z.replace(INTERACT_HTML, html)
                     return z
-                except (ValueError, AttributeError), msg:
-                    print msg
+                except (ValueError, AttributeError) as msg:
+                    print(msg)
                     pass
             else:
                 # Get rid of the interact div to avoid updating the
@@ -1930,7 +1964,7 @@ class Cell(Cell_generic):
     # Introspection #
     #################
     def set_introspect_html(self, html, completing=False, raw=False):
-        ur"""
+        r"""
         Sets this compute cell's introspection text.
 
         INPUT:
@@ -2213,7 +2247,7 @@ class Cell(Cell_generic):
             sage: C.html()
             u'...cell_outer_0...2+3...5...'
         """
-        from template import template
+        from .template import template
 
         if wrap is None:
             wrap = self.notebook().conf()['word_wrap_cols']
@@ -2417,7 +2451,7 @@ class Cell(Cell_generic):
         jmoldatafile=''
         hasjmolimages = False
         jmolimagebase=''
-        from worksheet import CODE_PY
+        from .worksheet import CODE_PY
         # The question mark trick here is so that images will be
         # reloaded when the async request requests the output text for
         # a computation.  This is inspired by
@@ -2481,9 +2515,7 @@ class Cell(Cell_generic):
             if (jdata.is_jvm_available()):
                 # make the image with Jmol
                 png_fullpath=png_name+".png"
-                #print png_fullpath
                 script = 'set defaultdirectory \"'+jmoldatafile+'\"\n script SCRIPT\n'
-                #print script
                 jdata.export_image(targetfile = png_fullpath,datafile=script,image_type="PNG", figsize = 4)
             else:
                 images.append('Java Virtual Machine Unavailable.  Cannot make image from old data.  Please reevaluate cell.')

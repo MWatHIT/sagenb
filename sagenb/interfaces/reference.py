@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*
-import os, StringIO, sys, traceback, tempfile
+import os
+from six import StringIO
+import sys
+import traceback
+import tempfile
 
-from status import OutputStatus
+from .status import OutputStatus
 from sagenb.misc.format import displayhook_hack
-from worksheet_process import WorksheetProcess
+from .worksheet_process import WorksheetProcess
 
 ###################################################################
 # Reference implementation
@@ -15,7 +19,7 @@ class WorksheetProcess_ReferenceImplementation(WorksheetProcess):
     """
     def __init__(self, **kwds):
         for key in kwds.keys():
-            print "WorksheetProcess_ReferenceImplementation: does not support '%s' option.  Ignored."%key
+            print("WorksheetProcess_ReferenceImplementation: does not support '%s' option.  Ignored." % key)
         self._output_status = OutputStatus('',[],True,None)
         self._state = {}
 
@@ -111,7 +115,6 @@ class WorksheetProcess_ReferenceImplementation(WorksheetProcess):
 
 
 def execute_code(string, state, data=None):
-    # print "execute: '''%s'''"%string
     string = displayhook_hack(string)
 
     # Now execute the code capturing the output and files that are
@@ -122,13 +125,13 @@ def execute_code(string, state, data=None):
         # make a symbolic link from the data directory into local tmp directory
         os.symlink(data, os.path.join(tempdir, os.path.split(data)[1]))
     
-    s = StringIO.StringIO()
+    s = StringIO()
     saved_stream = sys.stdout
     sys.stdout = s
     try:
         os.chdir(tempdir)
-        exec string in state
-    except Exception, msg:
+        exec(string, state)
+    except Exception:
         traceback.print_exc(file=s)
     finally:
         sys.stdout = saved_stream

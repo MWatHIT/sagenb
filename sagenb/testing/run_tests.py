@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Running SageNB Tests
 
@@ -32,9 +31,9 @@ TODO:
 
 import unittest
 
-import notebook_test_case
+from . import notebook_test_case
 from sagenb.misc.misc import browser
-from tests import test_accounts, test_worksheet, test_worksheet_list
+from .tests import test_accounts, test_worksheet, test_worksheet_list
 
 CASES = {
     'TestAccounts': test_accounts,
@@ -150,7 +149,7 @@ def run_any(tests=all_tests, make_report=False, **kwargs):
         tot = suite.countTestCases()
 
         environment = notebook_test_case.SEL_OPTIONS['environment']
-        print 'Running %d test%s in environment %s...' % (tot, '' if tot == 1 else 's', environment)
+        print('Running %d test%s in environment %s...' % (tot, '' if tot == 1 else 's', environment))
 
         if make_report:
             run_and_report(suite, environment = environment, **kwargs)
@@ -228,7 +227,7 @@ def run_and_report(suite=all_tests, verbosity=2, report_filename='report.html',
         sage: rt.run_and_report(report_filename='test1.html')   # not tested
         sage: rt.run_and_report(rt.test_accounts.suite)         # not tested
     """
-    from HTMLTestRunner import HTMLTestRunner
+    from .HTMLTestRunner import HTMLTestRunner
 
     report_fd = open(report_filename, 'w')
     runner = HTMLTestRunner(verbosity = verbosity, stream = report_fd,

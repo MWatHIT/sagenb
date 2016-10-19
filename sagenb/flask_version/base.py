@@ -1,9 +1,12 @@
 #!/usr/bin/env python
-import os, time, re
+from __future__ import absolute_import
+import os
+import time
+import re
 from functools import partial
 from flask import Flask, Module, url_for, request, session, redirect, g, make_response, current_app, render_template
-from decorators import login_required, guest_or_login_required, with_lock
-from decorators import global_lock
+from .decorators import login_required, guest_or_login_required, with_lock
+from .decorators import global_lock
 # Make flask use the old session foo from <=flask-0.9
 from flask_oldsessions import OldSecureCookieSessionInterface
 
@@ -36,12 +39,12 @@ class SageNBFlask(Flask):
         self.add_static_path('/javascript', DATA)
         self.add_static_path('/static', DATA)
         self.add_static_path('/java', DATA)
-        self.add_static_path('/java/jmol', os.path.join(os.environ["SAGE_ROOT"],"local","share","jmol"))
-        self.add_static_path('/jsmol', os.path.join(os.environ["SAGE_ROOT"],"local","share","jsmol"))
-        self.add_static_path('/jsmol/js', os.path.join(os.environ["SAGE_ROOT"],"local","share","jsmol","js"))
-        self.add_static_path('/j2s', os.path.join(os.environ["SAGE_ROOT"],"local","share","jsmol","j2s"))
-        self.add_static_path('/jsmol/j2s', os.path.join(os.environ["SAGE_ROOT"],"local","share","jsmol","j2s"))
-        self.add_static_path('/j2s/core', os.path.join(os.environ["SAGE_ROOT"],"local","share","jsmol","j2s","core"))
+        self.add_static_path('/java/jmol', os.path.join(os.environ["SAGE_SHARE"],"jmol"))
+        self.add_static_path('/jsmol', os.path.join(os.environ["SAGE_SHARE"],"jsmol"))
+        self.add_static_path('/jsmol/js', os.path.join(os.environ["SAGE_SHARE"],"jsmol","js"))
+        self.add_static_path('/j2s', os.path.join(os.environ["SAGE_SHARE"],"jsmol","j2s"))
+        self.add_static_path('/jsmol/j2s', os.path.join(os.environ["SAGE_SHARE"],"jsmol","j2s"))
+        self.add_static_path('/j2s/core', os.path.join(os.environ["SAGE_SHARE"],"jsmol","j2s","core"))
         import mimetypes
         mimetypes.add_type('text/plain','.jmol')
 
@@ -104,7 +107,7 @@ def index():
         response.set_cookie('cookie_test_%s'%g.notebook.port, expires=1)
         return response
 
-    from authentication import login
+    from .authentication import login
 
     if current_app.startup_token is not None and 'startup_token' in request.args:
         if request.args['startup_token'] == current_app.startup_token:
@@ -219,7 +222,7 @@ def history():
 @login_required
 def live_history():
     W = g.notebook.create_new_worksheet_from_history(gettext('Log'), g.username, 100)
-    from worksheet import url_for_worksheet
+    from .worksheet import url_for_worksheet
     return redirect(url_for_worksheet(W))
 
 ###########
@@ -450,22 +453,22 @@ def create_app(path_to_notebook, *args, **kwds):
     ########################
     app.register_blueprint(base)
 
-    from worksheet_listing import worksheet_listing
+    from .worksheet_listing import worksheet_listing
     app.register_blueprint(worksheet_listing)
 
-    from admin import admin
+    from .admin import admin
     app.register_blueprint(admin)
 
-    from authentication import authentication
+    from .authentication import authentication
     app.register_blueprint(authentication)
 
-    from doc import doc
+    from .doc import doc
     app.register_blueprint(doc)
 
-    from worksheet import ws as worksheet
+    from .worksheet import ws as worksheet
     app.register_blueprint(worksheet)
 
-    from settings import settings
+    from .settings import settings
     app.register_blueprint(settings)
 
     # Handles all uncaught exceptions by sending an e-mail to the

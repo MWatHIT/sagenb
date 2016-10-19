@@ -14,8 +14,9 @@ the file system (not in the notebook pickle sobj).
 
 AUTHORS:
 
- - William Stein
+- William Stein
 """
+from __future__ import absolute_import
 
 ###########################################################################
 #       Copyright (C) 2006-2009 William Stein <wstein@gmail.com>
@@ -23,6 +24,7 @@ AUTHORS:
 #  Distributed under the terms of the GNU General Public License (GPL)
 #                  http://www.gnu.org/licenses/
 ###########################################################################
+from six import iteritems
 
 # Import standard Python libraries that we will use below
 import base64
@@ -54,8 +56,8 @@ import sagenb.misc.support  as support
 from sagenb.misc.format import relocate_future_imports
 
 # Imports specifically relevant to the sage notebook
-from cell import Cell, TextCell
-from template import template, clean_name, prettify_time_ago
+from .cell import Cell, TextCell
+from .template import template, clean_name, prettify_time_ago
 from flask.ext.babel import gettext, lazy_gettext
 _ = gettext
 
@@ -79,7 +81,7 @@ WARN_THRESHOLD = 100   # The number of seconds, so if there was no
 # The strings used to synchronized the compute subprocesses.
 # WARNING:  If you make any changes to this, be sure to change the
 # error line below that looks like this:
-#         cmd += 'print "\\x01r\\x01e%s"'%self.synchro()
+#         cmd += 'print("\\x01r\\x01e%s")' % self.synchro()
 SC         = '\x01'
 SAGE_BEGIN = SC + 'b'
 SAGE_END   = SC + 'e'
@@ -101,7 +103,6 @@ def update_worksheets():
     for S in all_worksheet_processes:
         S.update()
 
-import notebook as _notebook
 def worksheet_filename(name, owner):
     """
     Return the relative directory name of this worksheet with given
@@ -160,7 +161,7 @@ class Worksheet(object):
                  notebook_worksheet_directory=None, system=None,
                  owner=None, pretty_print=False,
                  auto_publish=False, create_directories=True, live_3D=False):
-        ur"""
+        r"""
         Create and initialize a new worksheet.
 
         INPUT:
@@ -402,7 +403,7 @@ class Worksheet(object):
             del self.__cells
         except AttributeError: 
             pass
-        for key, value in obj.iteritems():
+        for key, value in iteritems(obj):
             if key == 'name':
                 if repr(value) == '<_LazyString broken>':
                     value = ''
@@ -431,7 +432,7 @@ class Worksheet(object):
                 self.set_worksheet_that_was_published(value)
         self.create_directories()
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         """
         We compare two worksheets.
 
@@ -441,8 +442,7 @@ class Worksheet(object):
 
         OUTPUT:
 
-        -  ``-1,0,1`` - comparison is on the underlying
-           file names.
+        - boolean - comparison is on the underlying file names.
 
         EXAMPLES::
 
@@ -450,15 +450,12 @@ class Worksheet(object):
             sage: nb.create_default_users('password')
             sage: W2 = nb.create_new_worksheet('test2', 'admin')
             sage: W1 = nb.create_new_worksheet('test1', 'admin')
-            sage: cmp(W1, W2)
-            1
-            sage: cmp(W2, W1)
-            -1
+            sage: W1 <= W2
+            True
+            sage: W2 <= W1
+            False
         """
-        try:
-            return cmp(self.filename(), other.filename())
-        except AttributeError:
-            return cmp(type(self), type(other))
+        return self.filename() <= other.filename()
 
     def __repr__(self):
         r"""
@@ -702,7 +699,7 @@ class Worksheet(object):
         self.__viewers = []
 
     def name(self, username=None):
-        ur"""
+        r"""
         Return the name of this worksheet.
 
         OUTPUT: string
@@ -930,7 +927,7 @@ class Worksheet(object):
             True
         """
         if not hasattr(self, '_notebook'):
-            import misc
+            from . import misc
             self._notebook = misc.notebook
         return self._notebook 
 
@@ -1563,7 +1560,7 @@ class Worksheet(object):
         except AttributeError:
             self.user_view(self.owner())
             d = copy.copy(self.__user_view)
-        for user, val in d.iteritems():
+        for user, val in iteritems(d):
             if not isinstance(val, list):
                 d[user] = [val]
         return d
@@ -1580,7 +1577,7 @@ class Worksheet(object):
               ACTIVE, TRASH.
         """
         d = {}
-        for user, v in tags.iteritems():
+        for user, v in iteritems(tags):
             if len(v) >= 1:
                 d[user] = v[0]  # must be a single int for now, until
                                 # the tag system is implemented
@@ -2356,8 +2353,8 @@ class Worksheet(object):
             try:
                 meta, input, output, i = extract_first_compute_cell(text)
                 data.append(('compute', (meta, input, output)))
-            except EOFError, msg:
-                #print msg # -- don't print msg, just outputs a blank
+            except EOFError as msg:
+                # print(msg) # -- don't print msg, just outputs a blank
                 #                 line every time, which makes for an
                 #                 ugly and unprofessional log.
                 break
@@ -2445,7 +2442,7 @@ class Worksheet(object):
         for cell in self.cell_list():
             try:
                 cells_html += cell.html(ncols, do_print=do_print, username=self.username) + '\n'
-            except Exception, msg:
+            except Exception as msg:
                 # catch any exception, since this exception is raised
                 # sometimes, at least for some worksheets:
                 # exceptions.UnicodeDecodeError: 'ascii' codec can't decode byte
@@ -2453,7 +2450,7 @@ class Worksheet(object):
                 # and this causes the entire worksheet to fail to
                 # save/render, which is obviously *not* good (much
                 # worse than a weird issue with one cell).
-                print msg
+                print(msg)
         return cells_html
 
     def html(self, do_print=False, publish=False, username=None):
@@ -2976,11 +2973,11 @@ class Worksheet(object):
 
         try:
             S.quit()
-        except AttributeError, msg:
-            print "WARNING: %s" % msg
-        except Exception, msg:
-            print msg
-            print "WARNING: Error deleting Sage object!"
+        except AttributeError as msg:
+            print("WARNING: %s" % msg)
+        except Exception as msg:
+            print(msg)
+            print("WARNING: Error deleting Sage object!")
 
         try:
             os.kill(pid, 9)
@@ -3027,7 +3024,7 @@ class Worksheet(object):
     def initialize_sage(self):
         S = self.__sage
         try:
-            import misc
+            from . import misc
             cmd = """
 import base64
 import sagenb.misc.support as _support_
@@ -3053,11 +3050,11 @@ except (KeyError, IOError):
             S.execute(cmd)
             S.output_status()
 
-        except Exception, msg:
-            print "ERROR initializing compute process:\n"
-            print msg
+        except Exception as msg:
+            print("ERROR initializing compute process:\n")
+            print(msg)
             del self.__sage
-            raise RuntimeError, msg
+            raise RuntimeError(msg)
 
         # make sure we have a __sage attribute
         # We do this to diagnose google issue 81; once we
@@ -3218,7 +3215,7 @@ except (KeyError, IOError):
                 pass
 
         if C.time() and not C.introspect():
-            input += '; print "CPU time: %.2f s,  Wall time: %.2f s"%(cputime(__SAGE_t__), walltime(__SAGE_w__))\n'
+            input += '; print("CPU time: %.2f s,  Wall time: %.2f s"%(cputime(__SAGE_t__), walltime(__SAGE_w__)))\n'
         self.__comp_is_running = True
         self.sage().execute(input, os.path.abspath(self.data_directory()))
 
@@ -3258,7 +3255,7 @@ except (KeyError, IOError):
 
         try:
             output_status = S.output_status()
-        except RuntimeError, msg:
+        except RuntimeError as msg:
             verbose("Computation was interrupted or failed. Restarting.\n%s" % msg)
             self.__comp_is_running = False
             self.start_next_comp()
@@ -3467,7 +3464,7 @@ except (KeyError, IOError):
         if timeout > 0 and self.time_idle() > timeout:
             # worksheet name may contain unicode, so we use %r, which prints
             # the \xXX form for unicode characters
-            print "Quitting ignored worksheet process for %r." % self.name()
+            print("Quitting ignored worksheet process for %r." % self.name())
             self.quit()
 
     def time_idle(self):
@@ -3608,7 +3605,7 @@ except (KeyError, IOError):
         except AttributeError:
             i = 0
         self.__synchro = i
-        return 'print "%s%s"\n'%(SAGE_BEGIN,i) + s + '\nprint "%s%s"\n'%(SAGE_END,i)
+        return 'print("%s%s")\n'%(SAGE_BEGIN,i) + s + '\nprint("%s%s")\n' % (SAGE_END, i)
 
     def synchro(self):
         try:
@@ -3719,14 +3716,14 @@ except (KeyError, IOError):
             i += 1
         if before_prompt.endswith('??'):
             input = self._get_last_identifier(before_prompt[:-2])
-            input = 'print _support_.source_code("%s", globals(), system="%s")' % (input, self.system())
+            input = 'print(_support_.source_code("%s", globals(), system="%s"))' % (input, self.system())
         elif before_prompt.endswith('?'):
             input = self._get_last_identifier(before_prompt[:-1])
-            input = 'print _support_.docstring("%s", globals(), system="%s")' % (input, self.system())
+            input = 'print(_support_.docstring("%s", globals(), system="%s"))' % (input, self.system())
         else:
             input = self._get_last_identifier(before_prompt)
             C._word_being_completed = input
-            input = 'print "\\n".join(_support_.completions("%s", globals(), system="%s"))' % (input, self.system())
+            input = 'print("\\n".join(_support_.completions("%s", globals(), system="%s")))' % (input, self.system())
         return input
 
     def preparse_nonswitched_input(self, input):
@@ -3785,7 +3782,7 @@ except (KeyError, IOError):
                         l += k+1
                         I = C._before_preparse.split('\n')
                         out = out[:i + len(tb)+1] + '    ' + I[n-2] + out[l:]
-        except (ValueError, IndexError) as msg:
+        except (ValueError, IndexError):
             pass
         return out
 
@@ -3823,9 +3820,9 @@ except (KeyError, IOError):
         if not init_sage in A.keys() and os.path.exists(init_sage):
             A[init_sage] = 0
 
-        # important that this is A.items() and not A.iteritems()
-        # since we change A during the iteration.
-        for F, tm in A.items():
+        # since we change A during the iteration
+        # we need to make a copy first
+        for F, tm in list(A.items()):
             try:
                 new_tm = os.path.getmtime(F)
             except OSError:
@@ -3850,7 +3847,7 @@ except (KeyError, IOError):
         try:
             A[filename] = os.path.getmtime(filename)
         except OSError:
-            print "WARNING: File %s vanished" % filename
+            print("WARNING: File %s vanished" % filename)
 
     def detach(self, filename):
         A = self.attached_files()
@@ -3903,12 +3900,12 @@ except (KeyError, IOError):
             return '%s = load("%s");'%(name, filename)
 
         if filename in files_seen_so_far:
-            t = "print 'WARNING: Not loading %s -- would create recursive load'"%filename
+            t = "print('WARNING: Not loading %s -- would create recursive load')" % filename
 
         try:
             F = open(filename).read()
         except IOError:
-            return "print 'Error loading %s -- file not found'"%filename
+            return "print('Error loading %s -- file not found')" % filename
         else:
             filename_orig = filename
             filename = filename.rstrip('.txt')
@@ -3919,7 +3916,7 @@ except (KeyError, IOError):
                 try:
                     mod, dir  = cython.cython(filename_orig, compile_message=True, use_cache=True)
                 except (IOError, OSError, RuntimeError) as msg:
-                    return "print r'''Error compiling cython file:\n%s'''"%msg
+                    return "print(r'''Error compiling cython file:\n%s''')" % msg
                 t  = "import sys\n"
                 t += "sys.path.append('%s')\n"%dir
                 t += "from %s import *\n"%mod
@@ -3927,7 +3924,7 @@ except (KeyError, IOError):
             elif filename.endswith('.sage'):
                 t = self.preparse(F)
             else:
-                t = "print 'Loading of file \"%s\" has type not implemented.'"%filename
+                t = "print('Loading of file \"%s\" has type not implemented.')" % filename
 
         t = self.do_sage_extensions_preparsing(t,
                           files_seen_so_far + [this_file], filename)
@@ -3939,7 +3936,7 @@ except (KeyError, IOError):
         return ';'.join(['save(%s,"%s")'%(x,x) for x in v])
 
     def _eval_cmd(self, system, cmd):
-        return u"print _support_.syseval(%s, %r, __SAGE_TMP_DIR__)"%(system, cmd)
+        return u"print(_support_.syseval(%s, %r, __SAGE_TMP_DIR__))" % (system, cmd)
 
     ##########################################################
     # Parsing the %cython, %mathjax, %python, etc., extension.
@@ -4025,7 +4022,7 @@ except (KeyError, IOError):
             sage: W.check_for_system_switching(c0.cleaned_input_text(), c0)
             (False, u'2+3')
             sage: W.check_for_system_switching(c1.cleaned_input_text(), c1)
-            (True, u"print _support_.syseval(gap, u'SymmetricGroup(5)', __SAGE_TMP_DIR__)")
+            (True, u"print(_support_.syseval(gap, u'SymmetricGroup(5)', __SAGE_TMP_DIR__))")
 
         ::
 
@@ -4051,7 +4048,7 @@ except (KeyError, IOError):
             sage: W.check_for_system_switching(c0.cleaned_input_text(), c0)
             (False, u'2+3')
             sage: W.check_for_system_switching(c1.cleaned_input_text(), c1)
-            (True, u"print _support_.syseval(gap, u'SymmetricGroup(5)', __SAGE_TMP_DIR__)")
+            (True, u"print(_support_.syseval(gap, u'SymmetricGroup(5)', __SAGE_TMP_DIR__))")
             sage: c0.evaluate()
             sage: W.check_comp()  #random output -- depends on the computer's speed
             ('d', Cell 0: in=%sage
@@ -4114,14 +4111,14 @@ except (KeyError, IOError):
             sage: nb = sagenb.notebook.notebook.load_notebook(tmp_dir(ext='.sagenb'))
             sage: nb.user_manager().add_user('sage','sage','sage@sagemath.org',force=True)
             sage: W = nb.create_new_worksheet('Test', 'sage')
-            sage: W.edit_save("{{{\n2+3\n///\n5\n}}}\n{{{\nopen('afile', 'w').write('some text')\nprint 'hello'\n///\n\n}}}")
+            sage: W.edit_save("{{{\n2+3\n///\n5\n}}}\n{{{\nopen('afile', 'w').write('some text')\nprint('hello')\n///\n\n}}}")
 
         We have two cells::
 
             sage: W.cell_list()
             [Cell 0: in=2+3, out=
             5, Cell 1: in=open('afile', 'w').write('some text')
-            print 'hello', out=
+            print('hello'), out=
             ]
             sage: C0 = W.cell_list()[1]
             sage: open(os.path.join(C0.directory(), 'xyz'), 'w').write('bye')
@@ -4131,10 +4128,10 @@ except (KeyError, IOError):
             sage: C1.evaluate()
             sage: W.check_comp()     # random output -- depends on computer speed
             ('w', Cell 1: in=open('afile', 'w').write('some text')
-            print 'hello', out=)
+            print('hello'), out=)
             sage: W.check_comp()     # random output -- depends on computer speed
             ('d', Cell 1: in=open('afile', 'w').write('some text')
-            print 'hello', out=
+            print('hello'), out=
             hello
             )
             sage: W.check_comp()     # random output -- depends on computer speed
@@ -4147,7 +4144,7 @@ except (KeyError, IOError):
             sage: W.delete_all_output('sage')
             sage: W.cell_list()
             [Cell 0: in=2+3, out=, Cell 1: in=open('afile', 'w').write('some text')
-            print 'hello', out=]
+            print('hello'), out=]
             sage: C0.files(), C1.files()
             ([], [])
 

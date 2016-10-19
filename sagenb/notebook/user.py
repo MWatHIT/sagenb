@@ -1,14 +1,21 @@
 # -*- coding: utf-8 -*
+from __future__ import absolute_import
 import copy
 import crypt
-import cPickle
 import random
 import hashlib
 import os
 
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+
+from six import iteritems
+
 SALT = 'aa'
 
-import user_conf
+from . import user_conf
 
 from sage.misc.temporary_file import atomic_write
 
@@ -17,9 +24,10 @@ def User_from_basic(basic):
     Create a user from a basic data structure.
     """
     user = User(basic['username'])
-    user.__dict__.update(dict([('_' + x, y) for x, y in basic.iteritems()]))
+    user.__dict__.update(dict([('_' + x, y) for x, y in iteritems(basic)]))
     user._conf = user_conf.UserConfiguration_from_basic(user._conf)
     return user
+
 
 def generate_salt():
     """
@@ -61,13 +69,13 @@ class User(object):
         d = copy.copy(self.__dict__)
 
         # Some old worksheets have this attribute, which we do *not* want to save.
-        if d.has_key('history'):
+        if 'history' in d:
             try:
                 self.save_history()
                 del d['history']
-            except Exception, msg:
-                print msg
-                print "Unable to dump history of user %s to disk yet."%self._username
+            except Exception as msg:
+                print(msg)
+                print("Unable to dump history of user %s to disk yet." % self._username)
         return d
 
     def basic(self):
@@ -75,7 +83,7 @@ class User(object):
         Return a basic Python data structure from which self can be
         reconstructed.
         """
-        d = dict([ (x[1:],y) for x,y in self.__dict__.iteritems() if x[0]=='_'])
+        d = {x[1:]: y for x, y in iteritems(self.__dict__) if x[0] == '_'}
         d['conf'] = self._conf.basic()
         return d
 
@@ -83,14 +91,14 @@ class User(object):
         try:
             return self.history
         except AttributeError:
-            import misc   # late import
+            from . import misc   # late import
             if misc.notebook is None: return []       
             history_file = "%s/worksheets/%s/history.sobj"%(misc.notebook.directory(), self._username)
             if os.path.exists(history_file):
                 try:
-                    self.history = cPickle.load(open(history_file))
+                    self.history = pickle.load(open(history_file))
                 except:
-                    print "Error loading history for user %s"%self._username
+                    print("Error loading history for user %s" % self._username)
                     self.history = []
             else:
                 self.history = []
@@ -99,14 +107,13 @@ class User(object):
     def save_history(self):
         if not hasattr(self, 'history'):
             return
-        import misc   # late import
+        from . import misc   # late import
         if misc.notebook is None: return
         history_file = "%s/worksheets/%s/history.sobj"%(misc.notebook.directory(), self._username)
         try:
-            #print "Dumping %s history to '%s'"%(self.__username, history_file)
-            his = cPickle.dumps(self.history)
+            his = pickle.dumps(self.history)
         except AttributeError:
-            his = cPickle.dumps([])
+            his = pickle.dumps([])
         with atomic_write(history_file) as f:
             f.write(his)
 

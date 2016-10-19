@@ -1,9 +1,10 @@
 """
 """
+from __future__ import absolute_import
 import os
 import urllib, urlparse
 from flask import Module, url_for, render_template, request, session, redirect, g, current_app
-from decorators import login_required, guest_or_login_required, with_lock
+from .decorators import login_required, guest_or_login_required, with_lock
 from flask.ext.babel import Babel, gettext, ngettext, lazy_gettext
 _ = gettext
 
@@ -46,7 +47,7 @@ def render_worksheet_list(args, pub, username):
                                                                 search=search, reverse=reverse)
     except ValueError as E:
         # for example, the sort key was not valid
-        print "Error displaying worksheet listing: ", E
+        print("Error displaying worksheet listing: {}".format(E))
         return current_app.message(_("Error displaying worksheet listing."))
 
     worksheet_filenames = [x.filename() for x in worksheets]
@@ -146,7 +147,7 @@ def pub():
 @worksheet_listing.route('/home/pub/<id>/')
 @guest_or_login_required
 def public_worksheet(id):
-    from worksheet import pub_worksheet
+    from .worksheet import pub_worksheet
     filename = 'pub/%s'%id
     if g.notebook.conf()['pub_interact']:
         try:
@@ -166,7 +167,7 @@ def public_worksheet(id):
 
 @worksheet_listing.route('/home/pub/<id>/download/<path:title>')
 def public_worksheet_download(id, title):
-    from worksheet import unconditional_download
+    from .worksheet import unconditional_download
     worksheet_filename =  "pub" + "/" + id
     try:
         worksheet = g.notebook.get_worksheet_with_filename(worksheet_filename)
@@ -193,7 +194,7 @@ def download_worksheets():
     from sagenb.misc.misc import walltime, tmp_filename
 
     t = walltime()
-    print "Starting zipping a group of worksheets in a separate thread..."
+    print("Starting zipping a group of worksheets in a separate thread...")
     zip_filename = tmp_filename() + ".zip"
 
     # child
@@ -222,7 +223,7 @@ def download_worksheets():
     zip.close()
     r = open(zip_filename, 'rb').read()
     os.unlink(zip_filename)
-    print "Finished zipping %s worksheets (%s seconds)"%(len(worksheets), walltime(t))
+    print("Finished zipping %s worksheets (%s seconds)" % (len(worksheets), walltime(t)))
 
     response = current_app.make_response(r)
     response.headers['Content-Type'] = 'application/zip'
@@ -404,7 +405,7 @@ def upload_worksheet():
                         if new_name:
                             W.set_name("%s - %s" % (new_name, W.name()))
                     else:
-                        print "Unknown extension, file %s is ignored" % subfilename
+                        print("Unknown extension, file %s is ignored" % subfilename)
                 return redirect(url_for('home', username=g.username))
 
             else:
@@ -415,12 +416,12 @@ def upload_worksheet():
                         # downloading multiple linked .sws
                         try:
                             filename = my_urlretrieve(linked_sws[0]['url'], backlinks=backlinks)[0]
-                            print 'Importing {0}, linked to from {1}'.format(linked_sws[0]['url'], url)
+                            print('Importing {0}, linked to from {1}'.format(linked_sws[0]['url'], url))
                         except RetrieveError as err:
                             return current_app.message(str(err), username=g.username)
                 W = g.notebook.import_worksheet(filename, g.username)
-        except Exception, msg:
-            print 'error uploading worksheet', msg
+        except Exception as msg:
+            print('error uploading worksheet {}'.format(msg))
             s = _('There was an error uploading the worksheet.  It could be an old unsupported format or worse.  If you desperately need its contents contact the <a href="http://groups.google.com/group/sage-support">sage-support group</a> and post a link to your worksheet.  Alternatively, an sws file is just a bzip2 tarball; take a look inside!\n%(backlinks)s', backlinks=backlinks)
             return current_app.message(s, url_for('home', username=g.username), username=g.username)
         finally:
@@ -431,12 +432,12 @@ def upload_worksheet():
                 import shutil
                 shutil.rmtree(dir)
 
-    except ValueError, msg:
+    except ValueError as msg:
         s = _("Error uploading worksheet '%(msg)s'.%(backlinks)s", msg=msg, backlinks=backlinks)
         return current_app.message(s, url_for('home', username=g.username), username=g.username)
 
     if new_name:
         W.set_name(new_name)
 
-    from worksheet import url_for_worksheet
+    from .worksheet import url_for_worksheet
     return redirect(url_for_worksheet(W))

@@ -42,7 +42,7 @@ class LdapAuth(AuthMethod):
                 try:
                     from ldap import __version__ as ldap_version
                 except ImportError:
-                    print "cannot 'import ldap', disabling LDAP auth"
+                    print("cannot 'import ldap', disabling LDAP auth")
                     self._conf['auth_ldap'] = False
                     return default_return
                 else:
@@ -76,8 +76,8 @@ class LdapAuth(AuthMethod):
                 attrlist=attrlist,
                 timeout=self._conf['ldap_timeout'],
                 sizelimit=sizelimit)
-        except ldap.LDAPError, e:
-            print 'LDAP Error: %s' % str(e)
+        except ldap.LDAPError as e:
+            print('LDAP Error: %s' % str(e))
             return []
         finally:
             conn.unbind_s()
@@ -123,8 +123,8 @@ class LdapAuth(AuthMethod):
             return True
         except ldap.INVALID_CREDENTIALS:
             return False
-        except ldap.LDAPError, e:
-            print 'LDAP Error: %s' % str(e)
+        except ldap.LDAPError as e:
+            print('LDAP Error: %s' % str(e))
             return False
         finally:
             conn.unbind_s()

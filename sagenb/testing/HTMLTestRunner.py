@@ -40,7 +40,7 @@ AUTHORS:
 
 .. _HTMLTestRunner: http://tungwaiyip.info/software/HTMLTestRunner.html
 """
-
+from __future__ import print_function  # must be here !
 
 # The original license.
 """
@@ -109,8 +109,11 @@ CHANGES
  * Back port to Python 2.3. Thank you Frank Horowitz.
  * Fix missing scroll bars in detail log. Thank you Podi.
 """
-
-import datetime, os, StringIO, sys, unittest
+import datetime
+import os
+from six import StringIO
+import sys
+import unittest
 
 import jinja2
 from sagenb.misc.misc import DATA, SAGENB_VERSION
@@ -244,7 +247,7 @@ class _TestResult(unittest.TestResult):
         """
         unittest.TestResult.startTest(self, test)
         # Just one buffer for both stdout and stderr.
-        self.outputBuffer = StringIO.StringIO()
+        self.outputBuffer = StringIO()
         stdout_redirector.fp = self.outputBuffer
         stderr_redirector.fp = self.outputBuffer
         self.stdout0 = sys.stdout
@@ -374,7 +377,7 @@ class HTMLTestRunner(object):
         test(result)
         self.stop_time = datetime.datetime.now()
         self.elapsed_time = self.stop_time - self.start_time
-        print >>sys.stderr, '\nTime Elapsed: %s' % self.elapsed_time
+        print('\nTime Elapsed: %s' % self.elapsed_time, file=sys.stderr)
 
         report = self.generate_report(result)
         self.stream.write(report.encode('utf8'))
@@ -391,7 +394,7 @@ class HTMLTestRunner(object):
         for status, test_case, output, trace in result_list:
             case_type = test_case.__class__
 
-            if not case_map.has_key(case_type):
+            if case_type not in case_map:
                 case_map[case_type] = []
                 case_types.append(case_type)
 

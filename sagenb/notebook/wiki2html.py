@@ -52,23 +52,23 @@ class Parser:
             (config.url_schemas and u'|' + u'|'.join(config.url_schemas) or ''))
 
     # some common rules
-    word_rule = ur'(?:(?<![%(u)s%(l)s])|^)%(parent)s(?:%(subpages)s(?:[%(u)s][%(l)s]+){2,})+(?![%(u)s%(l)s]+)' % {
+    word_rule = r'(?:(?<![%(u)s%(l)s])|^)%(parent)s(?:%(subpages)s(?:[%(u)s][%(l)s]+){2,})+(?![%(u)s%(l)s]+)' % {
         'u': config.chars_upper,
         'l': config.chars_lower,
         'subpages': wikiutil.CHILD_PREFIX + '?',
-        'parent': ur'(?:%s)?' % re.escape(PARENT_PREFIX),
+        'parent': r'(?:%s)?' % re.escape(PARENT_PREFIX),
     }
-    url_rule = ur'%(url_guard)s(%(url)s)\:([^\s\<%(punct)s]|([%(punct)s][^\s\<%(punct)s]))+' % {
+    url_rule = r'%(url_guard)s(%(url)s)\:([^\s\<%(punct)s]|([%(punct)s][^\s\<%(punct)s]))+' % {
         'url_guard': u'(^|(?<!\w))',
         'url': url_pattern,
         'punct': punct_pattern,
     }
 
-    ol_rule = ur"^\s+(?:[0-9]+|[aAiI])\.(?:#\d+)?\s"
-    dl_rule = ur"^\s+.*?::\s"
+    ol_rule = r"^\s+(?:[0-9]+|[aAiI])\.(?:#\d+)?\s"
+    dl_rule = r"^\s+.*?::\s"
 
     # the big, fat, ugly one ;)
-    formatting_rules = ur"""(?P<ent_numeric>&#(\d{1,5}|x[0-9a-fA-F]+);)
+    formatting_rules = r"""(?P<ent_numeric>&#(\d{1,5}|x[0-9a-fA-F]+);)
 (?:(?P<emph_ibb>'''''(?=[^']+'''))
 (?P<emph_ibi>'''''(?=[^']+''))
 (?P<emph_ib_or_bi>'{5}(?=[^']))
@@ -276,7 +276,6 @@ class Parser:
 
     def _emph_repl(self, word):
         """Handle emphasis, i.e. '' and '''."""
-        ##print "#", self.is_b, self.is_em, "#"
         if len(word) == 3:
             self.is_b = not self.is_b
             if self.is_em and self.is_b:
@@ -306,7 +305,6 @@ class Parser:
 
     def _emph_ib_or_bi_repl(self, word):
         """Handle mixed emphasis, exactly five '''''."""
-        ##print "*", self.is_b, self.is_em, "*"
         b_before_em = self.is_b > self.is_em > 0
         self.is_b = not self.is_b
         self.is_em = not self.is_em
@@ -742,11 +740,11 @@ class Parser:
 
             # check for adjacent cell markers
             if word.count("|") > 2:
-                if not attrs.has_key('align') and \
-                   not (attrs.has_key('style') and 'text-align' in attrs['style'].lower()):
+                if not 'align' in attrs and \
+                   not ('style' in attrs and 'text-align' in attrs['style'].lower()):
                     # add center alignment if we don't have some alignment already
                     attrs['align'] = '"center"'
-                if not attrs.has_key('colspan'):
+                if not 'colspan' in attrs:
                     attrs['colspan'] = '"%d"' % (word.count("|")/2)
 
             # return the complete cell markup
@@ -924,9 +922,9 @@ class Parser:
         else:
             # We should never get here
             import pprint
-            raise Exception("Can't handle match " + `match`
-                + "\n" + pprint.pformat(match.groupdict())
-                + "\n" + pprint.pformat(match.groups()) )
+            raise Exception("Can't handle match {}\n".format(match)
+                + pprint.pformat(match.groupdict())
+                + "\n" + pprint.pformat(match.groups()))
 
         return ""
 
@@ -947,7 +945,7 @@ class Parser:
         # prepare regex patterns
         rules = self.formatting_rules.replace('\n', '|')
         if self.cfg.bang_meta:
-            rules = ur'(?P<notword>!%(word_rule)s)|%(rules)s' % {
+            rules = r'(?P<notword>!%(word_rule)s)|%(rules)s' % {
                 'word_rule': self.word_rule,
                 'rules': rules,
             }
@@ -1152,7 +1150,7 @@ class Request:
     def clock(self, *args, **kwds):
         pass
     def write(self, w):
-        print "writing ", w
+        print("writing {}".format(w))
         self._s += w
     def getText(self):
         return ''

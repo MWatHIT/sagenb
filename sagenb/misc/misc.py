@@ -23,14 +23,22 @@ from pkg_resources import resource_filename
 
 def stub(f):
     def g(*args, **kwds):
-        print "Stub: ", f.func_name
+        print("Stub: {}".format(f.func_name))
         return f(*args, **kwds)
     return g
 
 
 min_password_length = 6
 
-import os, cPickle, socket, sys
+import os
+import socket
+import sys
+
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
+
 
 def print_open_msg(address, port, secure=False, path=""):
     """
@@ -87,13 +95,13 @@ def print_open_msg(address, port, secure=False, path=""):
         s += ' '
     n = max(t+4, 50)
     k = n - t  - 1
-    j = k/2 
+    j = k // 2 
     msg = '┌' + '─' * (n - 2) + '┐\n'
     msg += '│' + ' ' * (n - 2) + '│\n'
     msg += '│' + ' ' * j + s + ' ' * j + '│\n'
     msg += '│' + ' ' * (n - 2) + '│\n'
     msg += '└' + '─' * (n - 2) + '┘'
-    print msg
+    print(msg)
 
 
 def find_next_available_port(interface, start, max_tries=100, verbose=False):
@@ -136,17 +144,17 @@ def find_next_available_port(interface, start, max_tries=100, verbose=False):
                 alarm(0)  # cancel alarm
         except socket.error as msg:
             if msg[1] == 'Connection refused':
-                if verbose: print "Using port = %s"%port
+                if verbose: print("Using port = %s" % port)
                 return port
         except KeyboardInterrupt:
-            if verbose: print "alarm"                   
+            if verbose: print("alarm")
             alarm_count += 1
             if alarm_count >= 10:
                  break
         if verbose:
-            print "Port %s is already in use."%port
-            print "Trying next port..."
-    raise RuntimeError, "no available port."
+            print("Port %s is already in use." % port)
+            print("Trying next port...")
+    raise RuntimeError("no available port.")
 
 
 def open_page(address, port, secure, path=""):
@@ -178,9 +186,9 @@ SAGENB_ROOT = os.path.split(resource_filename(__name__, ''))[0]
 
 DATA = os.path.join(SAGENB_ROOT, 'data')
 
-if os.environ.has_key('DOT_SAGENB'):
+if 'DOT_SAGENB' in os.environ:
     DOT_SAGENB = os.environ['DOT_SAGENB']
-elif os.environ.has_key('DOT_SAGE'):
+elif 'DOT_SAGE' in os.environ:
     DOT_SAGENB = os.environ['DOT_SAGE']
 else:
     DOT_SAGENB = os.path.join(os.environ['HOME'], '.sagenb')
@@ -249,13 +257,13 @@ except ImportError:
 try:
     from sage.structure.sage_object import loads, dumps, load, save
 except ImportError:
-    loads = cPickle.loads
-    dumps = cPickle.dumps
+    loads = pickle.loads
+    dumps = pickle.dumps
     def load(filename):
-        return cPickle.loads(open(filename).read())
+        return pickle.loads(open(filename).read())
     def save(obj, filename):
-        s = cPickle.dumps(obj, protocol=2)
-        open(filename,'wb').write(s)
+        s = pickle.dumps(obj, protocol=2)
+        open(filename, 'wb').write(s)
 
 try:
     from sage.misc.all import verbose
@@ -276,8 +284,8 @@ def cputime(t=0):
         t = float(t)
     except TypeError:
         t = 0.0
-    u,s = resource.getrusage(resource.RUSAGE_SELF)[:2] 
-    return u+s - t
+    u, s = resource.getrusage(resource.RUSAGE_SELF)[:2] 
+    return u + s - t
 
 def walltime(t=0):
     return time.time() - t
@@ -336,8 +344,11 @@ except ImportError:
             pass
 
 ########################################
-# this is needed for @interact
+# this is needed for @interact:
+# Color, sage_eval and is_Matrix
+# are imported from here in notebook/interact.py
 ########################################
+
 def is_Matrix(x):
     try:
         from sage.structure.element import is_Matrix
@@ -345,15 +356,13 @@ def is_Matrix(x):
         return False
     return is_Matrix(x)
 
-from sage.all import srange
-
 
 def register_with_cleaner(pid):
     try:
         import sage.interfaces.cleaner
         sage.interfaces.cleaner.cleaner(pid)  # register pid of forked process with cleaner
     except ImportError:
-        print "generic cleaner needs to be written"
+        print("generic cleaner needs to be written")
 
 try:
     from sage.misc.all import tmp_filename, tmp_dir
@@ -383,7 +392,7 @@ except ImportError:
     @stub
     def cython(*args, **kwds):
         # TODO
-        raise NotImplementedError, "Curently %cython mode requires Sage." 
+        raise NotImplementedError("Curently %cython mode requires Sage.")
 
 #############################################################
 # File permissions
@@ -403,7 +412,7 @@ def set_permissive_permissions(filename):
              stat.S_IRGRP | stat.S_IWGRP | stat.S_IXGRP)
 
 def encoded_str(obj, encoding='utf-8'):
-    ur"""
+    r"""
     Takes an object and returns an encoded str human-readable representation.
 
     EXAMPLES::
@@ -421,7 +430,7 @@ def encoded_str(obj, encoding='utf-8'):
     return str(obj)
 
 def unicode_str(obj, encoding='utf-8'):
-    ur"""
+    r"""
     Takes an object and returns a unicode human-readable representation.
 
     EXAMPLES::

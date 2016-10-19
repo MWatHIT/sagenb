@@ -1,4 +1,5 @@
-import user
+from __future__ import absolute_import
+from . import user
 import crypt
 import hashlib
 
@@ -104,7 +105,7 @@ class UserManager(object):
             ValueError: no user 'hello/'
         """
         if not isinstance(username, (str, unicode)) or '/' in username:
-            raise ValueError, "no user '%s'"%username
+            raise ValueError("no user '%s'" % username)
         if username in self.users():
             return self.users()[username]
 
@@ -199,7 +200,7 @@ class UserManager(object):
 
         """
         if verbose:
-            print "Creating default users."
+            print("Creating default users.")
         self.add_user('pub', '', '', account_type='user', force=True)
         self.add_user('_sage_', '', '', account_type='user', force=True)
         self.add_user('guest', '', '', account_type='guest', force=True)
@@ -252,7 +253,7 @@ class UserManager(object):
             False 
         """
         if value not in [True, False]:
-            raise ValueError, "accounts must be True or False"
+            raise ValueError("accounts must be True or False")
         self._accounts = value
 
     def get_accounts(self):
@@ -293,11 +294,11 @@ class UserManager(object):
             william
         """
         if not self.get_accounts() and not force:
-            raise ValueError, "creating new accounts disabled."
+            raise ValueError("creating new accounts disabled.")
 
         us = self.users()
-        if us.has_key(username):
-            print "WARNING: User '%s' already exists -- and is now being replaced."%username
+        if username in us:
+            print("WARNING: User '%s' already exists -- and is now being replaced." % username)
         U = user.User(username, password, email, account_type, external_auth)
         us[username] = U
         self.set_password(username, password)
@@ -322,10 +323,10 @@ class UserManager(object):
             william
         """
         if not self.get_accounts() and not force:
-            raise ValueError, "creating new accounts disabled."
+            raise ValueError("creating new accounts disabled.")
         us = self.users()
-        if us.has_key(user.username()):
-            print "WARNING: User '%s' already exists -- and is now being replaced."%user.username()
+        if user.username() in us:
+            print("WARNING: User '%s' already exists -- and is now being replaced." % user.username())
 
         self._users[user.username()] = user 
 
@@ -482,7 +483,7 @@ class SimpleUserManager(UserManager):
             return False
         user_password = self.password(username)
         if user_password is None and not self.user(username).is_external():
-            print "User %s has None password"%username
+            print("User %s has None password" % username)
             return False
         if user_password.find('$') == -1:
             if user_password == crypt.crypt(password, user.SALT):
@@ -497,7 +498,7 @@ class SimpleUserManager(UserManager):
         try:
             return self._check_password(username, password)
         except AttributeError:
-            return False;
+            return False
 
     def get_accounts(self):
         # need to use notebook's conf because those are already serialized
@@ -506,7 +507,7 @@ class SimpleUserManager(UserManager):
 
     def set_accounts(self, value):
         if value not in [True, False]:
-            raise ValueError, "accounts must be True or False"
+            raise ValueError("accounts must be True or False")
         self._accounts = value
         self._conf['accounts'] = value
 
@@ -516,7 +517,7 @@ class ExtAuthUserManager(SimpleUserManager):
     def __init__(self, accounts=None, conf=None):
         SimpleUserManager.__init__(self, accounts=accounts, conf=conf)
 
-        from auth import LdapAuth
+        from .auth import LdapAuth
 
         # keys must match to a T_BOOL option in server_config.py
         # so we can turn this auth method on/off
